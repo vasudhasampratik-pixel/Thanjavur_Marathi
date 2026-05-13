@@ -165,7 +165,7 @@
     {"id":"body_014","english":"got a cut","english_variants":[],"tm_romanized":"chrun gele aahe","tm_devanagari":"च्रुन गेले आहे","category":"body"},
     {"id":"body_015","english":"wound","english_variants":[],"tm_romanized":"ghaav","tm_devanagari":"घाव","category":"body"},
     {"id":"body_016","english":"has got wounded","english_variants":[],"tm_romanized":"ghaav jhala aahe","tm_devanagari":"घाव झाला आहे","category":"body"},
-    {"id":"body_017","english":"blood","english_variants":[],"tm_romanized":"ragath","tm_devanagari":"रगत","category":"body"},
+    {"id":"body_017","english":"blood","english_variants":[],"tm_romanized":"rakhth","tm_devanagari":"रक्त","category":"body"},
     {"id":"body_018","english":"crust on wounds","english_variants":[],"tm_romanized":"khapli","tm_devanagari":"खपली","category":"body"},
     {"id":"body_019","english":"pus","english_variants":[],"tm_romanized":"poon","tm_devanagari":"पून","category":"body"},
     {"id":"body_020","english":"boil","english_variants":[],"tm_romanized":"phod","tm_devanagari":"फोड","category":"body"},

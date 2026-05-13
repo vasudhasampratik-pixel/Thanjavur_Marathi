@@ -1,0 +1,90 @@
+[
+  {
+    "id": "LEX0144",
+    "meaning_english": "hand pain back pain",
+    "canonical_tm_romanized": "sool is again used as haath sool, paaht sool",
+    "alternate_tm_romanized": [],
+    "category": "body",
+    "quality": "quarantine",
+    "source_ids": [
+      "body_010"
+    ]
+  },
+  {
+    "id": "LEX0227",
+    "meaning_english": "chaitra maas",
+    "canonical_tm_romanized": "gudi phadwa chaitra gauri from gauri teej chaitra navaratri ram navami and hanumath jayanthi",
+    "alternate_tm_romanized": [],
+    "category": "time",
+    "quality": "quarantine",
+    "source_ids": [
+      "time_002"
+    ]
+  },
+  {
+    "id": "LEX0273",
+    "meaning_english": "asach karaam it has to be done this way being stressed my guess is that the tmds being a displaced group had to insist on certain things to make sure it was not lost in the future",
+    "canonical_tm_romanized": "tmd celebrate pujas with a lot of fanfare and are particular about it being celebrated in a particular way. oftentimes we have heard our elders say",
+    "alternate_tm_romanized": [],
+    "category": "ceremonies",
+    "quality": "quarantine",
+    "source_ids": [
+      "ceremonies_001"
+    ]
+  },
+  {
+    "id": "LEX0607",
+    "meaning_english": "lay the plates keep the water and serve everybody",
+    "canonical_tm_romanized": "thaat mande, paani theeve, asgeni vhaade",
+    "alternate_tm_romanized": [],
+    "category": "kitchen",
+    "quality": "quarantine",
+    "source_ids": [
+      "xl_217"
+    ]
+  },
+  {
+    "id": "LEX0675",
+    "meaning_english": "it's time to eat but there's no sign/way of food",
+    "canonical_tm_romanized": "ghanta jhaale aaha, bhaathala nahi vaata",
+    "alternate_tm_romanized": [],
+    "category": "proverbs",
+    "quality": "quarantine",
+    "source_ids": [
+      "xl_300"
+    ]
+  },
+  {
+    "id": "LEX0676",
+    "meaning_english": "worship rama but focus on making brinjal bharta",
+    "canonical_tm_romanized": "bhajana kara raamacha, bharitha kara vaangyaacha",
+    "alternate_tm_romanized": [],
+    "category": "proverbs",
+    "quality": "quarantine",
+    "source_ids": [
+      "xl_301"
+    ]
+  },
+  {
+    "id": "LEX0677",
+    "meaning_english": "as it turns 9 pm the bed feels invitingly soft",
+    "canonical_tm_romanized": "ghante jhaala nau, anthrun chaampa mau",
+    "alternate_tm_romanized": [],
+    "category": "proverbs",
+    "quality": "quarantine",
+    "source_ids": [
+      "xl_302"
+    ]
+  },
+  {
+    "id": "LEX0687",
+    "meaning_english": "five fingers will never be the same",
+    "canonical_tm_romanized": "paanch bota ek saarka asnaar nahi",
+    "alternate_tm_romanized": [],
+    "category": "proverbs",
+    "quality": "quarantine",
+    "source_ids": [
+      "xl_312"
+    ]
+  }
+]

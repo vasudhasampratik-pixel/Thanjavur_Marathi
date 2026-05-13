@@ -1,0 +1,14 @@
+[
+  {
+    "source_id": "ST380::elder_respectful",
+    "sentence_id": "ST380",
+    "source_english": "Bring some water.",
+    "speaker_profile": "elder_respectful",
+    "sentence_family": "imperative",
+    "target_tm_romanized": "tod=ka paani aanaant",
+    "alternate_tm_romanized": [],
+    "quality": "quarantine",
+    "quality_score": 0.1,
+    "quarantine_reason": "contains_bad_symbols"
+  }
+]

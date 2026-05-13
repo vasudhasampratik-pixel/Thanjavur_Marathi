@@ -84,6 +84,15 @@ npm run build
 npm run preview  # Test production build locally
 ```
 
+### GitHub Pages Deployment
+
+```bash
+npm install
+npm run deploy
+```
+
+To use your custom domain, add your domain name in the GitHub Pages repository settings or place a `CNAME` file containing it in the `public/` folder before building.
+
 ---
 
 ## 📁 Project Structure

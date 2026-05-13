@@ -67,6 +67,7 @@ export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: Feedback
   const [status, setStatus] = useState<string>('');
   const [isSaving, setIsSaving] = useState(false);
 
+  const feedbackEndpoint = import.meta.env.VITE_FEEDBACK_ENDPOINT || 'http://localhost:4317/feedback';
   const canSave = sourceEnglish.trim() && modelOutput.trim() && correctedOutput.trim();
 
   const handleSave = async () => {
@@ -87,7 +88,7 @@ export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: Feedback
     };
 
     try {
-      const response = await fetch('http://localhost:4317/feedback', {
+      const response = await fetch(feedbackEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

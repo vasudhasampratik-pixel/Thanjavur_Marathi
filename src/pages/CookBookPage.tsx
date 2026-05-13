@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 import cookbookData from '../data/cookbook_recipes.json';
 
+const ASSET_BASE = import.meta.env.BASE_URL;
+
 type RecipeCategory = 'breakfast' | 'festive' | 'everyday' | 'sweets' | 'quick';
 
 type CategoryFilter = RecipeCategory | 'all';
@@ -52,20 +54,20 @@ const CATEGORY_GRADIENT: Record<RecipeCategory, string> = {
 };
 
 const RECIPE_IMAGE_BY_ID: Record<string, string> = {
-  'aalach-chutney': '/cookbook-imgs/aalach_chutney.jpg',
-  'ambat-bhaji-molai-kheere': '/cookbook-imgs/ambhat_bhaji.jpg',
-  'appeech-kheer': '/cookbook-imgs/apeech_kheer.jpg',
-  'edaach-narthangai-gojju': '/cookbook-imgs/edaach_gojju.jpg',
-  'paanak': '/cookbook-imgs/paanak.jpg',
-  'pumpkin-kadi': '/cookbook-imgs/pumpkin_kadhi.jpg',
-  'daangar': '/cookbook-imgs/daangar.jpg',
-  'vangi-dahi-bharit': '/cookbook-imgs/vangyache_bharit.jpg',
-  'gola-unda-sambhar': '/cookbook-imgs/unda_sambhar.jpg',
-  'maatoda-bhaji': '/cookbook-imgs/maatoda_bhaaji.jpg',
-  'waran-bhaath': '/cookbook-imgs/varan_bhaath.PNG',
+  'aalach-chutney': `${ASSET_BASE}cookbook-imgs/aalach_chutney.jpg`,
+  'ambat-bhaji-molai-kheere': `${ASSET_BASE}cookbook-imgs/ambhat_bhaji.jpg`,
+  'appeech-kheer': `${ASSET_BASE}cookbook-imgs/apeech_kheer.jpg`,
+  'edaach-narthangai-gojju': `${ASSET_BASE}cookbook-imgs/edaach_gojju.jpg`,
+  'paanak': `${ASSET_BASE}cookbook-imgs/paanak.jpg`,
+  'pumpkin-kadi': `${ASSET_BASE}cookbook-imgs/pumpkin_kadhi.jpg`,
+  'daangar': `${ASSET_BASE}cookbook-imgs/daangar.jpg`,
+  'vangi-dahi-bharit': `${ASSET_BASE}cookbook-imgs/vangyache_bharit.jpg`,
+  'gola-unda-sambhar': `${ASSET_BASE}cookbook-imgs/unda_sambhar.jpg`,
+  'maatoda-bhaji': `${ASSET_BASE}cookbook-imgs/maatoda_bhaaji.jpg`,
+  'waran-bhaath': `${ASSET_BASE}cookbook-imgs/varan_bhaath.PNG`,
 };
 
-const PLACEHOLDER_RECIPE_IMAGE = '/cookbook-imgs/placeholder.svg';
+const PLACEHOLDER_RECIPE_IMAGE = `${ASSET_BASE}cookbook-imgs/placeholder.svg`;
 
 function getRecipeImageSrc(recipe: CookbookRecipe): string {
   return RECIPE_IMAGE_BY_ID[recipe.id] ?? PLACEHOLDER_RECIPE_IMAGE;

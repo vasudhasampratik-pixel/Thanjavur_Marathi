@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { EMOTION_GROUPS, type EmotionGroup } from '../data/emotions';
 
-const ASSET_BASE = import.meta.env.BASE_URL;
+const publicAssetUrl = (path: string) => new URL(path, import.meta.url).href;
 
 // ── Placeholder card for groups without an image ─────────────────────────────
 const PLACEHOLDER_GRADIENTS: Record<string, string> = {
@@ -28,7 +28,7 @@ function EmotionCard({
       <div className="relative w-full aspect-square overflow-hidden">
         {group.image ? (
           <img
-            src={`${ASSET_BASE}expressions/${group.image}`}
+            src={publicAssetUrl(`/expressions/${group.image}`)}
             alt={group.primaryEnglish}
             className="w-full h-full object-cover"
             loading="lazy"
@@ -106,7 +106,7 @@ function EmotionDetail({
             <div className="flex items-center gap-3">
               {group.image && (
                 <img
-                  src={`${ASSET_BASE}expressions/${group.image}`}
+                  src={publicAssetUrl(`/expressions/${group.image}`)}
                   alt={group.primaryEnglish}
                   className="w-12 h-12 rounded-xl object-cover border border-orange-100 shadow-sm"
                 />

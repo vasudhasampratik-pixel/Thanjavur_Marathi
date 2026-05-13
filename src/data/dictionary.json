@@ -130,7 +130,7 @@
 
     {"id":"emotions_002","english":"anger","english_variants":["angry"],"tm_romanized":"raag","tm_devanagari":"राग","category":"emotions"},
     {"id":"emotions_003","english":"happy","english_variants":["joy","happiness", "glee"],"tm_romanized":"santosh","tm_devanagari":"संतोष","category":"emotions"},
-    {"id":"emotions_004","english":"sad","english_variants":["unhappy","sorrow"],"tm_romanized":"vessan","tm_devanagari":"वेसन","category":"emotions"},
+    {"id":"emotions_004","english":"sad","english_variants":["unhappy","sorrow", "upset"],"tm_romanized":"vessan","tm_devanagari":"वेसन","category":"emotions"},
     {"id":"emotions_005","english":"love","english_variants":["cuddles"],"tm_romanized":"laad","tm_devanagari":"लाड","category":"emotions"},
     {"id":"emotions_007","english":"timid","english_variants":["scaredy"],"tm_romanized":"bhikondi","tm_devanagari":"भिकोंडी","category":"emotions"},
     {"id":"emotions_008","english":"pride","english_variants":[],"tm_romanized":"garv","tm_devanagari":"गर्व","category":"emotions"},
@@ -606,7 +606,7 @@
     {"id":"xl_106","english":"go","english_variants":[],"tm_romanized":"jaa","tm_devanagari":"जा","category":"verbs"},
     {"id":"xl_107","english":"get","english_variants":[],"tm_romanized":"aane","tm_devanagari":"आने","category":"verbs"},
     {"id":"xl_108","english":"make","english_variants":[],"tm_romanized":"kare","tm_devanagari":"करे","category":"verbs"},
-    {"id":"xl_109","english":"done / finish","english_variants":[],"tm_romanized":"sampna","tm_devanagari":"संपना","category":"verbs"},
+    {"id":"xl_109","english":"done","english_variants":["finish"],"tm_romanized":"sampla","tm_devanagari":"संपला","category":"verbs"},
     {"id":"xl_110","english":"see","english_variants":[],"tm_romanized":"paa","tm_devanagari":"पा","category":"verbs"},
     {"id":"xl_111","english":"shout","english_variants":[],"tm_romanized":"varde","tm_devanagari":"वर्दे","category":"verbs"},
     {"id":"xl_112","english":"please","english_variants":["pls"],"tm_romanized":"daya karun","tm_devanagari":"दया करूँ","category":"verbs"},
@@ -740,7 +740,7 @@
     {"id":"xl_293","english":"interest","english_variants":[],"tm_romanized":"aasha","tm_devanagari":"आशा","category":"misc"},
     {"id":"xl_294","english":"know","english_variants":[],"tm_romanized":"kalala","tm_devanagari":"कळला","category":"misc"},
     {"id":"xl_295","english":"next","english_variants":[],"tm_romanized":"nantara","tm_devanagari":"नंतर","category":"misc"},
-    {"id":"xl_296","english":"was there","english_variants":[],"tm_romanized":"hota","tm_devanagari":"होता","category":"misc"},
+    {"id":"xl_296","english":"was there","english_variants":["there was"],"tm_romanized":"hota","tm_devanagari":"होता","category":"misc"},
     {"id":"xl_666","english":"was","english_variants":[],"tm_romanized":"hota","tm_devanagari":"होता","category":"misc"},
     {"id":"xl_297","english":"everything","english_variants":[],"tm_romanized":"aggee/thavdeen","tm_devanagari":"अग्गीन/थवदीन","category":"misc"},
     {"id":"xl_298","english":"story","english_variants":[],"tm_romanized":"kaani","tm_devanagari":"काणी","category":"misc"},
@@ -753,7 +753,7 @@
     {"id":"xl_304","english":"Rubbing salt on a wound; adding pain to injury.","english_variants":[],"tm_romanized":"Pota chirun meeth bharlaska","tm_devanagari":"पोट चिरून मीठ भरलास्का","category":"proverbs"},
     {"id":"xl_305","english":"So empty outside that not even a crow is seen.","english_variants":[],"tm_romanized":"Bahaar ek kaavla disna","tm_devanagari":"बहार एक कावला दिसना","category":"proverbs"},
     {"id":"xl_306","english":"To soothe someone’s agitation or emotions.","english_variants":[],"tm_romanized":"Pot himsa karna","tm_devanagari":"पोट हिंसा करना","category":"proverbs"},
-    {"id":"xl_307","english":"An irritated ‘oh, stop it!’ / ‘cut it out!’","english_variants":[],"tm_romanized":"Bo maarna","tm_devanagari":"भो मारना","category":"proverbs"},
+    {"id":"xl_307","english":"irritate","english_variants":["oh, stop it!", "cut it out","annoy", "annoying", "irritating"],"tm_romanized":"Bo maarna","tm_devanagari":"भो मारना","category":"proverbs"},
     {"id":"xl_308","english":"Influencing someone very easily / quietly.","english_variants":[],"tm_romanized":"Kela aanth suin tonchlaska","tm_devanagari":"केलांथ सुईन टोंच्लासका","category":"proverbs"},
     {"id":"xl_309","english":"Don’t spend more after a loss.","english_variants":[],"tm_romanized":"Chorta phadlathe gharaanth thel dhand","tm_devanagari":"चोरटा पडलाथे घरांथ थेल ढंड","category":"proverbs"},
     {"id":"xl_310","english":"You can’t clap with one hand.","english_variants":[],"tm_romanized":"Ek haathana thaali vaazath nahi","tm_devanagari":"एक हाथाना थाली वाज़थ नहीं","category":"proverbs"},
@@ -762,7 +762,7 @@
     {"id":"xl_313","english":"Doesn’t have even a penny.","english_variants":[],"tm_romanized":"Ek damdi kaas nahi","tm_devanagari":"एक दमडी कास नही","category":"proverbs"},
 
     {"id":"xl_314","english":"Long tongue; developed taste for good food.","english_variants":[],"tm_romanized":"Jeev laamb","tm_devanagari":"जीव लांब","category":"idioms"},
-    {"id":"xl_315","english":"Mr. scoundrel / idiot!","english_variants":[],"tm_romanized":"Aho ralleka!","tm_devanagari":"अहो रल्लेका!","category":"idioms"},
+    {"id":"xl_315","english":"Mr. scoundrel","english_variants":["idiot"],"tm_romanized":"Aho ralleka!","tm_devanagari":"अहो रल्लेका!","category":"idioms"},
     {"id":"xl_316","english":"Sitting in wait; hovering over someone while they work.","english_variants":[],"tm_romanized":"Dharana basna","tm_devanagari":"धरण बसना","category":"idioms"},
     {"id":"xl_317","english":"Stomach burning; jealousy.","english_variants":[],"tm_romanized":"Potjhaal","tm_devanagari":"पोट झाल","category":"idioms"},
     {"id":"xl_318","english":"Fat","english_variants":[],"tm_romanized":"Dhaandga","tm_devanagari":"धांडगा","category":"idioms"},
@@ -791,7 +791,7 @@
     {"id":"xl_339","english":"feel / touch","english_variants":[],"tm_romanized":"vaatna/seeve","tm_devanagari":"वातना/सीवे","category":"verbs"},
     {"id":"xl_340","english":"become","english_variants":[],"tm_romanized":"onjaana","tm_devanagari":"ओंजाना","category":"verbs"},
     {"id":"xl_341","english":"leave","english_variants":[],"tm_romanized":"sode","tm_devanagari":"सोडे","category":"verbs"},
-    {"id":"xl_342","english":"leave (the house)","english_variants":[],"tm_romanized":"nigaa","tm_devanagari":"निगा","category":"verbs"},
+    {"id":"xl_342","english":"take a leave","english_variants":[],"tm_romanized":"nigaa","tm_devanagari":"निगा","category":"verbs"},
     {"id":"xl_343","english":"keep","english_variants":[],"tm_romanized":"theeve/theenge","tm_devanagari":"थीवे/थींगे","category":"verbs"},
     {"id":"xl_344","english":"put","english_variants":[],"tm_romanized":"ghaale","tm_devanagari":"घाले","category":"verbs"},
     {"id":"xl_345","english":"mean","english_variants":[],"tm_romanized":"manjhe","tm_devanagari":"मांझे","category":"verbs"},
@@ -876,6 +876,8 @@
     {"id":"xl_425","english":"quiet","english_variants":[],"tm_romanized":"ugga","tm_devanagari":"उग्गा","category":"verbs"},
     {"id":"xl_426","english":"mix","english_variants":[],"tm_romanized":"kaalivna","tm_devanagari":"कालिवना","category":"verbs"},
 
+    {"id":"xl_63","english":"crazy","english_variants":["mental", "mad"],"tm_romanized":"veda","tm_devanagari":"वेडा","category":"adjectives"},
+    {"id":"xl_631","english":"late","english_variants":[],"tm_romanized":"usheera","tm_devanagari":"उशीरा","category":"adjectives"},
     {"id":"xl_427","english":"smell","english_variants":[],"tm_romanized":"vaas","tm_devanagari":"वास","category":"misc"},
     {"id":"xl_428","english":"stink","english_variants":[],"tm_romanized":"gaan","tm_devanagari":"गाणं","category":"misc"},
     {"id":"xl_429","english":"fragrance","english_variants":[],"tm_romanized":"gama-gama","tm_devanagari":"गमा-गमा","category":"misc"},
@@ -892,9 +894,9 @@
     {"id":"xl_441","english":"message","english_variants":[],"tm_romanized":"goshta","tm_devanagari":"गोष्ट","category":"nouns"},
     {"id":"xl_443","english":"thin","english_variants":[],"tm_romanized":"rodka","tm_devanagari":"रोडका","category":"adjectives"},
     {"id":"xl_444","english":"stitch","english_variants":[],"tm_romanized":"siv","tm_devanagari":"सिव","category":"verbs"},
-    {"id":"xl_445","english":"sticky","english_variants":[""],"tm_romanized":"chikkat","tm_devanagari":"चिक्कट","category":"adjectives"},
+    {"id":"xl_445","english":"sticky","english_variants":[],"tm_romanized":"chikkat","tm_devanagari":"चिक्कट","category":"adjectives"},
     {"id":"xl_446","english":"somebody's","english_variants":["someone's", "someone", "somebody"],"tm_romanized":"konachki","tm_devanagari":"कोणाचकि","category":"pronouns"},
-    {"id":"xl_447","english":"that's why","english_variants":[],"tm_romanized":"tajha mala","tm_devanagari":"तझम्हाला","category":"phrases"}
+    {"id":"xl_447","english":"that's why","english_variants":[],"tm_romanized":"tajhasva","tm_devanagari":"तझस्व","category":"phrases"}
 
   ]
 }

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { EMOTION_GROUPS, type EmotionGroup } from '../data/emotions';
 
-const publicAssetUrl = (path: string) => new URL(path, import.meta.url).href;
+const publicAssetUrl = (path: string) => {
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+  return `${baseUrl}${path.replace(/^\//, '')}`;
+};
 
 // ── Placeholder card for groups without an image ─────────────────────────────
 const PLACEHOLDER_GRADIENTS: Record<string, string> = {

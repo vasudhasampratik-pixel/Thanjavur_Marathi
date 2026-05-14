@@ -1,7 +1,10 @@
 import { useMemo, useState } from 'react';
 import cookbookData from '../data/cookbook_recipes.json';
 
-const publicAssetUrl = (path: string) => new URL(path, import.meta.url).href;
+const publicAssetUrl = (path: string) => {
+  const baseUrl = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+  return `${baseUrl}${path.replace(/^\//, '')}`;
+};
 
 type RecipeCategory = 'breakfast' | 'festive' | 'everyday' | 'sweets' | 'quick';
 

@@ -118,6 +118,125 @@ export function normalise(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
 }
 
+/** Generate possible plural forms of a word */
+function getPluralForms(word: string): string[] {
+  const plurals: string[] = [];
+  const lower = word.toLowerCase();
+
+  // Don't pluralize if already ends with s (likely plural)
+  if (lower.endsWith('s')) return plurals;
+
+  // Basic rules
+  if (lower.endsWith('y') && !/[aeiou]y$/.test(lower)) {
+    // city -> cities
+    plurals.push(word.slice(0, -1) + 'ies');
+  } else if (lower.endsWith('f') || lower.endsWith('fe')) {
+    // leaf -> leaves, knife -> knives
+    const base = lower.endsWith('fe') ? word.slice(0, -2) : word.slice(0, -1);
+    plurals.push(base + 'ves');
+  } else if (lower.endsWith('ch') || lower.endsWith('sh') || lower.endsWith('x') || lower.endsWith('z') || lower.endsWith('s')) {
+    // box -> boxes
+    plurals.push(word + 'es');
+  } else if (lower.endsWith('o') && !/[aeiou]o$/.test(lower)) {
+    // tomato -> tomatoes, but not radio -> radios
+    plurals.push(word + 'es');
+  } else {
+    // Most words just add 's'
+    plurals.push(word + 's');
+  }
+
+  // Common irregular plurals
+  const irregulars: Record<string, string> = {
+    'child': 'children',
+    'man': 'men',
+    'woman': 'women',
+    'tooth': 'teeth',
+    'foot': 'feet',
+    'mouse': 'mice',
+    'goose': 'geese',
+    'person': 'people',
+    'ox': 'oxen',
+    'leaf': 'leaves',
+    'life': 'lives',
+    'knife': 'knives',
+    'wife': 'wives',
+    'wolf': 'wolves',
+    'calf': 'calves',
+    'half': 'halves',
+    'loaf': 'loaves',
+    'elf': 'elves',
+    'shelf': 'shelves',
+    'thief': 'thieves',
+    'sheaf': 'sheaves',
+  };
+
+  if (irregulars[lower]) {
+    plurals.push(irregulars[lower]);
+  }
+
+  return plurals;
+}
+
+/** Generate possible singular forms of a word */
+function getSingularForms(word: string): string[] {
+  const singulars: string[] = [];
+  const lower = word.toLowerCase();
+
+  // Don't singularize if doesn't end with s (likely singular)
+  if (!lower.endsWith('s')) return singulars;
+
+  // Reverse basic rules
+  if (lower.endsWith('ies')) {
+    // cities -> city
+    singulars.push(word.slice(0, -3) + 'y');
+  } else if (lower.endsWith('ves')) {
+    // leaves -> leaf
+    const base = word.slice(0, -3);
+    if (base.endsWith('f')) {
+      singulars.push(base); // leaf
+    } else {
+      singulars.push(base + 'f'); // knife -> knif (but we'll handle specially)
+    }
+  } else if (lower.endsWith('es')) {
+    // boxes -> box
+    singulars.push(word.slice(0, -2));
+  } else if (lower.endsWith('s')) {
+    // dogs -> dog
+    singulars.push(word.slice(0, -1));
+  }
+
+  // Common irregular singulars
+  const irregulars: Record<string, string> = {
+    'children': 'child',
+    'men': 'man',
+    'women': 'woman',
+    'teeth': 'tooth',
+    'feet': 'foot',
+    'mice': 'mouse',
+    'geese': 'goose',
+    'people': 'person',
+    'oxen': 'ox',
+    'leaves': 'leaf',
+    'lives': 'life',
+    'knives': 'knife',
+    'wives': 'wife',
+    'wolves': 'wolf',
+    'calves': 'calf',
+    'halves': 'half',
+    'loaves': 'loaf',
+    'elves': 'elf',
+    'shelves': 'shelf',
+    'thieves': 'thief',
+    'sheaves': 'sheaf',
+  };
+
+  if (irregulars[lower]) {
+    singulars.push(irregulars[lower]);
+  }
+
+  return singulars;
+}
+
 /**
  * Search for a single token in the dictionary.
  * Returns up to `limit` results ranked by match quality.
@@ -152,6 +271,28 @@ export function searchToken(
     if (variants.includes(query)) {
       results.push({ entry, score: 95 + contextBoost, matchType: 'variant' });
       continue;
+    }
+
+    // Plural/singular form match
+    const pluralForms = getPluralForms(entry.english);
+    const singularForms = getSingularForms(entry.english);
+    const allForms = [...pluralForms, ...singularForms].map(normalise);
+
+    if (allForms.includes(query)) {
+      results.push({ entry, score: 90 + contextBoost, matchType: 'plural' });
+      continue;
+    }
+
+    // Also check variants for plural forms
+    for (const variant of entry.english_variants) {
+      const variantPlurals = getPluralForms(variant);
+      const variantSingulars = getSingularForms(variant);
+      const variantForms = [...variantPlurals, ...variantSingulars].map(normalise);
+
+      if (variantForms.includes(query)) {
+        results.push({ entry, score: 85 + contextBoost, matchType: 'plural_variant' });
+        break; // Only add once per entry
+      }
     }
 
     // Partial containment (e.g. query is "bitter" and entry.english is "bittergourd").

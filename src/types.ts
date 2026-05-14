@@ -41,7 +41,7 @@ export interface Dictionary {
 export interface SearchResult {
   entry: DictionaryEntry;
   score: number;
-  matchType: 'exact' | 'variant' | 'fuzzy' | 'partial';
+  matchType: 'exact' | 'variant' | 'fuzzy' | 'partial' | 'plural' | 'plural_variant';
 }
 
 export interface PhraseTranslation {

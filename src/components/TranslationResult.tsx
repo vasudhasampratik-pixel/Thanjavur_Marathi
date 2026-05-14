@@ -168,10 +168,12 @@ export function PhraseTranslationResult({ phraseResults, composed }: PhraseResul
 
 function MatchBadge({ type }: { type: SearchResult['matchType'] }) {
   const config = {
-    exact:   { label: 'Exact match',   color: 'bg-peacock-100 text-peacock-800 border-peacock-200' },
-    variant: { label: 'Variant match', color: 'bg-blue-100 text-blue-800 border-blue-200' },
-    partial: { label: 'Partial match', color: 'bg-yellow-100 text-yellow-800 border-yellow-200' },
-    fuzzy:   { label: 'Did you mean?', color: 'bg-orange-100 text-orange-800 border-orange-200' },
+    exact:          { label: 'Exact match',       color: 'bg-peacock-100 text-peacock-800 border-peacock-200' },
+    variant:        { label: 'Variant match',     color: 'bg-blue-100 text-blue-800 border-blue-200' },
+    plural:         { label: 'Plural match',      color: 'bg-blue-100 text-blue-800 border-blue-200' },
+    plural_variant: { label: 'Plural variant',    color: 'bg-blue-100 text-blue-800 border-blue-200' },
+    partial:        { label: 'Partial match',     color: 'bg-yellow-100 text-yellow-800 border-yellow-200' },
+    fuzzy:          { label: 'Did you mean?',     color: 'bg-orange-100 text-orange-800 border-orange-200' },
   };
   const c = config[type];
   return (

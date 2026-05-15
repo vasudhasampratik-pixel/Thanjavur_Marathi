@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type CommunitySection = 'network' | 'feedback' | 'improve' | 'upcoming';
@@ -221,12 +222,13 @@ function TableCard({ post, isOpen, onToggle }: { post: NetworkPost; isOpen: bool
 // ── Sub-sections ──────────────────────────────────────────────────────────────
 
 function NetworkSection() {
+  const { user } = useAuth();
   const [posts, setPosts] = useState<NetworkPost[]>(SEED_POSTS);
   const [openId, setOpenId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
 
   // form state
-  const [name, setName] = useState('');
+  const [name, setName] = useState(user?.displayName || '');
   const [location, setLocation] = useState('');
   const [note, setNote] = useState('');
   const [selectedTags, setSelectedTags] = useState<SpeakerTag[]>([]);

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
 import { inferSentenceFamily, type SentenceFamily } from '../utils/sentenceFamily';
 
 type SpeakerProfile = 'young_female' | 'young_male' | 'elder_respectful';
@@ -59,13 +60,15 @@ function downloadText(filename: string, content: string): void {
 }
 
 export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: FeedbackPanelProps) {
+  const { user } = useAuth();
   const [speakerProfile, setSpeakerProfile] = useState<SpeakerProfile>('young_female');
   const inferredFamily = useMemo(() => inferSentenceFamily(sourceEnglish), [sourceEnglish]);
   const [sentenceFamily, setSentenceFamily] = useState<SentenceFamily>(inferredFamily);
-  const [reviewerId, setReviewerId] = useState('');
   const [correctedOutput, setCorrectedOutput] = useState(modelOutput);
   const [status, setStatus] = useState<string>('');
   const [isSaving, setIsSaving] = useState(false);
+
+  const reviewerId = user ? `${user.email || user.uid}` : '';
 
   const feedbackEndpoint = import.meta.env.VITE_FEEDBACK_ENDPOINT || 'http://localhost:4317/feedback';
   const canSave = sourceEnglish.trim() && modelOutput.trim() && correctedOutput.trim();
@@ -159,15 +162,11 @@ export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: Feedback
         </label>
       </div>
 
-      <label className="text-sm text-gray-900 block">
-        Reviewer ID (optional)
-        <input
-          value={reviewerId}
-          onChange={(e) => setReviewerId(e.target.value)}
-          placeholder="e.g. reviewer_01"
-          className="input-field mt-1 py-2"
-        />
-      </label>
+      {user && (
+        <p className="text-xs text-peacock-700 font-medium">
+          🔒 Correction will be saved as <span className="font-semibold">{user.email || user.displayName || user.uid}</span>
+        </p>
+      )}
 
       <label className="text-sm text-gray-900 block">
         Model output

@@ -84,6 +84,32 @@ npm run build
 npm run preview  # Test production build locally
 ```
 
+### Authentication Setup
+
+1. Create a Firebase project at https://console.firebase.google.com.
+2. Enable **Google** and **Email/Password** Authentication in the Firebase Authentication settings.
+3. Add your app's web origin to Firebase authorized domains.
+4. Copy `.env.example` to `.env.local` and fill in the Firebase config values.
+5. Install the new dependency:
+
+```bash
+npm install
+```
+
+With this setup, the app will require sign-in with Google or email/password before showing content.
+
+### Publishing to Android / iOS
+
+This app now includes Firebase authentication and can be packaged for Android and iOS using a web-to-native wrapper such as Capacitor, or by turning the site into a PWA and then using a native wrapper.
+
+Steps:
+1. Install dependencies: `npm install`
+2. Create `.env.local` from `.env.example` and fill in your Firebase values.
+3. Build production assets: `npm run build`
+4. Add Capacitor or another wrapper, then generate Android/iOS native projects.
+
+For full store publishing, follow the Play Store and App Store submission guides after you have built the native wrapper.
+
 ### GitHub Pages Deployment
 
 ```bash

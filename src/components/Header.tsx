@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
 import { TabBar } from './TabBar';
 import { TAB_CONFIG, type Tab } from './tabConfig';
+import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
   activeTab: Tab;
@@ -7,14 +9,89 @@ interface HeaderProps {
 };
 
 export function Header({ activeTab, onTabChange }: HeaderProps) {
+  const { user, signOutUser } = useAuth();
   const sub = TAB_CONFIG[activeTab]?.subtitle ?? TAB_CONFIG.translate.subtitle;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        isMenuOpen &&
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('pointerdown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('pointerdown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isMenuOpen]);
+
+  const displayName = user?.displayName?.trim()  || '';
+  const initials = displayName
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0].toUpperCase())
+    .join('') || 'A';
 
   return (
     <header>
       <div className="sticky top-0 z-40 border-b border-orange-100 bg-cream/95 backdrop-blur">
-        <TabBar activeTab={activeTab} onTabChange={onTabChange} />
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-2 py-3 sm:px-4">
+          <div className="flex-1 min-w-0">
+            <TabBar activeTab={activeTab} onTabChange={onTabChange} />
+          </div>
+          {user && (
+            <div ref={profileMenuRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setIsMenuOpen((current) => !current)}
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+                aria-expanded={isMenuOpen}
+                aria-label="Open account menu"
+              >
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-saffron-500 text-sm font-semibold text-white">
+                  {initials}
+                </span>
+                <span className="hidden sm:inline-flex">{displayName}</span>
+              </button>
+
+              {isMenuOpen && (
+                <div className="absolute right-0 mt-3 w-72 rounded-3xl border border-orange-100 bg-white p-4 shadow-[0_18px_50px_rgba(0,0,0,0.12)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-peacock-600">Signed in as</p>
+                  <p className="mt-2 text-sm font-semibold text-slate-900">{displayName}</p>
+                  {user.email && <p className="text-xs text-slate-500">{user.email}</p>}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      signOutUser();
+                    }}
+                    className="mt-4 w-full rounded-2xl bg-saffron-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-saffron-600"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
-      <div className="mx-auto max-w-6xl text-center py-5 px-4 sm:py-6">
+      <div className="mx-auto relative max-w-6xl text-center py-5 px-4 sm:py-6">
         <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-saffron-500 text-white text-3xl font-bold devanagari shadow-lg mb-3">
           ळ
         </div>

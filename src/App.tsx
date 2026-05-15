@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Header } from './components/Header';
+import { AuthPage } from './components/AuthPage';
+import { useAuth } from './contexts/AuthContext';
 import { type Tab } from './components/tabConfig';
 import { TranslatorBox } from './components/TranslatorBox';
 import { FamilyTreePage } from './pages/FamilyTreePage';
@@ -84,6 +86,7 @@ const appPhraseEntries = buildPhraseEntriesFromAppDictionary(appDictionaryData);
 const combinedEntries = [...dictionary.entries, ...appPhraseEntries];
 
 function App() {
+  const { user, loading } = useAuth();
   const [activeTab, setActiveTab] = useState<Tab>('translate');
   const [openFooterPanel, setOpenFooterPanel] = useState<'credits' | 'developer' | null>(null);
   const footerPanelRef = useRef<HTMLDivElement | null>(null);
@@ -114,6 +117,20 @@ function App() {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [openFooterPanel]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-cream flex items-center justify-center px-4 py-10">
+        <div className="rounded-3xl border border-orange-100 bg-white/95 px-8 py-10 text-center shadow-xl shadow-orange-100/40">
+          <p className="text-lg font-semibold text-gray-900">Loading your experience…</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!user) {
+    return <AuthPage />
+  }
 
   const activeFooterContent =
     openFooterPanel === 'credits'

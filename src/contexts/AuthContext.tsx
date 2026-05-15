@@ -4,6 +4,7 @@ import {
   type User,
   onAuthStateChanged,
   signInWithPopup,
+  signInWithRedirect,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
@@ -58,7 +59,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       await signInWithPopup(auth, googleProvider)
     } catch (error) {
-      setAuthError('Google sign-in failed. Please try again.')
+      const errorCode = (error as { code?: string }).code
+      if (errorCode === 'auth/popup-blocked' || errorCode === 'auth/cancelled-popup-request') {
+        try {
+          await signInWithRedirect(auth, googleProvider)
+          return
+        } catch (redirectError) {
+          console.error(redirectError)
+          setAuthError('Google sign-in failed because the popup was blocked. Redirect fallback also failed.')
+          return
+        }
+      }
+
+      const message = (error as Error)?.message || 'Please try again.'
+      setAuthError(`Google sign-in failed. ${message}`)
       console.error(error)
     }
   }

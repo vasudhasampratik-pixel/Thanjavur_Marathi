@@ -228,7 +228,6 @@ function NetworkSection() {
   const [posts, setPosts] = useState<NetworkPost[]>(SEED_POSTS);
   const [openId, setOpenId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string>('');
   const [submitError, setSubmitError] = useState<string>('');
 

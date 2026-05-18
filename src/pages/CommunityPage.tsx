@@ -282,7 +282,6 @@ function NetworkSection() {
     setSubmitMessage('');
     if (nameErr || noteErr) return;
 
-    setIsSubmitting(true);
     try {
       await addDoc(collection(db, 'community_posts'), {
         name: name.trim(),
@@ -309,8 +308,6 @@ function NetworkSection() {
     } catch (error) {
       console.error('Community post failed:', error);
       setSubmitError('Could not save your note right now. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
     }
   }
 

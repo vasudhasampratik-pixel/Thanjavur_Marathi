@@ -613,6 +613,23 @@ function UpcomingSection() {
       </div>
 
       <div className="rounded-2xl border border-orange-100 bg-white p-5 flex gap-4">
+        <div className="text-3xl flex-shrink-0" aria-hidden="true">🎙️</div>
+        <div>
+          <p className="text-xs uppercase tracking-[0.16em] text-saffron-700 font-semibold mb-1">Voice input</p>
+          <h4 className="text-base font-bold text-gray-900 leading-snug">
+            Voice input for translation
+          </h4>
+          <p className="text-sm text-gray-900 mt-2 leading-relaxed">
+            I will enable voice input so you can speak English and get Thanjavur Marathi translations directly in the app.
+            This makes the translator faster and easier to use on mobile devices.
+          </p>
+          <span className="inline-block mt-3 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold border border-amber-200">
+            🚧 In planning
+          </span>
+        </div>
+      </div>
+
+      <div className="rounded-2xl border border-orange-100 bg-white p-5 flex gap-4">
         <div className="text-3xl flex-shrink-0" aria-hidden="true">🧒</div>
         <div>
           <p className="text-xs uppercase tracking-[0.16em] text-saffron-700 font-semibold mb-1">Teach Gen-Alphas</p>

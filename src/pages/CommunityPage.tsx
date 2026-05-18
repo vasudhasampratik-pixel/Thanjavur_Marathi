@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type CommunitySection = 'network' | 'feedback' | 'improve' | 'upcoming';
@@ -226,6 +228,9 @@ function NetworkSection() {
   const [posts, setPosts] = useState<NetworkPost[]>(SEED_POSTS);
   const [openId, setOpenId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<string>('');
+  const [submitError, setSubmitError] = useState<string>('');
 
   // form state
   const [name, setName] = useState(user?.displayName || '');
@@ -236,33 +241,78 @@ function NetworkSection() {
   const [noteError, setNoteError] = useState('');
   const [pinned, setPinned] = useState(false);
 
+  useEffect(() => {
+    const communityQuery = query(collection(db, 'community_posts'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(
+      communityQuery,
+      (snapshot) => {
+        const remotePosts = snapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            name: data.name ?? 'Friend',
+            note: data.note ?? '',
+            location: data.location ?? 'Somewhere in the world',
+            tags: Array.isArray(data.tags) ? data.tags : [],
+            cardStyle: (data.cardStyle as CardStyle) ?? deriveCardStyle(Array.isArray(data.tags) ? data.tags : []),
+            timestamp: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(),
+          } as NetworkPost;
+        });
+
+        setPosts([...SEED_POSTS, ...remotePosts]);
+      },
+      (error) => {
+        console.error('Unable to load community posts:', error);
+      }
+    );
+
+    return unsubscribe;
+  }, []);
+
   function toggleTag(tag: SpeakerTag) {
     setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const nameErr = validateName(name);
     const noteErr = validate(note);
     setNameError(nameErr ?? '');
     setNoteError(noteErr ?? '');
+    setSubmitError('');
+    setSubmitMessage('');
     if (nameErr || noteErr) return;
 
-    const newPost: NetworkPost = {
-      id: `post-${Date.now()}`,
-      name: name.trim(),
-      note: note.trim(),
-      location: location.trim() || 'Somewhere in the world',
-      tags: selectedTags,
-      cardStyle: deriveCardStyle(selectedTags),
-      timestamp: new Date(),
-    };
+    setIsSubmitting(true);
+    try {
+      await addDoc(collection(db, 'community_posts'), {
+        name: name.trim(),
+        note: note.trim(),
+        location: location.trim() || 'Somewhere in the world',
+        tags: selectedTags,
+        cardStyle: deriveCardStyle(selectedTags),
+        createdBy: {
+          uid: user?.uid ?? null,
+          email: user?.email ?? null,
+          displayName: user?.displayName ?? null,
+        },
+        createdAt: serverTimestamp(),
+      });
 
-    setPosts(prev => [newPost, ...prev]);
-    setName(''); setLocation(''); setNote(''); setSelectedTags([]);
-    setComposing(false);
-    setPinned(true);
-    setTimeout(() => setPinned(false), 4000);
+      setName('');
+      setLocation('');
+      setNote('');
+      setSelectedTags([]);
+      setComposing(false);
+      setPinned(true);
+      setSubmitMessage('Your note is saved to the community and will appear here shortly.');
+      setTimeout(() => setPinned(false), 4000);
+    } catch (error) {
+      console.error('Community post failed:', error);
+      setSubmitError('Could not save your note right now. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -290,6 +340,8 @@ function NetworkSection() {
           📌 Pinned! Your note is now on the table.
         </p>
       )}
+      {submitMessage && <p className="text-sm text-peacock-700">{submitMessage}</p>}
+      {submitError && <p className="text-sm text-rose-600">{submitError}</p>}
 
       {/* Compose form */}
       {composing && (

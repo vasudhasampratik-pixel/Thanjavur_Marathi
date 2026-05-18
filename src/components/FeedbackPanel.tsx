@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { inferSentenceFamily, type SentenceFamily } from '../utils/sentenceFamily';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 type SpeakerProfile = 'young_female' | 'young_male' | 'elder_respectful';
 
@@ -69,8 +71,6 @@ export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: Feedback
   const [isSaving, setIsSaving] = useState(false);
 
   const reviewerId = user ? `${user.email || user.uid}` : '';
-
-  const feedbackEndpoint = import.meta.env.VITE_FEEDBACK_ENDPOINT || 'http://localhost:4317/feedback';
   const canSave = sourceEnglish.trim() && modelOutput.trim() && correctedOutput.trim();
 
   const handleSave = async () => {
@@ -91,20 +91,20 @@ export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: Feedback
     };
 
     try {
-      const response = await fetch(feedbackEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+      await addDoc(collection(db, 'feedback_corrections'), {
+        ...payload,
+        submittedBy: {
+          uid: user?.uid ?? null,
+          email: user?.email ?? null,
+          displayName: user?.displayName ?? null,
+        },
+        submittedAt: serverTimestamp(),
       });
-
-      if (!response.ok) {
-        throw new Error('Feedback API not available');
-      }
-
-      setStatus('Saved to feedback_gold.jsonl');
-    } catch {
+      setStatus('Saved to database.');
+    } catch (error) {
+      console.error('Feedback save failed:', error);
       const queuedCount = queueFeedback(payload);
-      setStatus(`Feedback server unavailable. Saved locally (${queuedCount} queued).`);
+      setStatus(`Database unavailable. Queued locally (${queuedCount} queued).`);
     } finally {
       setIsSaving(false);
     }

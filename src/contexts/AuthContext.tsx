@@ -41,6 +41,12 @@ function mapFirebaseUser(firebaseUser: User): AuthUser {
   }
 }
 
+export const ADMIN_EMAILS = ['vasudhasamprati.k@gmail.com'] as const;
+
+export function isAdminUser(user: AuthUser | null): boolean {
+  return Boolean(user?.email && ADMIN_EMAILS.includes(user.email.toLowerCase() as typeof ADMIN_EMAILS[number]));
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null)
   const [loading, setLoading] = useState(true)

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useAuth, isAdminUser } from '../contexts/AuthContext';
-import { db } from '../firebase';
+import { supabase } from '../supabase';
 
 interface FeedbackCorrectionRow {
   id: string;
@@ -18,12 +17,14 @@ interface FeedbackCorrectionRow {
     email: string | null;
     displayName: string | null;
   };
-  submittedAt?: { toDate: () => Date } | null;
+  submittedAt?: string | null;
 }
 
-function formatDate(date?: { toDate: () => Date } | null) {
+function formatDate(date?: string | null) {
   if (!date) return 'Pending';
-  return date.toDate().toLocaleString('en-IN', {
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return 'Pending';
+  return parsed.toLocaleString('en-IN', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -49,47 +50,59 @@ export function AdminFeedbackPage() {
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
+    let isMounted = true;
+
     if (!isAdminUser(user)) {
       setLoading(false);
       return;
     }
 
-    const q = query(collection(db, 'feedback_corrections'), orderBy('submittedAt', 'desc'));
-    const unsubscribe = onSnapshot(
-      q,
-      (snapshot) => {
-        const nextRows = snapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            id: doc.id,
-            source_english: String(data.source_english ?? ''),
-            speaker_profile: String(data.speaker_profile ?? ''),
-            sentence_family: String(data.sentence_family ?? ''),
-            model_target_tm_romanized: String(data.model_target_tm_romanized ?? ''),
-            corrected_target_tm_romanized: String(data.corrected_target_tm_romanized ?? ''),
-            source_id: String(data.source_id ?? ''),
-            reviewer_id: data.reviewer_id ? String(data.reviewer_id) : undefined,
-            timestamp: String(data.timestamp ?? ''),
-            submittedBy: data.submittedBy ? {
-              uid: data.submittedBy.uid ?? null,
-              email: data.submittedBy.email ?? null,
-              displayName: data.submittedBy.displayName ?? null,
-            } : undefined,
-            submittedAt: data.submittedAt ?? null,
-          };
-        });
+    async function loadRows() {
+      const { data, error: fetchError } = await supabase
+        .from('feedback_corrections')
+        .select('*')
+        .order('submitted_at', { ascending: false });
 
+      if (fetchError) {
+        console.error('Error loading feedback corrections:', fetchError);
+        if (isMounted) {
+          setError('Unable to load feedback corrections right now.');
+          setLoading(false);
+        }
+        return;
+      }
+
+      const nextRows: FeedbackCorrectionRow[] = (data ?? []).map((item) => ({
+        id: String(item.id ?? ''),
+        source_english: String(item.source_english ?? ''),
+        speaker_profile: String(item.speaker_profile ?? ''),
+        sentence_family: String(item.sentence_family ?? ''),
+        model_target_tm_romanized: String(item.model_target_tm_romanized ?? ''),
+        corrected_target_tm_romanized: String(item.corrected_target_tm_romanized ?? ''),
+        source_id: String(item.source_id ?? ''),
+        reviewer_id: item.reviewer_id ? String(item.reviewer_id) : undefined,
+        timestamp: String(item.timestamp ?? ''),
+        submittedBy: item.submitted_by ? {
+          uid: item.submitted_by.uid ?? null,
+          email: item.submitted_by.email ?? null,
+          displayName: item.submitted_by.displayName ?? null,
+        } : undefined,
+        submittedAt: item.submitted_at ? String(item.submitted_at) : null,
+      }));
+
+      if (isMounted) {
         setRows(nextRows);
         setLoading(false);
-      },
-      (snapshotError) => {
-        console.error('Error loading feedback corrections:', snapshotError);
-        setError('Unable to load feedback corrections right now.');
-        setLoading(false);
       }
-    );
+    }
 
-    return unsubscribe;
+    loadRows();
+    const intervalId = window.setInterval(loadRows, 15000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(intervalId);
+    };
   }, [user]);
 
   if (!user || !isAdminUser(user)) {
@@ -116,7 +129,7 @@ export function AdminFeedbackPage() {
           reviewer_id: row.reviewer_id ?? null,
           timestamp: row.timestamp,
           submitted_by: row.submittedBy ?? null,
-          submitted_at: row.submittedAt ? row.submittedAt.toDate().toISOString() : null,
+          submitted_at: row.submittedAt ?? null,
         })
       )
       .join('\n');

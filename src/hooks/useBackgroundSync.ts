@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
+import { supabase } from '../supabase';
 
 const FEEDBACK_LOCAL_KEY = 'tm_feedback_queue';
 const COMMUNITY_LOCAL_KEY = 'tm_community_queue';
@@ -63,15 +62,16 @@ export default function useBackgroundSync() {
           const remaining: FeedbackRowLocal[] = [];
           for (const row of feedbackQueue) {
             try {
-              await addDoc(collection(db, 'feedback_corrections'), {
+              const { error } = await supabase.from('feedback_corrections').insert({
                 ...row,
-                submittedBy: {
+                submitted_by: {
                   uid: user?.uid ?? null,
                   email: user?.email ?? null,
                   displayName: user?.displayName ?? null,
                 },
-                submittedAt: serverTimestamp(),
+                submitted_at: new Date().toISOString(),
               });
+              if (error) throw error;
             } catch (err) {
               // keep remaining and stop attempting further to avoid repeated failures
               remaining.push(row);
@@ -86,19 +86,20 @@ export default function useBackgroundSync() {
           const remaining: CommunityLocal[] = [];
           for (const item of communityQueue) {
             try {
-              await addDoc(collection(db, 'community_posts'), {
+              const { error } = await supabase.from('community_posts').insert({
                 name: item.name,
                 note: item.note,
                 location: item.location,
                 tags: item.tags,
-                cardStyle: item.cardStyle,
-                createdBy: {
+                card_style: item.cardStyle,
+                created_by: {
                   uid: user?.uid ?? null,
                   email: user?.email ?? null,
                   displayName: user?.displayName ?? null,
                 },
-                createdAt: serverTimestamp(),
+                created_at: new Date().toISOString(),
               });
+              if (error) throw error;
             } catch (err) {
               remaining.push(item);
             }

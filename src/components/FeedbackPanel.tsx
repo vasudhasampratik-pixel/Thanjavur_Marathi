@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { inferSentenceFamily, type SentenceFamily } from '../utils/sentenceFamily';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
+import { supabase } from '../supabase';
 
 type SpeakerProfile = 'young_female' | 'young_male' | 'elder_respectful';
 
@@ -91,15 +90,16 @@ export function FeedbackPanel({ sourceEnglish, modelOutput, sourceId }: Feedback
     };
 
     try {
-      await addDoc(collection(db, 'feedback_corrections'), {
+      const { error } = await supabase.from('feedback_corrections').insert({
         ...payload,
-        submittedBy: {
+        submitted_by: {
           uid: user?.uid ?? null,
           email: user?.email ?? null,
           displayName: user?.displayName ?? null,
         },
-        submittedAt: serverTimestamp(),
+        submitted_at: new Date().toISOString(),
       });
+      if (error) throw error;
       setStatus('Saved to database.');
     } catch (error) {
       console.error('Feedback save failed:', error);

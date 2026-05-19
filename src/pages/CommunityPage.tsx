@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase';
+import { supabase } from '../supabase';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type CommunitySection = 'network' | 'feedback' | 'improve' | 'upcoming';
@@ -191,7 +190,7 @@ function exportCommunityQueueAsJsonl(): string {
     location: row.location,
     tags: row.tags,
     cardStyle: row.cardStyle,
-    timestamp: row.timestamp.toISOString(),
+    timestamp: row.timestamp instanceof Date ? row.timestamp.toISOString() : String(row.timestamp),
   })).join('\n');
 }
 
@@ -292,31 +291,41 @@ function NetworkSection() {
   const [pinned, setPinned] = useState(false);
 
   useEffect(() => {
-    const communityQuery = query(collection(db, 'community_posts'), orderBy('createdAt', 'desc'));
-    const unsubscribe = onSnapshot(
-      communityQuery,
-      (snapshot) => {
-        const remotePosts = snapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            id: doc.id,
-            name: data.name ?? 'Friend',
-            note: data.note ?? '',
-            location: data.location ?? 'Somewhere in the world',
-            tags: Array.isArray(data.tags) ? data.tags : [],
-            cardStyle: (data.cardStyle as CardStyle) ?? deriveCardStyle(Array.isArray(data.tags) ? data.tags : []),
-            timestamp: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(),
-          } as NetworkPost;
-        });
+    let isMounted = true;
 
-        setPosts([...SEED_POSTS, ...remotePosts]);
-      },
-      (error) => {
+    async function loadCommunityPosts() {
+      const { data, error } = await supabase
+        .from('community_posts')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
         console.error('Unable to load community posts:', error);
+        return;
       }
-    );
 
-    return unsubscribe;
+      if (!isMounted) return;
+
+      const remotePosts: NetworkPost[] = (data ?? []).map((row) => ({
+        id: String(row.id ?? `remote-${Date.now()}`),
+        name: String(row.name ?? 'Friend'),
+        note: String(row.note ?? ''),
+        location: String(row.location ?? 'Somewhere in the world'),
+        tags: Array.isArray(row.tags) ? (row.tags as SpeakerTag[]) : [],
+        cardStyle: (row.card_style as CardStyle) ?? deriveCardStyle(Array.isArray(row.tags) ? (row.tags as SpeakerTag[]) : []),
+        timestamp: row.created_at ? new Date(String(row.created_at)) : new Date(),
+      }));
+
+      setPosts([...SEED_POSTS, ...remotePosts]);
+    }
+
+    loadCommunityPosts();
+    const intervalId = window.setInterval(loadCommunityPosts, 15000);
+
+    return () => {
+      isMounted = false;
+      window.clearInterval(intervalId);
+    };
   }, []);
 
   function toggleTag(tag: SpeakerTag) {
@@ -334,19 +343,20 @@ function NetworkSection() {
     if (nameErr || noteErr) return;
 
     try {
-      await addDoc(collection(db, 'community_posts'), {
+      const { error } = await supabase.from('community_posts').insert({
         name: name.trim(),
         note: note.trim(),
         location: location.trim() || 'Somewhere in the world',
         tags: selectedTags,
-        cardStyle: deriveCardStyle(selectedTags),
-        createdBy: {
+        card_style: deriveCardStyle(selectedTags),
+        created_by: {
           uid: user?.uid ?? null,
           email: user?.email ?? null,
           displayName: user?.displayName ?? null,
         },
-        createdAt: serverTimestamp(),
+        created_at: new Date().toISOString(),
       });
+      if (error) throw error;
 
       setName('');
       setLocation('');

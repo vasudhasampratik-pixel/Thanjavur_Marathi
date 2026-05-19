@@ -154,6 +154,57 @@ const SEED_POSTS: NetworkPost[] = [
   },
 ];
 
+// ── Local queue fallback for community posts (offline / Firestore down) ───────
+const COMMUNITY_LOCAL_QUEUE_KEY = 'tm_community_queue';
+
+function getCommunityLocalQueue(): NetworkPost[] {
+  try {
+    const raw = localStorage.getItem(COMMUNITY_LOCAL_QUEUE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed) ? (parsed as NetworkPost[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCommunityLocalQueue(rows: NetworkPost[]): void {
+  try {
+    localStorage.setItem(COMMUNITY_LOCAL_QUEUE_KEY, JSON.stringify(rows));
+  } catch {
+    // ignore
+  }
+}
+
+function queueCommunityPost(post: NetworkPost): number {
+  const current = getCommunityLocalQueue();
+  const next = [post, ...current];
+  saveCommunityLocalQueue(next);
+  return next.length;
+}
+
+function exportCommunityQueueAsJsonl(): string {
+  return getCommunityLocalQueue().map((row) => JSON.stringify({
+    id: row.id,
+    name: row.name,
+    note: row.note,
+    location: row.location,
+    tags: row.tags,
+    cardStyle: row.cardStyle,
+    timestamp: row.timestamp.toISOString(),
+  })).join('\n');
+}
+
+function downloadText(filename: string, content: string) {
+  const blob = new Blob([content], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
 // ── Table card ────────────────────────────────────────────────────────────────
 function TableCard({ post, isOpen, onToggle }: { post: NetworkPost; isOpen: boolean; onToggle: () => void }) {
   const meta = CARD_STYLE_META[post.cardStyle];
@@ -306,8 +357,27 @@ function NetworkSection() {
       setSubmitMessage('Your note is saved to the community and will appear here shortly.');
       setTimeout(() => setPinned(false), 4000);
     } catch (error) {
-      console.error('Community post failed:', error);
-      setSubmitError('Could not save your note right now. Please try again later.');
+      console.error('Community post failed, queuing locally:', error);
+      // Queue locally so the note persists even if Firestore is unavailable
+      const localPost: NetworkPost = {
+        id: `local-${Date.now()}`,
+        name: name.trim() || (user?.displayName ?? 'Friend'),
+        note: note.trim(),
+        location: location.trim() || 'Somewhere in the world',
+        tags: selectedTags,
+        cardStyle: deriveCardStyle(selectedTags),
+        timestamp: new Date(),
+      };
+      const queuedCount = queueCommunityPost(localPost);
+
+      setName('');
+      setLocation('');
+      setNote('');
+      setSelectedTags([]);
+      setComposing(false);
+      setPinned(true);
+      setSubmitMessage(`Saved locally (${queuedCount} queued). Export queued notes from the Community page if you need to move them.`);
+      setTimeout(() => setPinned(false), 4000);
     }
   }
 
@@ -338,6 +408,27 @@ function NetworkSection() {
       )}
       {submitMessage && <p className="text-sm text-peacock-700">{submitMessage}</p>}
       {submitError && <p className="text-sm text-rose-600">{submitError}</p>}
+
+      {/* Export queued local notes if any */}
+      {getCommunityLocalQueue().length > 0 && (
+        <div className="mt-2">
+          <button
+            type="button"
+            onClick={() => {
+              const body = exportCommunityQueueAsJsonl();
+              if (!body) {
+                setSubmitMessage('No queued notes to export.');
+                return;
+              }
+              downloadText('community_queue.jsonl', body + '\n');
+              setSubmitMessage('Queued notes exported as community_queue.jsonl');
+            }}
+            className="px-4 py-2 rounded-xl border border-peacock-200 text-peacock-700 font-medium hover:bg-peacock-50"
+          >
+            Export queued notes
+          </button>
+        </div>
+      )}
 
       {/* Compose form */}
       {composing && (

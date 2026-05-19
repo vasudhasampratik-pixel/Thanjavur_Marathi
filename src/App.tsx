@@ -10,6 +10,7 @@ import { CookBookPage } from './pages/CookBookPage';
 import { CommunityPage } from './pages/CommunityPage';
 import { VaraadPage } from './pages/VaraadPage';
 import { AdminFeedbackPage } from './pages/AdminFeedbackPage';
+import useBackgroundSync from './hooks/useBackgroundSync';
 import dictionaryData from './data/dictionary.json';
 import appDictionaryData from './data/app_dictionary.json';
 import type { Dictionary, DictionaryEntry } from './types';
@@ -88,6 +89,7 @@ const combinedEntries = [...dictionary.entries, ...appPhraseEntries];
 
 function App() {
   const { user, loading } = useAuth();
+  useBackgroundSync();
   const [activeTab, setActiveTab] = useState<Tab>('translate');
   const [openFooterPanel, setOpenFooterPanel] = useState<'credits' | 'developer' | null>(null);
   const footerPanelRef = useRef<HTMLDivElement | null>(null);

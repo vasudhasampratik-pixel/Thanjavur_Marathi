@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+import { isAdminUser, useAuth } from '../contexts/AuthContext';
 import { supabase } from '../supabase';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -161,7 +161,20 @@ function getCommunityLocalQueue(): NetworkPost[] {
     const raw = localStorage.getItem(COMMUNITY_LOCAL_QUEUE_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw) as unknown;
-    return Array.isArray(parsed) ? (parsed as NetworkPost[]) : [];
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed.map((item) => {
+      const row = item as Partial<NetworkPost> & { timestamp?: string | Date };
+      return {
+        id: String(row.id ?? `local-${Date.now()}`),
+        name: String(row.name ?? 'Friend'),
+        note: String(row.note ?? ''),
+        location: String(row.location ?? 'Somewhere in the world'),
+        tags: Array.isArray(row.tags) ? (row.tags as SpeakerTag[]) : [],
+        cardStyle: (row.cardStyle as CardStyle) ?? 'postcard',
+        timestamp: row.timestamp ? new Date(String(row.timestamp)) : new Date(),
+      };
+    });
   } catch {
     return [];
   }
@@ -275,6 +288,7 @@ function TableCard({ post, isOpen, onToggle }: { post: NetworkPost; isOpen: bool
 
 function NetworkSection() {
   const { user } = useAuth();
+  const canExportQueue = isAdminUser(user);
   const [posts, setPosts] = useState<NetworkPost[]>(SEED_POSTS);
   const [openId, setOpenId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
@@ -316,7 +330,8 @@ function NetworkSection() {
         timestamp: row.created_at ? new Date(String(row.created_at)) : new Date(),
       }));
 
-      setPosts([...SEED_POSTS, ...remotePosts]);
+      const queuedLocalPosts = getCommunityLocalQueue();
+      setPosts([...queuedLocalPosts, ...SEED_POSTS, ...remotePosts]);
     }
 
     loadCommunityPosts();
@@ -365,6 +380,18 @@ function NetworkSection() {
       setComposing(false);
       setPinned(true);
       setSubmitMessage('Your note is saved to the community and will appear here shortly.');
+      setPosts((prev) => {
+        const optimisticPost: NetworkPost = {
+          id: `recent-${Date.now()}`,
+          name: name.trim(),
+          note: note.trim(),
+          location: location.trim() || 'Somewhere in the world',
+          tags: selectedTags,
+          cardStyle: deriveCardStyle(selectedTags),
+          timestamp: new Date(),
+        };
+        return [optimisticPost, ...prev];
+      });
       setTimeout(() => setPinned(false), 4000);
     } catch (error) {
       console.error('Community post failed, queuing locally:', error);
@@ -386,7 +413,8 @@ function NetworkSection() {
       setSelectedTags([]);
       setComposing(false);
       setPinned(true);
-      setSubmitMessage(`Saved locally (${queuedCount} queued). Export queued notes from the Community page if you need to move them.`);
+      setSubmitMessage(`Saved locally (${queuedCount} queued). It will auto-sync when network/database is available.`);
+      setPosts((prev) => [localPost, ...prev]);
       setTimeout(() => setPinned(false), 4000);
     }
   }
@@ -420,7 +448,7 @@ function NetworkSection() {
       {submitError && <p className="text-sm text-rose-600">{submitError}</p>}
 
       {/* Export queued local notes if any */}
-      {getCommunityLocalQueue().length > 0 && (
+      {canExportQueue && getCommunityLocalQueue().length > 0 && (
         <div className="mt-2">
           <button
             type="button"

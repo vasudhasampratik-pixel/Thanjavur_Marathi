@@ -23,7 +23,6 @@ export function TranslatorBox({ entries, totalEntries }: TranslatorBoxProps) {
   };
 
   const displayValue = inputValue;
-  const bestSingle = singleResults[0];
 
   const handleClear = () => {
     setInputValue('');

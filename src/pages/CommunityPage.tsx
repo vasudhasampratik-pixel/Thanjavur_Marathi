@@ -713,7 +713,7 @@ function ImproveSection() {
   return (
     <div className="rounded-2xl border border-dashed border-orange-200 bg-orange-50 px-6 py-10 text-center">
       <p className="text-4xl mb-3" aria-hidden="true">🛠️</p>
-      <h3 className="text-xl font-bold text-gray-900">Help Me Improve</h3>
+      <h3 className="text-xl font-bold text-gray-900">Help Improve</h3>
       <p className="text-sm text-gray-900 mt-2 max-w-md mx-auto leading-relaxed">
         Use the Contribute tab to add new words, sentence examples, and voice recordings.
         Every approved contribution improves translation quality and helps build a stronger
@@ -780,7 +780,7 @@ const SECTIONS: { id: CommunitySection; label: string; icon: string }[] = [
   { id: 'network', label: 'Network', icon: '🌐' },
   { id: 'feedback', label: 'Feedback & Requests', icon: '✉️' },
   { id: 'upcoming', label: 'Upcoming Features', icon: '🔭' },
-  { id: 'improve', label: 'Help Me Improve', icon: '🛠️' },
+  { id: 'improve', label: 'Help Improve', icon: '🛠️' },
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────

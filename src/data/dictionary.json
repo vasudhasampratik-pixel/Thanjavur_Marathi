@@ -379,7 +379,7 @@
 
 
     {"id":"xl_001","english":"big","english_variants":[],"tm_romanized":"mota/thor","tm_devanagari":"मोठा/थोर","category":"adjectives"},
-    {"id":"xl_002","english":"good","english_variants":[],"tm_romanized":"bara","tm_devanagari":"बरा","category":"adjectives"},
+    {"id":"xl_002","english":"good","english_variants":[],"tm_romanized":"bara","tm_devanagari":"बरं","category":"adjectives"},
     {"id":"xl_003","english":"bad","english_variants":[],"tm_romanized":"barni","tm_devanagari":"बरणी","category":"adjectives"},
     {"id":"xl_004","english":"milk spoilt","english_variants":[],"tm_romanized":"doodh phutla","tm_devanagari":"दूध फुटलं","category":"adjectives"},
     {"id":"xl_005","english":"mad","english_variants":[],"tm_romanized":"veda","tm_devanagari":"वेडा","category":"adjectives"},

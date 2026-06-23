@@ -1,8 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
-type ContributionMode = 'words' | 'sentences' | 'mixed' | 'recommended';
-type ConfidenceLevel = 'very-confident' | 'confident' | 'partially-sure' | 'not-sure';
+type ConfidenceLevel = 'confident' | 'partially-sure' | 'not-sure';
 
 interface Prompt {
   id: string;
@@ -29,90 +28,19 @@ const ALL_PROMPTS: Prompt[] = [
   { id: 'fa2', english: 'younger sister', type: 'word', category: 'Family', approvedCount: 1, targetCount: 3 },
 ];
 
-const COVERAGE_DATA = [
-  { category: 'Food', pct: 82 },
-  { category: 'Family', pct: 65 },
-  { category: 'Travel', pct: 33 },
-  { category: 'Health', pct: 21 },
-  { category: 'Technology', pct: 14 },
-];
-
 const CONFIDENCE_OPTIONS: { value: ConfidenceLevel; label: string }[] = [
-  { value: 'very-confident', label: 'Very confident' },
   { value: 'confident', label: 'Confident' },
   { value: 'partially-sure', label: 'Partially sure' },
   { value: 'not-sure', label: 'Not sure' },
 ];
 
-const MODE_OPTIONS: { value: ContributionMode; label: string; description: string }[] = [
-  { value: 'recommended', label: 'Recommended for me', description: 'Prioritises undercovered topics' },
-  { value: 'words', label: 'Words', description: 'Single words only' },
-  { value: 'sentences', label: 'Sentences', description: 'Full phrases and sentences' },
-  { value: 'mixed', label: 'Mixed', description: 'Words and sentences together' },
-];
-
 // ── Helpers ───────────────────────────────────────────────────────────────────
-function getPromptsForMode(mode: ContributionMode): Prompt[] {
+function getPromptsForMode() {
   const needsMore = (p: Prompt) => p.approvedCount < p.targetCount;
-  switch (mode) {
-    case 'words':
-      return ALL_PROMPTS.filter(p => p.type === 'word' && needsMore(p));
-    case 'sentences':
-      return ALL_PROMPTS.filter(p => p.type === 'sentence' && needsMore(p));
-    case 'recommended':
-      return [...ALL_PROMPTS].filter(needsMore).sort((a, b) => {
-        const covA = COVERAGE_DATA.find(c => c.category === a.category)?.pct ?? 100;
-        const covB = COVERAGE_DATA.find(c => c.category === b.category)?.pct ?? 100;
-        return covA - covB || a.approvedCount - b.approvedCount;
-      });
-    default:
-      return ALL_PROMPTS.filter(needsMore);
-  }
-}
-
-function coverageColor(pct: number): string {
-  if (pct >= 70) return 'bg-peacock-400';
-  if (pct >= 40) return 'bg-saffron-400';
-  return 'bg-red-400';
-}
-
-function coverageTextColor(pct: number): string {
-  if (pct >= 70) return 'text-peacock-700';
-  if (pct >= 40) return 'text-saffron-600';
-  return 'text-red-600';
+  return ALL_PROMPTS.filter(needsMore);
 }
 
 // ── Sub-components ────────────────────────────────────────────────────────────
-
-function CoveragePanel() {
-  return (
-    <aside className="rounded-2xl border border-orange-100 bg-white/80 p-5 shadow-sm">
-      <h2 className="mb-1 text-xs font-semibold uppercase tracking-widest text-peacock-600">
-        Category Coverage
-      </h2>
-      <p className="mb-4 text-xs text-gray-500">Contribute to undercovered areas first</p>
-      <ul className="space-y-3">
-        {COVERAGE_DATA.map(({ category, pct }) => (
-          <li key={category}>
-            <div className="mb-1 flex items-center justify-between">
-              <span className="text-sm font-medium text-gray-800">{category}</span>
-              <span className={`text-xs font-semibold ${coverageTextColor(pct)}`}>{pct}%</span>
-            </div>
-            <div className="h-1.5 w-full overflow-hidden rounded-full bg-orange-100">
-              <div
-                className={`h-full rounded-full transition-all duration-500 ${coverageColor(pct)}`}
-                style={{ width: `${pct}%` }}
-              />
-            </div>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-4 rounded-xl bg-saffron-50 px-3 py-2 text-xs leading-5 text-saffron-700">
-        <strong>Recommended:</strong> Health &amp; Technology — fewer than 3 approved entries per prompt.
-      </p>
-    </aside>
-  );
-}
 
 interface AudioRecorderProps {
   onRecorded: (blob: Blob | null) => void;
@@ -215,36 +143,27 @@ function AudioRecorder({ onRecorded, audioBlob }: AudioRecorderProps) {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 export function ContributorPage() {
-  const [mode, setMode] = useState<ContributionMode>('recommended');
   const [promptIndex, setPromptIndex] = useState(0);
   const [romanized, setRomanized] = useState('');
   const [devanagari, setDevanagari] = useState('');
   const [confidence, setConfidence] = useState<ConfidenceLevel>('confident');
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [consent, setConsent] = useState(false);
-  const [flagged, setFlagged] = useState(false);
   const [submitted, setSubmitted] = useState<Set<string>>(new Set());
   const [skipped, setSkipped] = useState<Set<string>>(new Set());
   const [validationError, setValidationError] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const prompts = getPromptsForMode(mode).filter(p => !submitted.has(p.id) && !skipped.has(p.id));
+  const prompts = getPromptsForMode().filter(p => !submitted.has(p.id) && !skipped.has(p.id));
   const current = prompts[promptIndex] ?? null;
 
   const resetForm = useCallback(() => {
     setRomanized('');
     setDevanagari('');
     setAudioBlob(null);
-    setFlagged(false);
     setValidationError(null);
     setConfidence('confident');
   }, []);
-
-  const handleModeChange = (m: ContributionMode) => {
-    setMode(m);
-    setPromptIndex(0);
-    resetForm();
-  };
 
   const handleSubmit = () => {
     if (!current) return;
@@ -280,11 +199,6 @@ export function ContributorPage() {
     setPromptIndex(0);
   };
 
-  const handleFlag = () => {
-    if (!current) return;
-    setFlagged(true);
-  };
-
   const handleNext = () => {
     if (promptIndex < prompts.length - 1) {
       setPromptIndex(i => i + 1);
@@ -293,59 +207,9 @@ export function ContributorPage() {
   };
 
   const totalDone = submitted.size;
-  const recommendedCategory = COVERAGE_DATA.slice().sort((a, b) => a.pct - b.pct)[0];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
-
-      {/* Page header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-          Contribute to the Dictionary
-        </h1>
-        <p className="mt-1 text-sm text-gray-500">
-          Help preserve Thanjavur Marathi by contributing words and sentences to the training dataset.
-        </p>
-        {recommendedCategory && (
-          <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-saffron-50 border border-saffron-200 px-4 py-1.5 text-sm text-saffron-700">
-            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-            </svg>
-            Recommended: <strong>{recommendedCategory.category}</strong> — low coverage, needs your help
-          </div>
-        )}
-      </div>
-
-      {/* Mode selector */}
-      <section className="mb-6" aria-label="Contribution mode">
-        <h2 className="mb-2 text-xs font-semibold uppercase tracking-widest text-gray-400">
-          What would you like to contribute?
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {MODE_OPTIONS.map(opt => (
-            <button
-              key={opt.value}
-              type="button"
-              onClick={() => handleModeChange(opt.value)}
-              title={opt.description}
-              className={[
-                'inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200',
-                mode === opt.value
-                  ? 'bg-saffron-500 text-white shadow-md'
-                  : 'border border-orange-200 bg-white text-gray-700 hover:border-saffron-400 hover:text-saffron-700',
-              ].join(' ')}
-              aria-pressed={mode === opt.value}
-            >
-              {opt.value === 'recommended' && (
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M9.049 2.927C9.349 2.005 10.651 2.005 10.951 2.927l1.286 3.959a1 1 0 0 0 .951.693h4.163c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 0 0-.364 1.118l1.286 3.959c.3.923-.755 1.688-1.54 1.118L10 15.347l-3.37 2.448c-.785.57-1.84-.195-1.54-1.118l1.286-3.959a1 1 0 0 0-.364-1.118L2.642 9.39c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 0 0 .951-.693l1.285-3.96Z" />
-                </svg>
-              )}
-              {opt.label}
-            </button>
-          ))}
-        </div>
-      </section>
 
       {/* Success toast */}
       {showSuccess && (
@@ -371,7 +235,7 @@ export function ContributorPage() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_280px]">
+      <div className="grid grid-cols-1 gap-6">
 
         {/* Left: prompt card + form */}
         <div className="space-y-5">
@@ -394,12 +258,6 @@ export function ContributorPage() {
                       {current.category}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-400">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                    </svg>
-                    {current.approvedCount}/{current.targetCount} approved entries
-                  </div>
                 </div>
 
                 {/* Progress in batch */}
@@ -410,16 +268,18 @@ export function ContributorPage() {
 
               {/* English prompt */}
               <div className="mb-5 rounded-xl bg-cream border border-orange-100 px-5 py-4">
-                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">English prompt</p>
+                <div className="mb-1 flex items-start justify-between gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">English prompt</p>
+                  <button
+                    type="button"
+                    onClick={handleSkip}
+                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-600 shadow-sm transition hover:border-gray-300 hover:text-gray-800"
+                  >
+                    Skip word
+                  </button>
+                </div>
                 <p className="text-2xl font-bold text-gray-900 leading-snug">{current.english}</p>
               </div>
-
-              {/* Flagged notice */}
-              {flagged && (
-                <div className="mb-4 rounded-xl bg-yellow-50 border border-yellow-200 px-4 py-3 text-sm text-yellow-800">
-                  This prompt has been flagged as unclear. You can still contribute or skip to the next one.
-                </div>
-              )}
 
               {/* Inputs */}
               <div className="space-y-4">
@@ -460,8 +320,8 @@ export function ContributorPage() {
                 <AudioRecorder onRecorded={setAudioBlob} audioBlob={audioBlob} />
 
                 {/* Confidence */}
-                <div>
-                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">
+                <div className="mt-6 mb-2">
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">
                     How confident are you?
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -521,26 +381,6 @@ export function ContributorPage() {
                   Submit
                 </button>
 
-                <button
-                  type="button"
-                  onClick={handleSkip}
-                  className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-600 shadow-sm transition hover:border-gray-300 hover:text-gray-800"
-                >
-                  Skip
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleFlag}
-                  disabled={flagged}
-                  className="inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2.5 text-sm font-medium text-yellow-700 shadow-sm transition hover:bg-yellow-100 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18m0-14.25 5.25-1.5L13.5 7.5 19.5 6v10.5l-6 1.5-5.25-2.25L3 17.25" />
-                  </svg>
-                  {flagged ? 'Flagged' : 'Flag as unclear'}
-                </button>
-
                 {promptIndex < prompts.length - 1 && (
                   <button
                     type="button"
@@ -566,15 +406,10 @@ export function ContributorPage() {
               <p className="text-sm text-gray-500">
                 {submitted.size > 0
                   ? `You contributed ${submitted.size} ${submitted.size === 1 ? 'entry' : 'entries'} this session. Thank you!`
-                  : 'No prompts need contributions in this category right now. Try switching modes.'}
+                  : 'No prompts need contributions right now. Please check back later.'}
               </p>
             </div>
           )}
-        </div>
-
-        {/* Right: coverage panel */}
-        <div className="lg:pt-0">
-          <CoveragePanel />
         </div>
       </div>
     </div>

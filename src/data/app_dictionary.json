@@ -63,7 +63,7 @@
   {"sentence_id":"ST062","english":"There is dust in the room.","variants":{"young_female":{"tm_romanized":"room-aant dust aahe"}}},
   {"sentence_id":"ST063","english":"The room is dark.","variants":{"young_female":{"tm_romanized":"room andaar aahe"}}},
   {"sentence_id":"ST064","english":"The room is bright.","variants":{"young_female":{"tm_romanized":"room ujaad aahe"}}},
-  {"sentence_id":"ST065","english":"The key is missing.","variants":{"young_female":{"tm_romanized":"key arpun gela"}}},
+  {"sentence_id":"ST065","english":"The key is missing.","variants":{"young_female":{"tm_romanized":"chaavi arpun gela"}}},
   {"sentence_id":"ST066","english":"The child is inside the house.","variants":{"young_female":{"tm_romanized":"lenkru ghar-aant aahe"}}},
   {"sentence_id":"ST067","english":"The dog is outside the house.","variants":{"young_female":{"tm_romanized":"kutra ghar-a bahir aahe"}}},
   {"sentence_id":"ST068","english":"We cleaned the house today.","variants":{"young_female":{"tm_romanized":"ami ghar puslo"}}},

@@ -45,6 +45,9 @@ export function SingleTranslationResult({ results, query }: SingleResultProps) {
             <div className="flex items-center gap-2 mt-3">
               <CategoryBadge category={best.entry.category} />
               <span className="text-xs text-gray-900 capitalize">{best.entry.type}</span>
+              <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full border bg-peacock-100 text-peacock-800 border-peacock-200">
+                confidence {Math.max(0, Math.min(100, Math.round(best.score)))}%
+              </span>
             </div>
           </div>
           <div className="text-right hidden sm:block">

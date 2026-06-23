@@ -715,12 +715,12 @@ function ImproveSection() {
       <p className="text-4xl mb-3" aria-hidden="true">🛠️</p>
       <h3 className="text-xl font-bold text-gray-900">Help Me Improve</h3>
       <p className="text-sm text-gray-900 mt-2 max-w-md mx-auto leading-relaxed">
-        To contribute: go to the Translate tab, search a word or phrase, review the result and
-        submit the corrected input or better wording. Each correction helps train and improve the Thanjavur Marathi
-        dataset over time.
+        Use the Contribute tab to add new words, sentence examples, and voice recordings.
+        Every approved contribution improves translation quality and helps build a stronger
+        Thanjavur Marathi dataset over time.
       </p>
       <p className="mt-4 text-xs text-gray-900">
-        This project is still in a very nascent stage and needs polishing, so your support is essential.
+        You can also share ideas in Feedback & Requests to help shape what we build next.
       </p>
     </div>
   );
@@ -779,8 +779,8 @@ function UpcomingSection() {
 const SECTIONS: { id: CommunitySection; label: string; icon: string }[] = [
   { id: 'network', label: 'Network', icon: '🌐' },
   { id: 'feedback', label: 'Feedback & Requests', icon: '✉️' },
-  { id: 'improve', label: 'Help Me Improve', icon: '🛠️' },
   { id: 'upcoming', label: 'Upcoming Features', icon: '🔭' },
+  { id: 'improve', label: 'Help Me Improve', icon: '🛠️' },
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────

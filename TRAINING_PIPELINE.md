@@ -19,13 +19,7 @@ Generated files (under `src/data/processed`):
 - `retrieval_corpus.json`: normalized rows for top-k retrieval.
 - `feedback_gold.jsonl`: reviewer correction log.
 
-For UI correction capture to file, start local endpoint:
-
-```bash
-npm run feedback:server
-```
-
-This listens on `http://localhost:4317/feedback` and appends to `feedback_gold.jsonl`.
+If you maintain a separate curated correction log, place it in `feedback_gold.jsonl` before exporting datasets.
 
 Model-ready row shape:
 
@@ -71,18 +65,9 @@ npm run retrieve -- "Please give me water" 5
 
 Use top 3-5 matches as context in inference or as a reranking signal.
 
-## 4. Human correction loop (Phase 5)
+## 4. Curated corrections
 
-When a reviewer edits model output, append a gold row:
-
-```bash
-npm run feedback:add -- "Please give me water." "young_female" "imperative" "daya karun mala paani dya" "daya karun mala paani de" "ST074::young_female" reviewer_01
-```
-
-This appends to `src/data/processed/feedback_gold.jsonl`.
-
-You can also save corrections directly from the Translate tab via the new **Human correction** panel.
-If the feedback server is down, rows are queued in browser local storage and can be exported as JSONL.
+If you maintain a separate gold set, append validated rows to `src/data/processed/feedback_gold.jsonl` with your own offline process before exporting datasets.
 
 Recommended retraining policy:
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { TabBar } from './TabBar';
 import { TAB_CONFIG, type Tab } from './tabConfig';
-import { useAuth, isAdminUser } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
   activeTab: Tab;
@@ -75,18 +75,6 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-peacock-600">Signed in as</p>
                   <p className="mt-2 text-sm font-semibold text-slate-900">{displayName}</p>
                   {user.email && <p className="text-xs text-slate-500">{user.email}</p>}
-                  {isAdminUser(user) && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        onTabChange('admin');
-                      }}
-                      className="mt-4 w-full rounded-2xl bg-peacock-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-peacock-700"
-                    >
-                      Admin panel
-                    </button>
-                  )}
                   <button
                     type="button"
                     onClick={() => {

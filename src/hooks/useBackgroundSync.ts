@@ -2,19 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../supabase';
 
-const FEEDBACK_LOCAL_KEY = 'tm_feedback_queue';
 const COMMUNITY_LOCAL_KEY = 'tm_community_queue';
-
-type FeedbackRowLocal = {
-  source_english: string;
-  speaker_profile: string;
-  sentence_family: string;
-  model_target_tm_romanized: string;
-  corrected_target_tm_romanized: string;
-  source_id: string;
-  reviewer_id?: string;
-  timestamp: string;
-};
 
 type CommunityLocal = {
   id: string;
@@ -56,30 +44,6 @@ export default function useBackgroundSync() {
       runningRef.current = true;
 
       try {
-        // Flush feedback queue
-        const feedbackQueue = readQueue<FeedbackRowLocal>(FEEDBACK_LOCAL_KEY);
-        if (feedbackQueue.length > 0) {
-          const remaining: FeedbackRowLocal[] = [];
-          for (const row of feedbackQueue) {
-            try {
-              const { error } = await supabase.from('feedback_corrections').insert({
-                ...row,
-                submitted_by: {
-                  uid: user?.uid ?? null,
-                  email: user?.email ?? null,
-                  displayName: user?.displayName ?? null,
-                },
-                submitted_at: new Date().toISOString(),
-              });
-              if (error) throw error;
-            } catch (err) {
-              // keep remaining and stop attempting further to avoid repeated failures
-              remaining.push(row);
-            }
-          }
-          writeQueue(FEEDBACK_LOCAL_KEY, remaining);
-        }
-
         // Flush community queue
         const communityQueue = readQueue<CommunityLocal>(COMMUNITY_LOCAL_KEY);
         if (communityQueue.length > 0) {

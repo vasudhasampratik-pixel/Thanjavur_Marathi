@@ -9,7 +9,6 @@ import { EmotionsPage } from './pages/EmotionsPage';
 import { CookBookPage } from './pages/CookBookPage';
 import { CommunityPage } from './pages/CommunityPage';
 import { VaraadPage } from './pages/VaraadPage';
-import { AdminFeedbackPage } from './pages/AdminFeedbackPage';
 import useBackgroundSync from './hooks/useBackgroundSync';
 import dictionaryData from './data/dictionary.json';
 import appDictionaryData from './data/app_dictionary.json';
@@ -234,7 +233,6 @@ function App() {
         {activeTab === 'cookbook' && <CookBookPage />}
         {activeTab === 'varaad' && <VaraadPage />}
         {activeTab === 'community' && <CommunityPage />}
-        {activeTab === 'admin' && <AdminFeedbackPage />}
       </main>
 
         <footer className="mt-6 border-t border-orange-100 bg-gradient-to-b from-white via-white to-orange-50/80 px-4 py-5">

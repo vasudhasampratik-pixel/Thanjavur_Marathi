@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import type { DictionaryEntry } from '../types';
 import { useTranslate } from '../hooks/useTranslate';
 import { SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
-import { FeedbackPanel } from './FeedbackPanel';
 
 interface TranslatorBoxProps {
   entries: DictionaryEntry[];
@@ -25,12 +24,6 @@ export function TranslatorBox({ entries, totalEntries }: TranslatorBoxProps) {
 
   const displayValue = inputValue;
   const bestSingle = singleResults[0];
-  const modelOutput = isPhrase
-    ? (composed?.romanized ?? '')
-    : (bestSingle?.entry.tm_romanized ?? '');
-  const sourceId = isPhrase
-    ? `composed::${query.trim().toLowerCase().replace(/\s+/g, '_')}`
-    : (bestSingle?.entry.id ?? `lookup::${query.trim().toLowerCase().replace(/\s+/g, '_')}`);
 
   const handleClear = () => {
     setInputValue('');
@@ -81,14 +74,6 @@ export function TranslatorBox({ entries, totalEntries }: TranslatorBoxProps) {
             <PhraseTranslationResult phraseResults={phraseResults} composed={composed} />
           ) : (
             <SingleTranslationResult results={singleResults} query={query} />
-          )}
-
-          {modelOutput && (
-            <FeedbackPanel
-              sourceEnglish={query}
-              modelOutput={modelOutput}
-              sourceId={sourceId}
-            />
           )}
         </>
       )}

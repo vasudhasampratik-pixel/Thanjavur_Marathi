@@ -13,8 +13,6 @@
     "scrape:cookbook": "tsx scripts/scrape-cookbook.ts",
     "data:prepare": "tsx scripts/prepare-training-data.ts",
     "retrieve": "tsx scripts/retrieve-similar.ts",
-    "feedback:add": "tsx scripts/append-feedback.ts",
-    "feedback:server": "tsx scripts/feedback-server.ts",
     "data:export:hf": "tsx scripts/export-hf-dataset.ts"
   },
   "dependencies": {

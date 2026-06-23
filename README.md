@@ -176,12 +176,6 @@ npm run data:prepare
 # Retrieve similar sentences/phrases
 npm run retrieve
 
-# Add user feedback entries
-npm run feedback:add
-
-# Start feedback collection server
-npm run feedback:server
-
 # Export dataset to Hugging Face format
 npm run data:export:hf
 ```

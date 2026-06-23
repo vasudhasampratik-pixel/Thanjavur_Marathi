@@ -1,4 +1,4 @@
-export type Tab = 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community';
+export type Tab = 'contributor' | 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community';
 
 export interface TabConfig {
   label: string;
@@ -11,6 +11,7 @@ export interface TabConfig {
 }
 
 export const TAB_ORDER: Tab[] = [
+  'contributor',
   'translate',
   'family-tree',
   'bhaav',
@@ -20,6 +21,23 @@ export const TAB_ORDER: Tab[] = [
 ];
 
 export const TAB_CONFIG: Record<Tab, TabConfig> = {
+  contributor: {
+    label: 'Contribute',
+    subtitle: {
+      en: 'Help grow the Thanjavur Marathi dataset',
+      hint: 'Contribute Marathi words and sentences to help train and improve the language model',
+    },
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L7.5 19.213l-4 1 1-4 12.362-12.726Z" />
+      </svg>
+    ),
+    iconActive: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+      </svg>
+    ),
+  },
   translate: {
     label: 'Translate',
     subtitle: {

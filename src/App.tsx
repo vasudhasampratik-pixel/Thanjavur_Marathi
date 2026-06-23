@@ -9,6 +9,7 @@ import { EmotionsPage } from './pages/EmotionsPage';
 import { CookBookPage } from './pages/CookBookPage';
 import { CommunityPage } from './pages/CommunityPage';
 import { VaraadPage } from './pages/VaraadPage';
+import { ContributorPage } from './pages/ContributorPage';
 import useBackgroundSync from './hooks/useBackgroundSync';
 import dictionaryData from './data/dictionary.json';
 import appDictionaryData from './data/app_dictionary.json';
@@ -222,6 +223,7 @@ function App() {
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
 
       <main className="flex-1 pb-8 pt-4 sm:pt-6">
+        {activeTab === 'contributor' && <ContributorPage />}
         {activeTab === 'translate' && (
           <TranslatorBox
             entries={combinedEntries}

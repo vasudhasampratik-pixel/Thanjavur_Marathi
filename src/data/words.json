@@ -234,14 +234,8 @@
     { "id": "word_220", "category": "people", "type": "word", "difficulty": "easy", "text": "farmer" },
     { "id": "word_221", "category": "people", "type": "word", "difficulty": "easy", "text": "worker" },
     { "id": "word_222", "category": "people", "type": "word", "difficulty": "easy", "text": "customer" },
-    { "id": "word_223", "category": "people", "type": "word", "difficulty": "easy", "text": "driver" },
     { "id": "word_224", "category": "people", "type": "word", "difficulty": "easy", "text": "student" },
-    { "id": "word_225", "category": "people", "type": "word", "difficulty": "easy", "text": "patient" },
-    { "id": "word_226", "category": "people", "type": "word", "difficulty": "easy", "text": "vendor" },
     { "id": "word_227", "category": "people", "type": "word", "difficulty": "easy", "text": "priest" },
-    { "id": "word_228", "category": "people", "type": "word", "difficulty": "easy", "text": "cook" },
-    { "id": "word_229", "category": "people", "type": "word", "difficulty": "easy", "text": "tailor" },
-    { "id": "word_230", "category": "people", "type": "word", "difficulty": "easy", "text": "clerk" },
 
     { "id": "word_231", "category": "school", "type": "word", "difficulty": "easy", "text": "notebook" },
     { "id": "word_232", "category": "school", "type": "word", "difficulty": "easy", "text": "pen" },
@@ -254,15 +248,10 @@
     { "id": "word_239", "category": "school", "type": "word", "difficulty": "easy", "text": "exam" },
     { "id": "word_240", "category": "school", "type": "word", "difficulty": "easy", "text": "mark" },
     { "id": "word_241", "category": "school", "type": "word", "difficulty": "easy", "text": "homework" },
-    { "id": "word_242", "category": "school", "type": "word", "difficulty": "easy", "text": "bell" },
     { "id": "word_243", "category": "school", "type": "word", "difficulty": "easy", "text": "paragraph" },
     { "id": "word_244", "category": "school", "type": "word", "difficulty": "easy", "text": "word" },
     { "id": "word_245", "category": "school", "type": "word", "difficulty": "easy", "text": "sentence" },
-
-    { "id": "word_246", "category": "misc", "type": "word", "difficulty": "easy", "text": "truth" },
-    { "id": "word_247", "category": "misc", "type": "word", "difficulty": "easy", "text": "lie" },
     { "id": "word_248", "category": "misc", "type": "word", "difficulty": "easy", "text": "luck" },
-    { "id": "word_249", "category": "misc", "type": "word", "difficulty": "easy", "text": "problem" },
-    { "id": "word_250", "category": "misc", "type": "word", "difficulty": "easy", "text": "answer" }
+    { "id": "word_249", "category": "misc", "type": "word", "difficulty": "easy", "text": "problem" }
   ]
 }

@@ -1,4 +1,4 @@
-export type Tab = 'contributor' | 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community';
+export type Tab = 'contributor' | 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community' | 'reviewer';
 
 export interface TabConfig {
   label: string;
@@ -18,7 +18,13 @@ export const TAB_ORDER: Tab[] = [
   'cookbook',
   'varaad',
   'community',
+  'reviewer',
 ];
+
+// Tabs that are only visible to specific roles (checked in Header)
+export const ROLE_RESTRICTED_TABS: Partial<Record<Tab, string[]>> = {
+  reviewer: ['reviewer', 'admin'],
+};
 
 export const TAB_CONFIG: Record<Tab, TabConfig> = {
   contributor: {
@@ -146,6 +152,23 @@ export const TAB_CONFIG: Record<Tab, TabConfig> = {
     iconActive: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-8 8a8 8 0 0 1 16 0H4Zm17-5a3 3 0 1 0-4-4.47A5.97 5.97 0 0 1 18 15h1.5A2.5 2.5 0 0 1 22 17.5V19h-3v1h4v-2.5A4.5 4.5 0 0 0 19 15ZM5 15a5.97 5.97 0 0 1 1-3.47A3 3 0 1 0 2 15H3.5A2.5 2.5 0 0 0 1 17.5V19h3v1H0v-2.5A4.5 4.5 0 0 1 5 15Z" />
+      </svg>
+    ),
+  },
+  reviewer: {
+    label: 'Review',
+    subtitle: {
+      en: 'Review submitted contributions',
+      hint: 'Approve or reject contributions submitted by contributors to maintain data quality',
+    },
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+    ),
+    iconActive: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path fillRule="evenodd" clipRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" />
       </svg>
     ),
   },

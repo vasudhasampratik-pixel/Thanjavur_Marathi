@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { auth, googleProvider } from '../firebase'
+import { auth, db, googleProvider } from '../firebase'
 import {
   type User,
   onAuthStateChanged,
@@ -9,6 +9,7 @@ import {
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
 } from 'firebase/auth'
+import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore'
 
 interface AuthUser {
   uid: string
@@ -20,6 +21,8 @@ interface AuthUser {
 
 interface AuthContextValue {
   user: AuthUser | null
+  roles: string[]
+  hasRole: (role: string) => boolean
   loading: boolean
   authError: string | null
   signInWithGoogle: () => Promise<void>
@@ -49,12 +52,41 @@ export function isAdminUser(user: AuthUser | null): boolean {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null)
+  const [roles, setRoles] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
   const [authError, setAuthError] = useState<string | null>(null)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser ? mapFirebaseUser(firebaseUser) : null)
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        setUser(mapFirebaseUser(firebaseUser))
+        try {
+          const userRef = doc(db, 'users', firebaseUser.uid)
+          const userSnap = await getDoc(userRef)
+          if (userSnap.exists()) {
+            const data = userSnap.data()
+            setRoles(Array.isArray(data.roles) ? data.roles : ['contributor'])
+          } else {
+            // First time user — create their profile with default role
+            await setDoc(userRef, {
+              uid: firebaseUser.uid,
+              email: firebaseUser.email,
+              displayName: firebaseUser.displayName,
+              roles: ['contributor'],
+              isActive: true,
+              createdAt: serverTimestamp(),
+              updatedAt: serverTimestamp(),
+            })
+            setRoles(['contributor'])
+          }
+        } catch (err) {
+          console.error('Failed to fetch user roles from Firestore:', err)
+          setRoles(['contributor'])
+        }
+      } else {
+        setUser(null)
+        setRoles([])
+      }
       setLoading(false)
     })
     return unsubscribe
@@ -116,6 +148,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo(
     () => ({
       user,
+      roles,
+      hasRole: (role: string) => roles.includes(role),
       loading,
       authError,
       signInWithGoogle,
@@ -124,7 +158,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       signOutUser,
       resetAuthError: () => setAuthError(null),
     }),
-    [user, loading, authError]
+    [user, roles, loading, authError]
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

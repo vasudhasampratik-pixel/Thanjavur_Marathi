@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { TabBar } from './TabBar';
-import { TAB_CONFIG, type Tab } from './tabConfig';
+import { TAB_CONFIG, TAB_ORDER, ROLE_RESTRICTED_TABS, type Tab } from './tabConfig';
 import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
@@ -9,10 +9,16 @@ interface HeaderProps {
 };
 
 export function Header({ activeTab, onTabChange }: HeaderProps) {
-  const { user, signOutUser } = useAuth();
+  const { user, signOutUser, roles } = useAuth();
   const sub = TAB_CONFIG[activeTab]?.subtitle ?? TAB_CONFIG.translate.subtitle;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement | null>(null);
+
+  const visibleTabs = TAB_ORDER.filter((tab) => {
+    const required = ROLE_RESTRICTED_TABS[tab];
+    if (!required) return true;
+    return required.some((r) => roles.includes(r));
+  });
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -53,7 +59,7 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
       <div className="sticky top-0 z-40 border-b border-orange-100 bg-cream/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-2 py-3 sm:px-4">
           <div className="flex-1 min-w-0">
-            <TabBar activeTab={activeTab} onTabChange={onTabChange} />
+            <TabBar activeTab={activeTab} onTabChange={onTabChange} visibleTabs={visibleTabs} />
           </div>
           {user && (
             <div ref={profileMenuRef} className="relative">
@@ -75,6 +81,18 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
                   <p className="text-xs font-semibold uppercase tracking-[0.22em] text-peacock-600">Signed in as</p>
                   <p className="mt-2 text-sm font-semibold text-slate-900">{displayName}</p>
                   {user.email && <p className="text-xs text-slate-500">{user.email}</p>}
+                  {roles.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-1">
+                      {roles.map((role) => (
+                        <span
+                          key={role}
+                          className="inline-block rounded-full bg-saffron-50 border border-saffron-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-saffron-700"
+                        >
+                          {role}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <button
                     type="button"
                     onClick={() => {

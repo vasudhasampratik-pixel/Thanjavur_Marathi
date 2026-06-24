@@ -4,9 +4,11 @@ import { TAB_CONFIG, TAB_ORDER, type Tab } from './tabConfig';
 interface TabBarProps {
   activeTab: Tab;
   onTabChange: (tab: Tab) => void;
+  visibleTabs?: Tab[];
 }
 
-export function TabBar({ activeTab, onTabChange }: TabBarProps) {
+export function TabBar({ activeTab, onTabChange, visibleTabs }: TabBarProps) {
+  const tabs = visibleTabs ?? TAB_ORDER;
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [showSwipeHint, setShowSwipeHint] = useState(false);
   const [showRightFade, setShowRightFade] = useState(false);
@@ -41,7 +43,7 @@ export function TabBar({ activeTab, onTabChange }: TabBarProps) {
           ref={scrollerRef}
           className="flex items-center gap-2 overflow-x-auto py-2 pr-10 sm:pr-2"
         >
-          {TAB_ORDER.map((tabId) => {
+          {tabs.map((tabId) => {
             const tab = TAB_CONFIG[tabId];
             const isActive = activeTab === tabId;
             return (

@@ -52,6 +52,10 @@ const CONFIDENCE_OPTIONS: { value: ConfidenceLevel; label: string }[] = [
   { value: 'not-sure', label: 'Not sure' },
 ];
 
+// Spark-safe guard for Firestore audio-as-data-url flow.
+// Keep blob well below 1 MiB doc limit because base64 inflates size.
+const MAX_AUDIO_BLOB_BYTES = 700 * 1024;
+
 // ── AudioRecorder sub-component ───────────────────────────────────────────────
 interface AudioRecorderProps {
   onRecorded: (blob: Blob | null) => void;
@@ -230,6 +234,12 @@ export function ContributorPage() {
       setValidationError('Devanagari Marathi is required.');
       return;
     }
+    if (audioBlob && audioBlob.size > MAX_AUDIO_BLOB_BYTES) {
+      setValidationError(
+        `Voice recording is too large (${audioSizeKB} KB). Please keep it under ${maxAudioKB} KB (roughly 3-8 seconds).`
+      );
+      return;
+    }
     setValidationError(null);
     setSubmitted(prev => new Set([...prev, current.id]));
     setShowSuccess(true);
@@ -249,6 +259,8 @@ export function ContributorPage() {
   };
 
   const totalDone = submitted.size;
+  const audioSizeKB = audioBlob ? Math.round(audioBlob.size / 1024) : 0;
+  const maxAudioKB = Math.round(MAX_AUDIO_BLOB_BYTES / 1024);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
@@ -352,6 +364,11 @@ export function ContributorPage() {
           </div>
 
           <AudioRecorder onRecorded={setAudioBlob} audioBlob={audioBlob} />
+          {audioBlob && (
+            <p className="-mt-3 text-xs text-gray-500">
+              Recording size: {audioSizeKB} KB / {maxAudioKB} KB max
+            </p>
+          )}
 
           {/* Confidence selector */}
           <div className="my-8">

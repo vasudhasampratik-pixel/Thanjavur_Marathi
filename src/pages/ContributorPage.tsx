@@ -21,19 +21,28 @@ interface RawPrompt {
   text: string;
 }
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 const ALL_PROMPTS: Prompt[] = [
-  ...(wordsData.ENGLISH_WORD_PROMPTS as RawPrompt[]).map(p => ({
-    id: p.id,
-    english: p.text,
-    type: 'word' as const,
-    category: p.category,
-  })),
-  ...(sentencesData.ENGLISH_SENTENCE_PROMPTS as RawPrompt[]).map(p => ({
+  ...shuffle((sentencesData.ENGLISH_SENTENCE_PROMPTS as RawPrompt[]).map(p => ({
     id: p.id,
     english: p.text,
     type: 'sentence' as const,
     category: p.category,
-  })),
+  }))),
+  ...shuffle((wordsData.ENGLISH_WORD_PROMPTS as RawPrompt[]).map(p => ({
+    id: p.id,
+    english: p.text,
+    type: 'word' as const,
+    category: p.category,
+  }))),
 ];
 
 // ── Constants ─────────────────────────────────────────────────────────────────

@@ -7,7 +7,6 @@ import { TranslatorBox } from './components/TranslatorBox';
 import { FamilyTreePage } from './pages/FamilyTreePage';
 import { EmotionsPage } from './pages/EmotionsPage';
 import { CookBookPage } from './pages/CookBookPage';
-import { CommunityPage } from './pages/CommunityPage';
 import { VaraadPage } from './pages/VaraadPage';
 import { ContributorPage } from './pages/ContributorPage';
 import { ReviewerPage } from './pages/ReviewerPage';
@@ -236,7 +235,6 @@ function App() {
         {activeTab === 'bhaav' && <EmotionsPage />}
         {activeTab === 'cookbook' && <CookBookPage />}
         {activeTab === 'varaad' && <VaraadPage />}
-        {activeTab === 'community' && <CommunityPage />}
         {activeTab === 'reviewer' && <ReviewerPage />}
         {activeTab === 'leaderboard' && <LeaderboardPage />}
       </main>

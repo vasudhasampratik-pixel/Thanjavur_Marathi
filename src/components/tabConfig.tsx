@@ -18,7 +18,7 @@ export const TAB_ORDER: Tab[] = [
   'bhaav',
   'cookbook',
   'varaad',
-  'community',
+  // Temporarily hidden due to community-post issues. Re-enable by adding 'community' back.
   'reviewer',
 ];
 

@@ -11,7 +11,6 @@ import { VaraadPage } from './pages/VaraadPage';
 import { ContributorPage } from './pages/ContributorPage';
 import { ReviewerPage } from './pages/ReviewerPage';
 import { LeaderboardPage } from './pages/LeaderboardPage';
-import useBackgroundSync from './hooks/useBackgroundSync';
 import dictionaryData from './data/dictionary.json';
 import appDictionaryData from './data/app_dictionary.json';
 import type { Dictionary, DictionaryEntry } from './types';
@@ -90,7 +89,6 @@ const combinedEntries = [...dictionary.entries, ...appPhraseEntries];
 
 function App() {
   const { user, loading } = useAuth();
-  useBackgroundSync();
   const [activeTab, setActiveTab] = useState<Tab>('translate');
   const [openFooterPanel, setOpenFooterPanel] = useState<'credits' | 'developer' | null>(null);
   const footerPanelRef = useRef<HTMLDivElement | null>(null);

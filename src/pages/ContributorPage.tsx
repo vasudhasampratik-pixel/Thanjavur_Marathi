@@ -296,10 +296,6 @@ export function ContributorPage({ onNavigate }: { onNavigate?: (tab: Tab) => voi
       setValidationError('Romanized Marathi is required.');
       return;
     }
-    if (!devanagari.trim()) {
-      setValidationError('Devanagari Marathi is required.');
-      return;
-    }
     if (audioBlob && audioBlob.size > MAX_AUDIO_BLOB_BYTES) {
       setValidationError(
         `Voice recording is too large (${audioSizeKB} KB). Please keep it under ${maxAudioKB} KB (roughly 3-8 seconds).`
@@ -475,7 +471,7 @@ export function ContributorPage({ onNavigate }: { onNavigate?: (tab: Tab) => voi
 
           <div>
             <label htmlFor="devanagari-input" className="block text-xs font-medium text-gray-900 uppercase tracking-wider mb-1.5">
-              Devanagari Marathi <span className="text-red-400">*</span>
+              Devanagari Marathi <span className="normal-case font-normal text-gray-500">(optional, but very helpful)</span>
             </label>
             <input
               id="devanagari-input"
@@ -489,6 +485,9 @@ export function ContributorPage({ onNavigate }: { onNavigate?: (tab: Tab) => voi
               lang="mr"
               dir="ltr"
             />
+            <p className="mt-1.5 text-xs text-gray-500">
+              If you know the script, taking a moment to add Devanagari makes the dataset much more useful.
+            </p>
           </div>
 
           <AudioRecorder onRecorded={setAudioBlob} audioBlob={audioBlob} />

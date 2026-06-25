@@ -225,7 +225,7 @@ function App() {
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
 
       <main className="flex-1 pb-8 pt-4 sm:pt-6">
-        {activeTab === 'contributor' && <ContributorPage onNavigate={setActiveTab} />
+        {activeTab === 'contributor' && <ContributorPage onNavigate={setActiveTab} />}
         {activeTab === 'translate' && (
           <TranslatorBox
             entries={combinedEntries}

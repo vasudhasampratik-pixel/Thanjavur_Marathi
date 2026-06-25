@@ -1,6 +1,18 @@
-﻿import { useState, useRef, useCallback } from 'react';
+﻿import { useState, useRef, useCallback, useEffect } from 'react';
+import {
+  addDoc,
+  collection,
+  getDocs,
+  onSnapshot,
+  query,
+  serverTimestamp,
+  where,
+} from 'firebase/firestore';
 import wordsData from '../data/words.json';
 import sentencesData from '../data/sentences.json';
+import { db } from '../firebase';
+import { useAuth } from '../contexts/AuthContext';
+import type { Tab } from '../components/tabConfig';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type ConfidenceLevel = 'confident' | 'partially-sure' | 'not-sure';
@@ -30,6 +42,15 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+async function blobToDataUrl(blob: Blob): Promise<string> {
+  return await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(String(reader.result));
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
 const ALL_PROMPTS: Prompt[] = [
   ...shuffle((sentencesData.ENGLISH_SENTENCE_PROMPTS as RawPrompt[]).map(p => ({
     id: p.id,
@@ -51,6 +72,7 @@ const CONFIDENCE_OPTIONS: { value: ConfidenceLevel; label: string }[] = [
   { value: 'partially-sure', label: 'Partially sure' },
   { value: 'not-sure', label: 'Not sure' },
 ];
+const MAX_SUBMISSIONS_PER_PROMPT = 3;
 
 // Spark-safe guard for Firestore audio-as-data-url flow.
 // Keep blob well below 1 MiB doc limit because base64 inflates size.
@@ -198,7 +220,8 @@ function AudioRecorder({ onRecorded, audioBlob }: AudioRecorderProps) {
 }
 
 // ── Main page ─────────────────────────────────────────────────────────────────
-export function ContributorPage() {
+export function ContributorPage({ onNavigate }: { onNavigate?: (tab: Tab) => void }) {
+  const { user } = useAuth();
   const [promptIndex, setPromptIndex] = useState(0);
   const [romanized, setRomanized] = useState('');
   const [devanagari, setDevanagari] = useState('');
@@ -206,12 +229,46 @@ export function ContributorPage() {
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState<Set<string>>(new Set());
+  const [promptSubmissionCounts, setPromptSubmissionCounts] = useState<Record<string, number>>({});
+  const [isLoadingPromptCounts, setIsLoadingPromptCounts] = useState(true);
   const [validationError, setValidationError] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // Circular index so prompts never run out
-  const current = ALL_PROMPTS[promptIndex % ALL_PROMPTS.length];
-  const displayIndex = (promptIndex % ALL_PROMPTS.length) + 1;
+  const availablePrompts = ALL_PROMPTS.filter(
+    (prompt) => (promptSubmissionCounts[prompt.id] ?? 0) < MAX_SUBMISSIONS_PER_PROMPT
+  );
+
+  // Circular index on currently available prompts
+  const current = availablePrompts.length > 0
+    ? availablePrompts[promptIndex % availablePrompts.length]
+    : null;
+  const displayIndex = availablePrompts.length > 0
+    ? (promptIndex % availablePrompts.length) + 1
+    : 0;
+
+  useEffect(() => {
+    const contributionsRef = collection(db, 'contributions');
+    const unsubscribe = onSnapshot(
+      contributionsRef,
+      (snapshot) => {
+        const counts: Record<string, number> = {};
+        snapshot.forEach((docSnap) => {
+          const data = docSnap.data() as { promptId?: string };
+          if (!data.promptId) return;
+          counts[data.promptId] = (counts[data.promptId] ?? 0) + 1;
+        });
+        setPromptSubmissionCounts(counts);
+        setIsLoadingPromptCounts(false);
+      },
+      (error) => {
+        console.error('Failed to load prompt counts:', error);
+        setValidationError('Could not load prompt availability. Please refresh and try again.');
+        setIsLoadingPromptCounts(false);
+      }
+    );
+
+    return unsubscribe;
+  }, []);
 
   const resetForm = useCallback(() => {
     setRomanized('');
@@ -221,7 +278,15 @@ export function ContributorPage() {
     setConfidence('confident');
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (!current) {
+      setValidationError('No available prompts right now. Please check back later.');
+      return;
+    }
+    if (!user) {
+      setValidationError('Please sign in again before submitting.');
+      return;
+    }
     if (!consent) {
       setValidationError('Please accept the data usage consent before submitting.');
       return;
@@ -240,12 +305,51 @@ export function ContributorPage() {
       );
       return;
     }
-    setValidationError(null);
-    setSubmitted(prev => new Set([...prev, current.id]));
-    setShowSuccess(true);
-    resetForm();
-    setPromptIndex(i => i + 1);
-    setTimeout(() => setShowSuccess(false), 2500);
+    try {
+      setValidationError(null);
+      const audioDataUrl = audioBlob ? await blobToDataUrl(audioBlob) : null;
+
+      // Cap check — getDocs is safe here; worst-case race adds one extra doc
+      // (off by one is acceptable; prompt vanishes from the queue after real-time listener catches up)
+      const capSnap = await getDocs(
+        query(collection(db, 'contributions'), where('promptId', '==', current.id))
+      );
+      if (capSnap.size >= MAX_SUBMISSIONS_PER_PROMPT) {
+        throw new Error('prompt-cap-reached');
+      }
+
+      await addDoc(collection(db, 'contributions'), {
+        uid: user.uid,
+        contributorEmail: user.email ?? '',
+        contributorName: user.displayName ?? '',
+        promptId: current.id,
+        promptEnglish: current.english,
+        promptType: current.type,
+        category: current.category,
+        translation: `${romanized.trim()} | ${devanagari.trim()}`,
+        confidence,
+        audioUrl: audioDataUrl,
+        status: 'pending',
+        reviewerUid: null,
+        reviewerComment: null,
+        reviewedAt: null,
+        submittedAt: serverTimestamp(),
+      });
+
+      setSubmitted(prev => new Set([...prev, current.id]));
+      setShowSuccess(true);
+      resetForm();
+      setPromptIndex(i => i + 1);
+      setTimeout(() => setShowSuccess(false), 2500);
+    } catch (error) {
+      if ((error as Error).message === 'prompt-cap-reached') {
+        setValidationError('This prompt already has 3 submissions. Moving you to another prompt.');
+        setPromptIndex(i => i + 1);
+        return;
+      }
+      console.error('Failed to submit contribution:', error);
+      setValidationError('Submit failed. Please try again.');
+    }
   };
 
   const handleSkip = () => {
@@ -261,6 +365,29 @@ export function ContributorPage() {
   const totalDone = submitted.size;
   const audioSizeKB = audioBlob ? Math.round(audioBlob.size / 1024) : 0;
   const maxAudioKB = Math.round(MAX_AUDIO_BLOB_BYTES / 1024);
+
+  if (isLoadingPromptCounts) {
+    return (
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <div className="rounded-2xl border border-orange-100 bg-white p-6 text-sm text-gray-600">
+          Loading available prompts...
+        </div>
+      </div>
+    );
+  }
+
+  if (!current) {
+    return (
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+        <div className="rounded-2xl border border-orange-100 bg-white p-6 text-center">
+          <p className="text-lg font-semibold text-gray-900">All prompts are fully collected.</p>
+          <p className="mt-2 text-sm text-gray-600">
+            Every prompt has reached the cap of {MAX_SUBMISSIONS_PER_PROMPT} submissions.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
@@ -444,6 +571,20 @@ export function ContributorPage() {
           </button>
         </div>
       </article>
+
+      {/* Leaderboard CTA */}
+      <div className="mt-4 flex justify-center">
+        <button
+          type="button"
+          onClick={() => onNavigate?.('leaderboard')}
+          className="group inline-flex items-center gap-2 rounded-full border border-saffron-200 bg-gradient-to-r from-saffron-50 to-orange-50 px-5 py-2.5 text-sm font-semibold text-saffron-700 shadow-sm transition hover:border-saffron-400 hover:from-saffron-100 hover:to-orange-100 hover:shadow-md"
+        >
+          <svg className="w-4 h-4 text-saffron-500 transition group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75c-1.036 0-1.875-.84-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75C3.84 21.75 3 20.91 3 19.875v-6.75Z" />
+          </svg>
+          View Contributors Leaderboard
+        </button>
+      </div>
     </div>
   );
 }

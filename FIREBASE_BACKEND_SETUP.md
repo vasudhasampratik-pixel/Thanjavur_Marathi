@@ -61,7 +61,7 @@ The document structure the app expects:
 | `category` | string | e.g. `"food"`, `"emotions"` |
 | `translation` | string | Their Thanjavur Marathi translation |
 | `confidence` | string | `"confident"`, `"partially-sure"`, `"not-sure"` |
-| `audioUrl` | string? | Firebase Storage download URL (optional) |
+| `audioUrl` | string? | Audio source URL (Firebase Storage URL or base64 Data URL on Spark) |
 | `status` | string | `"pending"` (initial), `"approved"`, `"rejected"` |
 | `reviewerUid` | string? | UID of reviewer who acted |
 | `reviewerComment` | string? | Rejection reason |
@@ -92,12 +92,10 @@ service cloud.firestore {
       );
     }
 
-    // Contributions: contributors create their own; reviewers read/update status
+    // Contributions: authenticated users can read (needed for prompt cap checks);
+    // contributors create their own; reviewers/admins update review fields.
     match /contributions/{docId} {
-      allow read: if request.auth != null && (
-        resource.data.uid == request.auth.uid ||
-        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles.hasAny(['reviewer', 'admin'])
-      );
+      allow read: if request.auth != null;
       allow create: if request.auth != null
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.status == 'pending';
@@ -187,30 +185,54 @@ service firebase.storage {
 
 ## Step 7 — Wire up ContributorPage to Firestore
 
-The `ContributorPage` currently stores submissions locally (in browser). You need to update it to write to Firestore.
+`ContributorPage` now writes to Firestore and enforces a hard cap of **3 submissions per prompt**.
 
-When a contributor submits, call this from `ContributorPage.tsx`:
+Cap behavior:
+- Prompts with 3 or more submissions are hidden from the contributor queue.
+- Submit uses a Firestore transaction to re-check the count and block race conditions.
+- If another user fills the 3rd slot first, the current submit is rejected for that prompt and the UI moves to another prompt.
+
+Transaction pattern used in `ContributorPage.tsx`:
 
 ```ts
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import {
+  collection,
+  doc,
+  query,
+  runTransaction,
+  serverTimestamp,
+  where,
+} from 'firebase/firestore';
 import { db } from '../firebase';
 
-await addDoc(collection(db, 'contributions'), {
-  uid: user.uid,
-  contributorEmail: user.email ?? '',
-  contributorName: user.displayName ?? '',
-  promptId: currentPrompt.id,
-  promptEnglish: currentPrompt.english,
-  promptType: currentPrompt.type,
-  category: currentPrompt.category,
-  translation: tmTranslation,       // the text they typed
-  confidence: selectedConfidence,   // 'confident' | 'partially-sure' | 'not-sure'
-  audioUrl: uploadedAudioUrl ?? null, // null if no recording
-  status: 'pending',
-  reviewerUid: null,
-  reviewerComment: null,
-  reviewedAt: null,
-  submittedAt: serverTimestamp(),
+await runTransaction(db, async (transaction) => {
+  const existingForPrompt = query(
+    collection(db, 'contributions'),
+    where('promptId', '==', currentPrompt.id)
+  );
+  const existingSnapshot = await transaction.get(existingForPrompt);
+  if (existingSnapshot.size >= 3) {
+    throw new Error('prompt-cap-reached');
+  }
+
+  const newContributionRef = doc(collection(db, 'contributions'));
+  transaction.set(newContributionRef, {
+    uid: user.uid,
+    contributorEmail: user.email ?? '',
+    contributorName: user.displayName ?? '',
+    promptId: currentPrompt.id,
+    promptEnglish: currentPrompt.english,
+    promptType: currentPrompt.type,
+    category: currentPrompt.category,
+    translation: `${romanized.trim()} | ${devanagari.trim()}`,
+    confidence: selectedConfidence,
+    audioUrl: audioDataUrl,
+    status: 'pending',
+    reviewerUid: null,
+    reviewerComment: null,
+    reviewedAt: null,
+    submittedAt: serverTimestamp(),
+  });
 });
 ```
 

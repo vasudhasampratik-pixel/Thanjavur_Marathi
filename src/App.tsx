@@ -11,6 +11,7 @@ import { CommunityPage } from './pages/CommunityPage';
 import { VaraadPage } from './pages/VaraadPage';
 import { ContributorPage } from './pages/ContributorPage';
 import { ReviewerPage } from './pages/ReviewerPage';
+import { LeaderboardPage } from './pages/LeaderboardPage';
 import useBackgroundSync from './hooks/useBackgroundSync';
 import dictionaryData from './data/dictionary.json';
 import appDictionaryData from './data/app_dictionary.json';
@@ -224,7 +225,7 @@ function App() {
       <Header activeTab={activeTab} onTabChange={setActiveTab} />
 
       <main className="flex-1 pb-8 pt-4 sm:pt-6">
-        {activeTab === 'contributor' && <ContributorPage />}
+        {activeTab === 'contributor' && <ContributorPage onNavigate={setActiveTab} />
         {activeTab === 'translate' && (
           <TranslatorBox
             entries={combinedEntries}
@@ -237,6 +238,7 @@ function App() {
         {activeTab === 'varaad' && <VaraadPage />}
         {activeTab === 'community' && <CommunityPage />}
         {activeTab === 'reviewer' && <ReviewerPage />}
+        {activeTab === 'leaderboard' && <LeaderboardPage />}
       </main>
 
         <footer className="mt-6 border-t border-orange-100 bg-gradient-to-b from-white via-white to-orange-50/80 px-4 py-5">

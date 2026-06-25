@@ -1,4 +1,4 @@
-export type Tab = 'contributor' | 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community' | 'reviewer';
+export type Tab = 'contributor' | 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community' | 'reviewer' | 'leaderboard';
 
 export interface TabConfig {
   label: string;
@@ -12,6 +12,7 @@ export interface TabConfig {
 
 export const TAB_ORDER: Tab[] = [
   'contributor',
+  'leaderboard',
   'translate',
   'family-tree',
   'bhaav',
@@ -169,6 +170,23 @@ export const TAB_CONFIG: Record<Tab, TabConfig> = {
     iconActive: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path fillRule="evenodd" clipRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" />
+      </svg>
+    ),
+  },
+  leaderboard: {
+    label: 'Leaderboard',
+    subtitle: {
+      en: 'Top contributors keeping the language alive',
+      hint: 'See who has contributed the most to the Thanjavur Marathi dataset',
+    },
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 8v8m-8-5v5m4-9v9M3 20h18" />
+      </svg>
+    ),
+    iconActive: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75ZM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75c-1.036 0-1.875-.84-1.875-1.875V8.625ZM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75C3.84 21.75 3 20.91 3 19.875v-6.75Z" />
       </svg>
     ),
   },

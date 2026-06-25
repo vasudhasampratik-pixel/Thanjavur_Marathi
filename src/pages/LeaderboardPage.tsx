@@ -169,8 +169,14 @@ export function LeaderboardPage() {
         setLoading(false);
       },
       (err) => {
-        console.error('Leaderboard load error:', err);
-        setError('Could not load leaderboard. Please try again.');
+        const isPermission = (err as { code?: string }).code === 'permission-denied';
+        if (isPermission) {
+          console.warn('Leaderboard: Firestore rules not configured yet. See FIREBASE_BACKEND_SETUP.md Step 4.');
+          setError('Leaderboard will appear here once Firestore rules are set up. See the setup guide Step 4.');
+        } else {
+          console.error('Leaderboard load error:', err);
+          setError('Could not load leaderboard. Please try again.');
+        }
         setLoading(false);
       }
     );

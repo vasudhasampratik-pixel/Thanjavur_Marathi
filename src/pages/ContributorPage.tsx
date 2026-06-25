@@ -261,8 +261,9 @@ export function ContributorPage({ onNavigate }: { onNavigate?: (tab: Tab) => voi
         setIsLoadingPromptCounts(false);
       },
       (error) => {
-        console.error('Failed to load prompt counts:', error);
-        setValidationError('Could not load prompt availability. Please refresh and try again.');
+        console.warn('Could not load prompt counts from Firestore (permissions not set up yet). Showing all prompts.', error);
+        // Firestore rules not configured yet — fall back to showing all prompts with cap disabled
+        setPromptSubmissionCounts({});
         setIsLoadingPromptCounts(false);
       }
     );

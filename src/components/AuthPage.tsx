@@ -115,9 +115,6 @@ export function AuthPage() {
           </div>
         </div>
 
-        <div className="mt-6 text-center text-xs text-slate-500">
-          <p>Once you're signed in, you can build this app as an Android or iOS package using Capacitor or a PWA wrapper.</p>
-        </div>
       </div>
     </div>
   )

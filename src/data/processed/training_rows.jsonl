@@ -1,621 +1,477 @@
-{"source_english":"How are you?","speaker_profile":"young_female","sentence_family":"fixed_formula","target_tm_romanized":"tu kasa ahesa?","quality_score":1,"source_id":"ST001::young_female"}
-{"source_english":"How are you?","speaker_profile":"elder_respectful","sentence_family":"fixed_formula","target_tm_romanized":"tumi kasa ahenta?","quality_score":1,"source_id":"ST001::elder_respectful"}
-{"source_english":"I am fine.","speaker_profile":"young_female","sentence_family":"fixed_formula","target_tm_romanized":"mi bhara aahe.","quality_score":1,"source_id":"ST002::young_female"}
-{"source_english":"I am fine.","speaker_profile":"elder_respectful","sentence_family":"fixed_formula","target_tm_romanized":"mi bhara aahe.","quality_score":1,"source_id":"ST002::elder_respectful"}
-{"source_english":"What is your name?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tujha naav kaay?","quality_score":1,"source_id":"ST003::young_female"}
-{"source_english":"What is your name?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumcha naav kaay?","quality_score":1,"source_id":"ST003::elder_respectful"}
-{"source_english":"My name is Ravi.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"majha naav ravi","quality_score":1,"source_id":"ST004::young_female"}
-{"source_english":"My name is Ravi.","speaker_profile":"elder_respectful","sentence_family":"identity","target_tm_romanized":"majha naav ravi","quality_score":1,"source_id":"ST004::elder_respectful"}
-{"source_english":"Where are you from?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tu kotasoon aalahesa?","quality_score":1,"source_id":"ST006::young_female"}
-{"source_english":"Where are you from?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumi kotasoon aalayenta?","quality_score":1,"source_id":"ST006::elder_respectful"}
-{"source_english":"Please come in.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun aant ye","quality_score":1,"source_id":"ST008::young_female"}
-{"source_english":"Please come in.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karoon aant yaant","quality_score":1,"source_id":"ST008::elder_respectful"}
-{"source_english":"Please sit down.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun baise","quality_score":1,"source_id":"ST009::young_female"}
-{"source_english":"Please sit down.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karoon basaa","quality_score":1,"source_id":"ST009::elder_respectful"}
-{"source_english":"Goodbye.","speaker_profile":"young_female","sentence_family":"fixed_formula","target_tm_romanized":"mi jaoon yete","quality_score":1,"source_id":"ST014::young_female"}
-{"source_english":"Goodbye.","speaker_profile":"young_male","sentence_family":"fixed_formula","target_tm_romanized":"mi jaoon yeton","quality_score":1,"source_id":"ST014::young_male"}
-{"source_english":"See you tomorrow.","speaker_profile":"young_female","sentence_family":"fixed_formula","target_tm_romanized":"tula uja paate","quality_score":1,"source_id":"ST015::young_female"}
-{"source_english":"Come again.","speaker_profile":"young_female","sentence_family":"fixed_formula","target_tm_romanized":"anki ek dava ye","quality_score":1,"source_id":"ST016::young_female"}
-{"source_english":"Come again.","speaker_profile":"elder_respectful","sentence_family":"fixed_formula","target_tm_romanized":"anki ek dava yaant","quality_score":1,"source_id":"ST016::elder_respectful"}
-{"source_english":"Did you eat?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"besh jhevlis ka?","quality_score":1,"source_id":"ST017::young_female"}
-{"source_english":"Did you eat?","speaker_profile":"young_male","sentence_family":"yes_no_question","target_tm_romanized":"besh jhevlas ka?","quality_score":1,"source_id":"ST017::young_male"}
-{"source_english":"Did you eat?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"besh jhevlaant ka?","quality_score":1,"source_id":"ST017::elder_respectful"}
-{"source_english":"Are you well?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tu boror ahes ka?","quality_score":1,"source_id":"ST018::young_female"}
-{"source_english":"Are you well?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"tumi bhara ahenta ka?","quality_score":1,"source_id":"ST018::elder_respectful"}
-{"source_english":"We are happy to see you.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"ami tula paayeltra santosh aahein","quality_score":1,"source_id":"ST020::young_female"}
-{"source_english":"We are happy to see you.","speaker_profile":"elder_respectful","sentence_family":"experiencer","target_tm_romanized":"tumaans paayeltra santosh aahe","quality_score":1,"source_id":"ST020::elder_respectful"}
-{"source_english":"This is my father.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye majha baapa","quality_score":1,"source_id":"ST022::young_female"}
-{"source_english":"This is my mother.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye majha amma","quality_score":1,"source_id":"ST023::young_female"}
-{"source_english":"This is my brother.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye majha bhaau","quality_score":1,"source_id":"ST024::young_female"}
-{"source_english":"This is my sister.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye majha bhahin","quality_score":1,"source_id":"ST025::young_female"}
-{"source_english":"This is my son.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye majha lonk","quality_score":1,"source_id":"ST028::young_female"}
-{"source_english":"This is my daughter.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye majha lenke","quality_score":1,"source_id":"ST029::young_female"}
-{"source_english":"My grandfather is old.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha aaja maataare aahe","quality_score":1,"source_id":"ST033::young_female"}
-{"source_english":"My grandmother is wise.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha aaji shaani aahe","quality_score":1,"source_id":"ST034::young_female"}
-{"source_english":"The baby is sleeping.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkru nijat aahe","quality_score":1,"source_id":"ST035::young_female"}
-{"source_english":"The children are playing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkra khelat aaheta.","quality_score":1,"source_id":"ST036::young_female"}
-{"source_english":"My uncle came yesterday.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"majha mama kaale aale.","quality_score":1,"source_id":"ST037::young_female"}
-{"source_english":"My aunt will come tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"majha mausi uja yeyla","quality_score":1,"source_id":"ST038::young_female"}
-{"source_english":"My cousin studies in town.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"majha bahin town-aant vachte","quality_score":1,"source_id":"ST039::young_female"}
-{"source_english":"My parents are at home.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"majha amma-baapa gha-aant aaheta","quality_score":1,"source_id":"ST040::young_female"}
-{"source_english":"My brother cooks well.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha bhaau besh sampaak karto","quality_score":1,"source_id":"ST041::young_female"}
-{"source_english":"The old man is sitting outside.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"maataara bahir basl-aahe","quality_score":1,"source_id":"ST043::young_female"}
-{"source_english":"The old woman is telling a story.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"maataari kaani saangat-aahe","quality_score":1,"source_id":"ST044::young_female"}
-{"source_english":"The young boy is running.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"chumna por palat-aahe","quality_score":1,"source_id":"ST045::young_female"}
-{"source_english":"The young girl is singing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"chumna pori gaana manat-aahe","quality_score":1,"source_id":"ST046::young_female"}
-{"source_english":"This is our house.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye amcha ghar","quality_score":1,"source_id":"ST047::young_female"}
-{"source_english":"The house is small.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ghar chumna aahe","quality_score":1,"source_id":"ST048::young_female"}
-{"source_english":"Open the door.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"kavaad ugade","quality_score":1,"source_id":"ST050::young_female"}
-{"source_english":"Open the door.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"kavaad ugdaant","quality_score":1,"source_id":"ST050::elder_respectful"}
-{"source_english":"Close the door.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"kavaad jaanke","quality_score":1,"source_id":"ST051::young_female"}
-{"source_english":"Close the door.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"kavaad jankaant","quality_score":1,"source_id":"ST051::elder_respectful"}
-{"source_english":"The window is open.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"khidki ugada aahe","quality_score":1,"source_id":"ST052::young_female"}
-{"source_english":"The lamp is on.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"diva on aahe","quality_score":1,"source_id":"ST053::young_female"}
-{"source_english":"The lamp is off.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"diva off aahe","quality_score":1,"source_id":"ST054::young_female"}
-{"source_english":"Sweep the floor.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kalle jaade","quality_score":1,"source_id":"ST055::young_female"}
-{"source_english":"Sweep the floor.","speaker_profile":"elder_respectful","sentence_family":"description","target_tm_romanized":"kalle jadaant","quality_score":1,"source_id":"ST055::elder_respectful"}
-{"source_english":"Bring the chair.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"chair aane","quality_score":1,"source_id":"ST056::young_female"}
-{"source_english":"Bring the chair.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"chair aanaant","quality_score":1,"source_id":"ST056::elder_respectful"}
-{"source_english":"Keep the book on the table.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"pustak table-a vaar tive","quality_score":1,"source_id":"ST057::young_female"}
-{"source_english":"Keep the book on the table.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"pustak table-a vaar tivaant","quality_score":1,"source_id":"ST057::elder_respectful"}
-{"source_english":"The bag is near the wall.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"bag wall-a kada aahe","quality_score":1,"source_id":"ST058::young_female"}
-{"source_english":"Water is in the pot.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"paani matki aant aahe","quality_score":1,"source_id":"ST059::young_female"}
-{"source_english":"The clothes are dry.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kaapda vaalun aahe","quality_score":1,"source_id":"ST060::young_female"}
-{"source_english":"The clothes are wet.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kaapda vola aahe","quality_score":1,"source_id":"ST061::young_female"}
-{"source_english":"There is dust in the room.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"room-aant dust aahe","quality_score":1,"source_id":"ST062::young_female"}
-{"source_english":"The room is dark.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"room andaar aahe","quality_score":1,"source_id":"ST063::young_female"}
-{"source_english":"The room is bright.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"room ujaad aahe","quality_score":1,"source_id":"ST064::young_female"}
-{"source_english":"The key is missing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"key arpun gela","quality_score":1,"source_id":"ST065::young_female"}
-{"source_english":"The child is inside the house.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"lenkru ghar-aant aahe","quality_score":1,"source_id":"ST066::young_female"}
-{"source_english":"The dog is outside the house.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"kutra ghar-a bahir aahe","quality_score":1,"source_id":"ST067::young_female"}
-{"source_english":"We cleaned the house today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami ghar puslo","quality_score":1,"source_id":"ST068::young_female"}
-{"source_english":"We will repair the roof.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami roof-aal boro karto","quality_score":1,"source_id":"ST069::young_female"}
-{"source_english":"The wall is white.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"wall pandra aahe","quality_score":1,"source_id":"ST070::young_female"}
-{"source_english":"The old box is heavy.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"juna baxa dhandag aahe","quality_score":1,"source_id":"ST071::young_female"}
-{"source_english":"I am hungry.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala bhook laagta","quality_score":1,"source_id":"ST072::young_female"}
-{"source_english":"I am thirsty.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala thaan laagta","quality_score":1,"source_id":"ST073::young_female"}
-{"source_english":"Please give me water.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun mala paani de","quality_score":1,"source_id":"ST074::young_female"}
-{"source_english":"Please give me water.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun mala paani dyaant","quality_score":1,"source_id":"ST074::elder_respectful"}
-{"source_english":"Please give me rice.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun mala bhaat de","quality_score":1,"source_id":"ST075::young_female"}
-{"source_english":"Please give me rice.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun mala bhaat dyaant","quality_score":1,"source_id":"ST075::elder_respectful"}
-{"source_english":"The food is hot.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"jevna oon aahe","quality_score":1,"source_id":"ST076::young_female"}
-{"source_english":"The food is cold.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"jevna himsa aahe","quality_score":1,"source_id":"ST077::young_female"}
-{"source_english":"The milk is spoilt.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"doodh sutun gela","quality_score":1,"source_id":"ST079::young_female"}
-{"source_english":"This curry is good.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"curry besh aahe","quality_score":1,"source_id":"ST080::young_female"}
-{"source_english":"This tea is very hot.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"chai oon aahe","quality_score":1,"source_id":"ST081::young_female"}
-{"source_english":"The child wants milk.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lenkr-aala doodh pajhe","quality_score":1,"source_id":"ST082::young_female"}
-{"source_english":"We are cooking now.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"ami ata sampaak karat-aahein","quality_score":1,"source_id":"ST083::young_female"}
-{"source_english":"He is making tea.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"to chai karat-aahe","quality_score":1,"source_id":"ST085::young_female"}
-{"source_english":"He is making tea.","speaker_profile":"elder_respectful","sentence_family":"progressive","target_tm_romanized":"tani chai karat-ayeta","quality_score":1,"source_id":"ST085::elder_respectful"}
-{"source_english":"The salt is less.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"meeth una aahe","quality_score":1,"source_id":"ST087::young_female"}
-{"source_english":"The chili is strong.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"thikkat bharun aahe","quality_score":1,"source_id":"ST088::young_female"}
-{"source_english":"Add more water.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"anki paani gaale","quality_score":1,"source_id":"ST089::young_female"}
-{"source_english":"Add more water.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"anki paani galaant","quality_score":1,"source_id":"ST089::elder_respectful"}
-{"source_english":"Bring a plate.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"plate aane","quality_score":1,"source_id":"ST090::young_female"}
-{"source_english":"Bring a plate.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"plate aanaant","quality_score":1,"source_id":"ST090::elder_respectful"}
-{"source_english":"Wash the vessel.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"paatra ghaanse","quality_score":1,"source_id":"ST091::young_female"}
-{"source_english":"Wash the vessel.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"paatra ghaasaant","quality_score":1,"source_id":"ST091::elder_respectful"}
-{"source_english":"Keep the spoon here.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"spoon-aal yeta tive","quality_score":1,"source_id":"ST092::young_female"}
-{"source_english":"Keep the spoon here.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"spoon-aal yeta tivaant","quality_score":1,"source_id":"ST092::elder_respectful"}
-{"source_english":"I ate already.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha jevan jhala","quality_score":1,"source_id":"ST094::young_female"}
-{"source_english":"He did not eat.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"to khaala nahi","quality_score":1,"source_id":"ST095::young_female"}
-{"source_english":"He did not eat.","speaker_profile":"elder_respectful","sentence_family":"past","target_tm_romanized":"tani khaale nahi","quality_score":1,"source_id":"ST095::elder_respectful"}
-{"source_english":"We will eat later.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami nantra jevto","quality_score":1,"source_id":"ST096::young_female"}
-{"source_english":"I wake up early.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mi lokar uthte","quality_score":1,"source_id":"ST097::young_female"}
-{"source_english":"I wake up early.","speaker_profile":"young_male","sentence_family":"description","target_tm_romanized":"mi lokar uthto","quality_score":1,"source_id":"ST097::young_male"}
-{"source_english":"He brushes his teeth.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to daant ghaasingto","quality_score":1,"source_id":"ST099::young_female"}
-{"source_english":"I wash my face.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mi tond pusingte","quality_score":1,"source_id":"ST100::young_female"}
-{"source_english":"I wash my face.","speaker_profile":"young_male","sentence_family":"description","target_tm_romanized":"mi tond pusingto","quality_score":1,"source_id":"ST100::young_male"}
-{"source_english":"We take a bath in the morning.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"ami paashte angoli karto","quality_score":1,"source_id":"ST101::young_female"}
-{"source_english":"She combs her hair.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina kes baachingat-aashe","quality_score":1,"source_id":"ST102::young_female"}
-{"source_english":"I go to work every day.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mi darroja kaamal jaate","quality_score":1,"source_id":"ST104::young_female"}
-{"source_english":"I go to work every day.","speaker_profile":"young_male","sentence_family":"description","target_tm_romanized":"mi darroja kaamal jaato","quality_score":1,"source_id":"ST104::young_male"}
-{"source_english":"We eat breakfast at home.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"ami gharaant nashta karton","quality_score":1,"source_id":"ST106::young_female"}
-{"source_english":"She cooks in the morning.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"tina paashte sampaak karte","quality_score":1,"source_id":"ST107::young_female"}
-{"source_english":"He returns in the evening.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"to sahenkali partun yeto","quality_score":1,"source_id":"ST108::young_female"}
-{"source_english":"I study at night.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"mi raatri vachte","quality_score":1,"source_id":"ST110::young_female"}
-{"source_english":"I study at night.","speaker_profile":"young_male","sentence_family":"location","target_tm_romanized":"mi raatri vachto","quality_score":1,"source_id":"ST110::young_male"}
-{"source_english":"The baby sleeps early.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lenkru lokar nijta","quality_score":1,"source_id":"ST111::young_female"}
-{"source_english":"My mother cleans the house daily.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha amma darroja ghar puste","quality_score":1,"source_id":"ST112::young_female"}
-{"source_english":"My father reads the news.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha bapa samachar vachtaat","quality_score":1,"source_id":"ST113::young_female"}
-{"source_english":"We drink tea in the evening.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"ami sahekali chai peeto","quality_score":1,"source_id":"ST114::young_female"}
-{"source_english":"I call my friend at night.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"mi majha mitraala raatri balaavte","quality_score":1,"source_id":"ST115::young_female"}
-{"source_english":"I call my friend at night.","speaker_profile":"young_male","sentence_family":"location","target_tm_romanized":"mi majha mitraala raatri balaavto","quality_score":1,"source_id":"ST115::young_male"}
-{"source_english":"He sleeps on the cot.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"to untroon-a var nijto","quality_score":1,"source_id":"ST116::young_female"}
-{"source_english":"She wakes the children.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina lenkr-aala utivte","quality_score":1,"source_id":"ST117::young_female"}
-{"source_english":"We leave home at eight.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"ami raatri aat vajtama ghar sodto","quality_score":1,"source_id":"ST118::young_female"}
-{"source_english":"I come back before dark.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami andaar volta puda partun aale","quality_score":1,"source_id":"ST119::young_female"}
-{"source_english":"I come back before dark.","speaker_profile":"young_male","sentence_family":"description","target_tm_romanized":"ami andaar volta puda partun aalo","quality_score":1,"source_id":"ST119::young_male"}
-{"source_english":"They work all day.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tani darroj kaam kartat","quality_score":1,"source_id":"ST120::young_female"}
-{"source_english":"We sleep after dinner.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami jevla nantara nijto","quality_score":1,"source_id":"ST121::young_female"}
-{"source_english":"What time is it?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"vel kaay hot-aahe?","quality_score":1,"source_id":"ST122::young_female"}
-{"source_english":"It is one o’clock.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vel ek vajta","quality_score":1,"source_id":"ST123::young_female"}
-{"source_english":"It is two o’clock.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vel don vajta","quality_score":1,"source_id":"ST124::young_female"}
-{"source_english":"It is early.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lokar aahe.","quality_score":1,"source_id":"ST126::young_female"}
-{"source_english":"Today is Monday.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"aaje somvaar aahe","quality_score":1,"source_id":"ST127::young_female"}
-{"source_english":"Tomorrow is Tuesday.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"uja mangalvar aahe","quality_score":1,"source_id":"ST128::young_female"}
-{"source_english":"Yesterday was Sunday.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"kaale ravivar hota","quality_score":1,"source_id":"ST129::young_female"}
-{"source_english":"The meeting is today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"meeting aaje aahe","quality_score":1,"source_id":"ST130::young_female"}
-{"source_english":"The festival is tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"saen uja aahe","quality_score":1,"source_id":"ST131::young_female"}
-{"source_english":"We came yesterday.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"ami kaale aalon","quality_score":1,"source_id":"ST132::young_female"}
-{"source_english":"He will leave tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"to uja nigto","quality_score":1,"source_id":"ST133::young_female"}
-{"source_english":"She came last week.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"tina gayla week aali","quality_score":1,"source_id":"ST134::young_female"}
-{"source_english":"We will meet next week.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami pullan week milto","quality_score":1,"source_id":"ST135::young_female"}
-{"source_english":"The work takes one hour.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"te kaam ek ghanta vohila","quality_score":1,"source_id":"ST136::young_female"}
-{"source_english":"Wait for five minutes.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"paanch nimisha aise","quality_score":1,"source_id":"ST137::young_female"}
-{"source_english":"Wait for five minutes.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"paanch nimisha aise","quality_score":1,"source_id":"ST137::young_male"}
-{"source_english":"Wait for five minutes.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"paanch nimisha asaant","quality_score":1,"source_id":"ST137::elder_respectful"}
-{"source_english":"Come before noon.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"dupara puda ye","quality_score":1,"source_id":"ST138::young_female"}
-{"source_english":"Return before sunset.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"sunsenta puda partun ye","quality_score":1,"source_id":"ST139::young_female"}
-{"source_english":"The shop opens in the morning.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"dukaan paashte ugadta","quality_score":1,"source_id":"ST141::young_female"}
-{"source_english":"The shop closes at night.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"dukaan raatri jaankta","quality_score":1,"source_id":"ST142::young_female"}
-{"source_english":"Next year will be better.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"pullan varsha anki besh asala","quality_score":1,"source_id":"ST145::young_female"}
-{"source_english":"Time goes fast.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vel lokar jaata","quality_score":1,"source_id":"ST146::young_female"}
-{"source_english":"Where are you going?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tu kuta jaat-ahesa?","quality_score":1,"source_id":"ST147::young_female"}
-{"source_english":"Where are you going?","speaker_profile":"young_male","sentence_family":"wh_question","target_tm_romanized":"tu kuta jaatos?","quality_score":1,"source_id":"ST147::young_male"}
-{"source_english":"Where are you going?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumi kuta jaataant?","quality_score":1,"source_id":"ST147::elder_respectful"}
-{"source_english":"I am going home.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"mi ghar-aala jaat aahe","quality_score":1,"source_id":"ST148::young_female"}
-{"source_english":"He is going to town.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"to town-aala jaato","quality_score":1,"source_id":"ST149::young_female"}
-{"source_english":"She went to the market.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"tina market geli","quality_score":1,"source_id":"ST150::young_female"}
-{"source_english":"We will go tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"tina uja jaahila","quality_score":1,"source_id":"ST151::young_female"}
-{"source_english":"Come with me.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"majha boror ye","quality_score":1,"source_id":"ST152::young_female"}
-{"source_english":"Wait here.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"yeta aise","quality_score":1,"source_id":"ST153::young_female"}
-{"source_english":"Wait here.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"yeta aise","quality_score":1,"source_id":"ST153::young_male"}
-{"source_english":"Wait here.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"yeta asaant","quality_score":1,"source_id":"ST153::elder_respectful"}
-{"source_english":"Walk slowly.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"nidaan chaale","quality_score":1,"source_id":"ST154::young_female"}
-{"source_english":"Walk slowly.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"nidaan chaale","quality_score":1,"source_id":"ST154::young_male"}
-{"source_english":"Walk slowly.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"nidaan chalaant","quality_score":1,"source_id":"ST154::elder_respectful"}
-{"source_english":"The road is long.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vaat laamb aahe","quality_score":1,"source_id":"ST155::young_female"}
-{"source_english":"The road is bad.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vaat bara nahi","quality_score":0.75,"source_id":"ST156::young_female"}
-{"source_english":"This way is shorter.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vaat chumna aahe","quality_score":1,"source_id":"ST157::young_female"}
-{"source_english":"That place is far.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"te tikaan door aahe","quality_score":1,"source_id":"ST158::young_female"}
-{"source_english":"We missed the bus.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"ami bus sutlo","quality_score":1,"source_id":"ST160::young_female"}
-{"source_english":"The train has arrived.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"train aala","quality_score":1,"source_id":"ST161::young_female"}
-{"source_english":"Call the driver.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"driveraal balaave","quality_score":1,"source_id":"ST162::young_female"}
-{"source_english":"Stop here.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"yeta aise","quality_score":1,"source_id":"ST163::young_female"}
-{"source_english":"Stop here.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"yeta aise","quality_score":1,"source_id":"ST163::young_male"}
-{"source_english":"Stop here.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"yeta asaant","quality_score":1,"source_id":"ST163::elder_respectful"}
-{"source_english":"Turn left.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"dava parte","quality_score":1,"source_id":"ST164::young_female"}
-{"source_english":"Turn left.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"dava partaant","quality_score":1,"source_id":"ST164::elder_respectful"}
-{"source_english":"Turn right.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ujava parte","quality_score":1,"source_id":"ST165::young_female"}
-{"source_english":"Turn right.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"ujava partaant","quality_score":1,"source_id":"ST165::elder_respectful"}
-{"source_english":"Go straight.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"laamb jaa","quality_score":1,"source_id":"ST166::young_female"}
-{"source_english":"Go straight.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"laamb jaa","quality_score":1,"source_id":"ST166::young_male"}
-{"source_english":"Go straight.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"laamb jaant","quality_score":1,"source_id":"ST166::elder_respectful"}
-{"source_english":"The bridge is broken.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"bridge modl-aahe","quality_score":1,"source_id":"ST167::young_female"}
-{"source_english":"The path is muddy.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"vaat maati-maati aahe","quality_score":1,"source_id":"ST168::young_female"}
-{"source_english":"We reached safely.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami boror jaaun paavlo","quality_score":1,"source_id":"ST169::young_female"}
-{"source_english":"Show me the way.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"vaat daakive","quality_score":1,"source_id":"ST170::young_female"}
-{"source_english":"Show me the way.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"vaat daakive","quality_score":1,"source_id":"ST170::young_male"}
-{"source_english":"Show me the way.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"vaat daakivaant","quality_score":1,"source_id":"ST170::elder_respectful"}
-{"source_english":"Is the village near?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"village baaju aahe ka?","quality_score":1,"source_id":"ST171::young_female"}
-{"source_english":"I want vegetables.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala bhaaji pajhe","quality_score":1,"source_id":"ST172::young_female"}
-{"source_english":"I want fruits.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala pandu pajhe","quality_score":1,"source_id":"ST173::young_female"}
-{"source_english":"How much is this?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"ye kavda?","quality_score":1,"source_id":"ST174::young_female"}
-{"source_english":"This is too costly.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"yeja mol jaasti aahe","quality_score":1,"source_id":"ST175::young_female"}
-{"source_english":"Give me a lower price.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mol kammi karun sange","quality_score":1,"source_id":"ST176::young_female"}
-{"source_english":"Give me a lower price.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"mol kammi karun sangaant","quality_score":1,"source_id":"ST176::elder_respectful"}
-{"source_english":"I will take this.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"mi ye kaadingte","quality_score":1,"source_id":"ST177::young_female"}
-{"source_english":"I will take this.","speaker_profile":"young_male","sentence_family":"future","target_tm_romanized":"mi ye kaadingto","quality_score":1,"source_id":"ST177::young_male"}
-{"source_english":"I do not want that.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala te nokko","quality_score":1,"source_id":"ST178::young_female"}
-{"source_english":"We need rice.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"amaala bhaat pajhe","quality_score":1,"source_id":"ST179::young_female"}
-{"source_english":"We need oil.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"amaala tel pajhe","quality_score":1,"source_id":"ST180::young_female"}
-{"source_english":"We need salt.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"amaala meeth pajhe","quality_score":1,"source_id":"ST181::young_female"}
-{"source_english":"The shop is open.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"dukaan ugda aahe","quality_score":1,"source_id":"ST182::young_female"}
-{"source_english":"The shop is closed.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"dukaan jaankl-aahe","quality_score":1,"source_id":"ST183::young_female"}
-{"source_english":"He bought a bag.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to bag getla","quality_score":1,"source_id":"ST184::young_female"}
-{"source_english":"She bought clothes.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina kaapda getli","quality_score":1,"source_id":"ST185::young_female"}
-{"source_english":"I forgot the money.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mi paisa visrun gele","quality_score":1,"source_id":"ST186::young_female"}
-{"source_english":"Do you have change?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tujha kada change aahe ka?","quality_score":1,"source_id":"ST187::young_female"}
-{"source_english":"Do you have change?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"tumcha kada change aahe ka?","quality_score":1,"source_id":"ST187::elder_respectful"}
-{"source_english":"This cloth is good.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye kaapda besh aahe","quality_score":1,"source_id":"ST189::young_female"}
-{"source_english":"That pot is big.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"te matki mota aahe","quality_score":1,"source_id":"ST190::young_female"}
-{"source_english":"The onions are costly today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"aaje kaanda mol jaasti aahe","quality_score":1,"source_id":"ST192::young_female"}
-{"source_english":"Give me half a kilo.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mala ardha kilo de","quality_score":1,"source_id":"ST193::young_female"}
-{"source_english":"Give me half a kilo.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"mala ardha kilo de","quality_score":1,"source_id":"ST193::young_male"}
-{"source_english":"Give me half a kilo.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"mala ardha kilo dyaant","quality_score":1,"source_id":"ST193::elder_respectful"}
-{"source_english":"Give me one kilo.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mala ek kilo de","quality_score":1,"source_id":"ST194::young_female"}
-{"source_english":"Give me one kilo.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"mala ek kilo de","quality_score":1,"source_id":"ST194::young_male"}
-{"source_english":"Give me one kilo.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"mala ek kilo dyaant","quality_score":1,"source_id":"ST194::elder_respectful"}
-{"source_english":"We will come later.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"mi nantra yete","quality_score":1,"source_id":"ST195::young_female"}
-{"source_english":"We will come later.","speaker_profile":"young_male","sentence_family":"future","target_tm_romanized":"mi nantra yeto","quality_score":1,"source_id":"ST195::young_male"}
-{"source_english":"Keep it aside for me.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mala ye kaadun tive","quality_score":1,"source_id":"ST196::young_female"}
-{"source_english":"The children are in school.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"lenkra shaalaant ahita","quality_score":1,"source_id":"ST197::young_female"}
-{"source_english":"I am learning now.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"mi ata sikhingat-aahe","quality_score":1,"source_id":"ST198::young_female"}
-{"source_english":"She reads well.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina besh vaachti","quality_score":1,"source_id":"ST199::young_female"}
-{"source_english":"He writes neatly.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to besh livto","quality_score":1,"source_id":"ST200::young_female"}
-{"source_english":"Open your book.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha pustak ugade","quality_score":1,"source_id":"ST201::young_female"}
-{"source_english":"Open your book.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tujha pustak ugadaant","quality_score":1,"source_id":"ST201::elder_respectful"}
-{"source_english":"Close your notebook.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha pustak jaanke","quality_score":1,"source_id":"ST202::young_female"}
-{"source_english":"Close your notebook.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tujha pustak jaankaant","quality_score":1,"source_id":"ST202::elder_respectful"}
-{"source_english":"Repeat after me.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha nantara saange","quality_score":1,"source_id":"ST204::young_female"}
-{"source_english":"Write your name.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha naav live","quality_score":1,"source_id":"ST205::young_female"}
-{"source_english":"Read this sentence.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ye vaakya vaache","quality_score":1,"source_id":"ST206::young_female"}
-{"source_english":"What is the answer?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"yeja uttar kaahe?","quality_score":1,"source_id":"ST207::young_female"}
-{"source_english":"The answer is correct.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"uttar boror aahe","quality_score":1,"source_id":"ST208::young_female"}
-{"source_english":"The answer is wrong.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"uttar chook aahe","quality_score":1,"source_id":"ST209::young_female"}
-{"source_english":"Ask the teacher.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"panthoji-la vichaare","quality_score":1,"source_id":"ST210::young_female"}
-{"source_english":"The class starts early.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"class lokar aarambh hota","quality_score":1,"source_id":"ST211::young_female"}
-{"source_english":"The lesson is easy.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paath sulabh aahe","quality_score":1,"source_id":"ST212::young_female"}
-{"source_english":"We studied yesterday.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"ami kaale vaachlo","quality_score":1,"source_id":"ST216::young_female"}
-{"source_english":"We will study tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami uja vaachto","quality_score":1,"source_id":"ST217::young_female"}
-{"source_english":"The teacher is absent today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"panthoji aaje aali-nahi","quality_score":1,"source_id":"ST218::young_female"}
-{"source_english":"Bring your pencil.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha pencil aane","quality_score":1,"source_id":"ST219::young_female"}
-{"source_english":"The child learns fast.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lenkru lokar sikhingta","quality_score":1,"source_id":"ST221::young_female"}
-{"source_english":"I have work today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mala aaje kaam aahe","quality_score":1,"source_id":"ST222::young_female"}
-{"source_english":"He has a lot of work.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tala dande kaam aahe","quality_score":1,"source_id":"ST223::young_female"}
-{"source_english":"We finished the work.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"ami kaam samplo","quality_score":1,"source_id":"ST225::young_female"}
-{"source_english":"The work is not finished.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"kaam anki sampal-nahi","quality_score":1,"source_id":"ST226::young_female"}
-{"source_english":"Start the work now.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"kaam ata aarambh kare","quality_score":1,"source_id":"ST227::young_female"}
-{"source_english":"Start the work now.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"kaam ata aarambh kare","quality_score":1,"source_id":"ST227::young_male"}
-{"source_english":"Start the work now.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"kaam ata araambh karaant","quality_score":1,"source_id":"ST227::elder_respectful"}
-{"source_english":"Do this first.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye paila kare","quality_score":1,"source_id":"ST228::young_female"}
-{"source_english":"Do that later.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"te nantara kare","quality_score":1,"source_id":"ST229::young_female"}
-{"source_english":"She stitches clothes.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina kaapda seevte","quality_score":1,"source_id":"ST231::young_female"}
-{"source_english":"This work is easy.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kaam sulabh aahe","quality_score":1,"source_id":"ST234::young_female"}
-{"source_english":"We need more people.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"amaal anki lok pajhe","quality_score":1,"source_id":"ST236::young_female"}
-{"source_english":"We repaired it.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami boror karlo","quality_score":1,"source_id":"ST242::young_female"}
-{"source_english":"Finish this by evening.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye sahenkali-tanka sampive","quality_score":1,"source_id":"ST243::young_female"}
-{"source_english":"Check it again.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"anki ek dava paa","quality_score":1,"source_id":"ST244::young_female"}
-{"source_english":"Be careful while working.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kaam kartama jaagarde","quality_score":1,"source_id":"ST245::young_female"}
-{"source_english":"I am not well.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"mala aang bara nahi","quality_score":1,"source_id":"ST247::young_female"}
-{"source_english":"She has a fever.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"tila jaera aahe","quality_score":1,"source_id":"ST248::young_female"}
-{"source_english":"He has a cold.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tala padasa aahe","quality_score":1,"source_id":"ST249::young_female"}
-{"source_english":"My head hurts.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mjha doska dukhta","quality_score":1,"source_id":"ST250::young_female"}
-{"source_english":"My stomach hurts.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"majha pot dukhta","quality_score":1,"source_id":"ST251::young_female"}
-{"source_english":"My leg hurts.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"majha paiy dukhta","quality_score":1,"source_id":"ST252::young_female"}
-{"source_english":"The child is coughing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkru konkat-aahe","quality_score":1,"source_id":"ST253::young_female"}
-{"source_english":"The baby is crying.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkru radat-aahe","quality_score":1,"source_id":"ST254::young_female"}
-{"source_english":"Give the medicine.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"maatra de","quality_score":1,"source_id":"ST255::young_female"}
-{"source_english":"Give the medicine.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"maatra de","quality_score":1,"source_id":"ST255::young_male"}
-{"source_english":"Give the medicine.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"maatra dyaant","quality_score":1,"source_id":"ST255::elder_respectful"}
-{"source_english":"Did you take the medicine?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tu maatra kadinglis ka?","quality_score":1,"source_id":"ST256::young_female"}
-{"source_english":"Did you take the medicine?","speaker_profile":"young_male","sentence_family":"yes_no_question","target_tm_romanized":"tu maatra kadinglos ka?","quality_score":1,"source_id":"ST256::young_male"}
-{"source_english":"Did you take the medicine?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"timi maatra kadinglaant ka?","quality_score":1,"source_id":"ST256::elder_respectful"}
-{"source_english":"We went to the doctor.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"ami vaidya kada gelo","quality_score":1,"source_id":"ST261::young_female"}
-{"source_english":"The doctor came home.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"vaidya ghar-aala aale","quality_score":1,"source_id":"ST262::young_female"}
-{"source_english":"The wound is small.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ghaav chumna aahe","quality_score":1,"source_id":"ST263::young_female"}
-{"source_english":"The pain is strong.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"sool ghatti aahe","quality_score":1,"source_id":"ST264::young_female"}
-{"source_english":"He cannot walk properly.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tala boror chaal-aala voyna","quality_score":1,"source_id":"ST265::young_female"}
-{"source_english":"She should eat well.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina boror jevaama","quality_score":1,"source_id":"ST266::young_female"}
-{"source_english":"Wash your hands.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"haath duinge","quality_score":1,"source_id":"ST267::young_female"}
-{"source_english":"Keep the place clean.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tikaan nirambal tive","quality_score":1,"source_id":"ST268::young_female"}
-{"source_english":"The water is not clean.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paani nirambal nahi","quality_score":1,"source_id":"ST269::young_female"}
-{"source_english":"Boil the water first.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paani-la paila sijive","quality_score":1,"source_id":"ST270::young_female"}
-{"source_english":"It is very hot today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"aaje udande oob aahe","quality_score":1,"source_id":"ST272::young_female"}
-{"source_english":"It is very cold today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"aaje udande himsa aahe","quality_score":1,"source_id":"ST273::young_female"}
-{"source_english":"It is raining.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"paus padat-aahe","quality_score":1,"source_id":"ST274::young_female"}
-{"source_english":"It may rain today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paus paduya","quality_score":1,"source_id":"ST275::young_female"}
-{"source_english":"The tree is tall.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"jhaad laamb aahe","quality_score":1,"source_id":"ST284::young_female"}
-{"source_english":"The leaves are green.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"patta hirva aahe","quality_score":1,"source_id":"ST285::young_female"}
-{"source_english":"The flowers are beautiful.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"poola changla aahe","quality_score":1,"source_id":"ST286::young_female"}
-{"source_english":"The ground is wet.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kalle vola aahe","quality_score":1,"source_id":"ST287::young_female"}
-{"source_english":"The soil is dry.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"maati vara-vara aahe","quality_score":1,"source_id":"ST288::young_female"}
-{"source_english":"It rained yesterday.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"kaale paus padla","quality_score":1,"source_id":"ST289::young_female"}
-{"source_english":"It will be windy tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"uja windy asala","quality_score":1,"source_id":"ST290::young_female"}
-{"source_english":"The morning is cool.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paashte himsa aahe","quality_score":1,"source_id":"ST291::young_female"}
-{"source_english":"The afternoon is hot.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"dupaara oon aahe","quality_score":1,"source_id":"ST292::young_female"}
-{"source_english":"The night is quiet.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"raatri shaant aahe","quality_score":1,"source_id":"ST293::young_female"}
-{"source_english":"The crow is on the tree.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"kaavla jhaadavar aahe","quality_score":1,"source_id":"ST294::young_female"}
-{"source_english":"The well has water.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"koontaant paani aahe","quality_score":1,"source_id":"ST303::young_female"}
-{"source_english":"The cow gives milk.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"gaay doodh deta","quality_score":1,"source_id":"ST305::young_female"}
-{"source_english":"The dog guards the house.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kutra gharach raksha karta","quality_score":1,"source_id":"ST309::young_female"}
-{"source_english":"The cat is sleeping.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"manjhara nijat-aahe","quality_score":1,"source_id":"ST310::young_female"}
-{"source_english":"I am happy.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala santosh aahe","quality_score":1,"source_id":"ST322::young_female"}
-{"source_english":"He is angry.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"tala raag yet-aahe","quality_score":1,"source_id":"ST324::young_female"}
-{"source_english":"She is worried.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"tina chinta bogat-aahe","quality_score":1,"source_id":"ST325::young_female"}
-{"source_english":"They are afraid.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"tanaala bey vaat-ta","quality_score":1,"source_id":"ST327::young_female"}
-{"source_english":"I like this.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala ye avadta","quality_score":1,"source_id":"ST329::young_female"}
-{"source_english":"I do not like that.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala ye avadta-nahi","quality_score":1,"source_id":"ST330::young_female"}
-{"source_english":"This is good.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye besh aahe","quality_score":1,"source_id":"ST331::young_female"}
-{"source_english":"This is bad.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye barni","quality_score":0.75,"source_id":"ST332::young_female"}
-{"source_english":"That is better.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye anki besh aahe","quality_score":1,"source_id":"ST333::young_female"}
-{"source_english":"This is the best.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"ye paar besh aahe","quality_score":1,"source_id":"ST334::young_female"}
-{"source_english":"He is a good man.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"to chokot manus","quality_score":1,"source_id":"ST335::young_female"}
-{"source_english":"The boy is clever.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"por shaana aahe","quality_score":1,"source_id":"ST337::young_female"}
-{"source_english":"The girl is brave.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"pori dhairya aahe","quality_score":1,"source_id":"ST338::young_female"}
-{"source_english":"What is this?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"ye kaay?","quality_score":1,"source_id":"ST347::young_female"}
-{"source_english":"What is that?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"te kaay?","quality_score":1,"source_id":"ST348::young_female"}
-{"source_english":"Who is he?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"to kon?","quality_score":1,"source_id":"ST349::young_female"}
-{"source_english":"Who is she?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tina kon?","quality_score":1,"source_id":"ST350::young_female"}
-{"source_english":"Where is the book?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"pustak kuta aahe?","quality_score":1,"source_id":"ST351::young_female"}
-{"source_english":"Where is the bag?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"bag kuta aahe?","quality_score":1,"source_id":"ST352::young_female"}
-{"source_english":"When did you come?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tu kamma aalis","quality_score":1,"source_id":"ST353::young_female"}
-{"source_english":"When did you come?","speaker_profile":"young_male","sentence_family":"wh_question","target_tm_romanized":"tu kamma aalos?","quality_score":1,"source_id":"ST353::young_male"}
-{"source_english":"When did you come?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumi kamma aalaant?","quality_score":1,"source_id":"ST353::elder_respectful"}
-{"source_english":"When will you go?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tu kamma jaasil?","quality_score":1,"source_id":"ST354::young_female"}
-{"source_english":"When will you go?","speaker_profile":"young_male","sentence_family":"wh_question","target_tm_romanized":"tu kamma jaatos?","quality_score":1,"source_id":"ST354::young_male"}
-{"source_english":"When will you go?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumi kamma jaataant?","quality_score":1,"source_id":"ST354::elder_respectful"}
-{"source_english":"Why are you late?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tu kasala late aalis?","quality_score":1,"source_id":"ST355::young_female"}
-{"source_english":"Why are you late?","speaker_profile":"young_male","sentence_family":"wh_question","target_tm_romanized":"tu kasala late aalos?","quality_score":1,"source_id":"ST355::young_male"}
-{"source_english":"Why are you late?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumi kasala laate aalaant?","quality_score":1,"source_id":"ST355::elder_respectful"}
-{"source_english":"Why is the door open?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"kavad ugada kasala aahe?","quality_score":1,"source_id":"ST356::young_female"}
-{"source_english":"How do you know?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tula kasa kalala?","quality_score":1,"source_id":"ST357::young_female"}
-{"source_english":"How do you know?","speaker_profile":"young_male","sentence_family":"wh_question","target_tm_romanized":"tula kasa kalala?","quality_score":1,"source_id":"ST357::young_male"}
-{"source_english":"How do you know?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"tumaans kasa kalala?","quality_score":1,"source_id":"ST357::elder_respectful"}
-{"source_english":"How much water is there?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tata kevda paani aahe?","quality_score":1,"source_id":"ST358::young_female"}
-{"source_english":"How many people came?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"kevda lok aale?","quality_score":1,"source_id":"ST359::young_female"}
-{"source_english":"Which road is correct?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"konta vaat boror aahe?","quality_score":1,"source_id":"ST360::young_female"}
-{"source_english":"Which one do you want?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"konta tula pajhe?","quality_score":1,"source_id":"ST361::young_female"}
-{"source_english":"Which one do you want?","speaker_profile":"young_male","sentence_family":"wh_question","target_tm_romanized":"konta tula pajhe?","quality_score":1,"source_id":"ST361::young_male"}
-{"source_english":"Which one do you want?","speaker_profile":"elder_respectful","sentence_family":"wh_question","target_tm_romanized":"konta tumaans pajhe?","quality_score":1,"source_id":"ST361::elder_respectful"}
-{"source_english":"Is he at home?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"to ghar-aant aahe ka?","quality_score":1,"source_id":"ST362::young_female"}
-{"source_english":"Is she in the kitchen?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tina sampakkoli-aant aahe ka?","quality_score":1,"source_id":"ST363::young_female"}
-{"source_english":"Did you call him?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tala balaavlis ka?","quality_score":1,"source_id":"ST365::young_female"}
-{"source_english":"Did you call him?","speaker_profile":"young_male","sentence_family":"yes_no_question","target_tm_romanized":"tala balaavlos ka?","quality_score":1,"source_id":"ST365::young_male"}
-{"source_english":"Did you call him?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"tala balavlaant ka?","quality_score":1,"source_id":"ST365::elder_respectful"}
-{"source_english":"Did she eat?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tina jevli ka?","quality_score":1,"source_id":"ST366::young_female"}
-{"source_english":"Can you hear me?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tula mi aykal-ota ka?","quality_score":1,"source_id":"ST367::young_female"}
-{"source_english":"Can he read?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tala vaach-aala voil ka?","quality_score":1,"source_id":"ST368::young_female"}
-{"source_english":"Should we wait?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"ami asun ka?","quality_score":1,"source_id":"ST369::young_female"}
-{"source_english":"Shall I come now?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"mi ata yaun ka?","quality_score":1,"source_id":"ST370::young_female"}
-{"source_english":"Do you understand?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tula samjhata ka?","quality_score":0.75,"source_id":"ST371::young_female"}
-{"source_english":"Do you understand?","speaker_profile":"young_male","sentence_family":"yes_no_question","target_tm_romanized":"tula samjhata ka?","quality_score":0.75,"source_id":"ST371::young_male"}
-{"source_english":"Do you understand?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"tumaans samjhata ka?","quality_score":0.75,"source_id":"ST371::elder_respectful"}
-{"source_english":"Please come here.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun yeta ye","quality_score":1,"source_id":"ST372::young_female"}
-{"source_english":"Please come here.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"daya karun yeta ye","quality_score":1,"source_id":"ST372::young_male"}
-{"source_english":"Please come here.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun yeta yaant","quality_score":1,"source_id":"ST372::elder_respectful"}
-{"source_english":"Please go there.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karyn tata jaa","quality_score":1,"source_id":"ST373::young_female"}
-{"source_english":"Please go there.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"daya karyn tata jaa","quality_score":1,"source_id":"ST373::young_male"}
-{"source_english":"Please go there.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun tata jaant","quality_score":1,"source_id":"ST373::elder_respectful"}
-{"source_english":"Sit here.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"yeta baise","quality_score":1,"source_id":"ST374::young_female"}
-{"source_english":"Sit here.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"yeta baise","quality_score":1,"source_id":"ST374::young_male"}
-{"source_english":"Sit here.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"yeta basaant","quality_score":1,"source_id":"ST374::elder_respectful"}
-{"source_english":"Stand there.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tata votaake","quality_score":1,"source_id":"ST375::young_female"}
-{"source_english":"Stand there.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"tata votaake","quality_score":1,"source_id":"ST375::young_male"}
-{"source_english":"Stand there.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tata votaakaant","quality_score":1,"source_id":"ST375::elder_respectful"}
-{"source_english":"Listen to me.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mala ayike","quality_score":1,"source_id":"ST376::young_female"}
-{"source_english":"Listen to me.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"mala ayike","quality_score":1,"source_id":"ST376::young_male"}
-{"source_english":"Listen to me.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"mala ayikaant","quality_score":1,"source_id":"ST376::elder_respectful"}
-{"source_english":"Speak slowly.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"hallu bole","quality_score":1,"source_id":"ST377::young_female"}
-{"source_english":"Speak slowly.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"hallu bole","quality_score":1,"source_id":"ST377::young_male"}
-{"source_english":"Speak slowly.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"hallu bolaant","quality_score":1,"source_id":"ST377::elder_respectful"}
-{"source_english":"Tell me again.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"anki ek daba saange","quality_score":1,"source_id":"ST378::young_female"}
-{"source_english":"Tell me again.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"anki ek daba saange","quality_score":1,"source_id":"ST378::young_male"}
-{"source_english":"Tell me again.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"anki ek daba saangaant","quality_score":1,"source_id":"ST378::elder_respectful"}
-{"source_english":"Show me the book.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"pustak daakive","quality_score":1,"source_id":"ST379::young_female"}
-{"source_english":"Show me the book.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"pustak daakive","quality_score":1,"source_id":"ST379::young_male"}
-{"source_english":"Show me the book.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"ustak daakivaant","quality_score":1,"source_id":"ST379::elder_respectful"}
-{"source_english":"Bring some water.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"todka paani aane","quality_score":1,"source_id":"ST380::young_female"}
-{"source_english":"Bring some water.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"todka paani aane","quality_score":1,"source_id":"ST380::young_male"}
-{"source_english":"Open the window.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"khidki ugade","quality_score":1,"source_id":"ST381::young_female"}
-{"source_english":"Open the window.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"khidki ugade","quality_score":1,"source_id":"ST381::young_male"}
-{"source_english":"Open the window.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"khidki ugadaant","quality_score":1,"source_id":"ST381::elder_respectful"}
-{"source_english":"Close the window.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"khidki jaanke","quality_score":1,"source_id":"ST382::young_female"}
-{"source_english":"Close the window.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"khidki jaanke","quality_score":1,"source_id":"ST382::young_male"}
-{"source_english":"Close the window.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"khidki jaankaant","quality_score":1,"source_id":"ST382::elder_respectful"}
-{"source_english":"Keep quiet.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"uga aise","quality_score":1,"source_id":"ST383::young_female"}
-{"source_english":"Keep quiet.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"uga aise","quality_score":1,"source_id":"ST383::young_male"}
-{"source_english":"Keep quiet.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"uga asaant","quality_score":1,"source_id":"ST383::elder_respectful"}
-{"source_english":"Do not shout.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"varduko","quality_score":1,"source_id":"ST384::young_female"}
-{"source_english":"Do not shout.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"varduko","quality_score":1,"source_id":"ST384::young_male"}
-{"source_english":"Do not shout.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"vardukaant","quality_score":1,"source_id":"ST384::elder_respectful"}
-{"source_english":"Do not run.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"paluko","quality_score":1,"source_id":"ST385::young_female"}
-{"source_english":"Do not run.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"paluko","quality_score":1,"source_id":"ST385::young_male"}
-{"source_english":"Do not run.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"palukaant","quality_score":1,"source_id":"ST385::elder_respectful"}
-{"source_english":"Wait a little.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"nankra vel aise","quality_score":1,"source_id":"ST386::young_female"}
-{"source_english":"Wait a little.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"nankra vel aise","quality_score":1,"source_id":"ST386::young_male"}
-{"source_english":"Wait a little.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"nankra vel asaa","quality_score":1,"source_id":"ST386::elder_respectful"}
-{"source_english":"Start now.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ata aarambh kare","quality_score":1,"source_id":"ST387::young_female"}
-{"source_english":"Start now.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"ata aarambh kare","quality_score":1,"source_id":"ST387::young_male"}
-{"source_english":"Start now.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"ata aarambh karaant","quality_score":1,"source_id":"ST387::elder_respectful"}
-{"source_english":"Call your mother.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"amma-aal balave","quality_score":1,"source_id":"ST388::young_female"}
-{"source_english":"Ask your father.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha bapaala vichaare","quality_score":1,"source_id":"ST389::young_female"}
-{"source_english":"Ask your father.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tumcha bapaala vichaaraant","quality_score":1,"source_id":"ST389::elder_respectful"}
-{"source_english":"They are standing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tani votaakat-aaheta","quality_score":1,"source_id":"ST399::young_female"}
-{"source_english":"We are writing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"ami livt-aahein","quality_score":1,"source_id":"ST405::young_female"}
-{"source_english":"They are talking.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tani bolat-aaheta","quality_score":1,"source_id":"ST408::young_female"}
-{"source_english":"We are listening.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"ami aykat-aahein","quality_score":1,"source_id":"ST409::young_female"}
-{"source_english":"She is holding the baby.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tina lenkru daringat-aahe","quality_score":1,"source_id":"ST415::young_female"}
-{"source_english":"I opened the box.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mi baxa ugadle","quality_score":1,"source_id":"ST416::young_female"}
-{"source_english":"He closed the gate.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to gate jaankla","quality_score":1,"source_id":"ST417::young_female"}
-{"source_english":"We filled the pot.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami matka bharlo","quality_score":1,"source_id":"ST418::young_female"}
-{"source_english":"She washed the clothes.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina kaapda duingli","quality_score":1,"source_id":"ST419::young_female"}
-{"source_english":"They crossed the road.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tani roadach te patis gele","quality_score":1,"source_id":"ST420::young_female"}
-{"source_english":"This house is big.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye ghar mota aahe","quality_score":1,"source_id":"ST421::young_female"}
-{"source_english":"That house is small.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye ghar chumna aahe","quality_score":1,"source_id":"ST422::young_female"}
-{"source_english":"The water is dirty.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paani malaka aahe","quality_score":1,"source_id":"ST426::young_female"}
-{"source_english":"This tree is tall.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"jhaad laamb aahe","quality_score":1,"source_id":"ST427::young_female"}
-{"source_english":"The cloth is new.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kaapda nava aahe","quality_score":1,"source_id":"ST431::young_female"}
-{"source_english":"The cloth is old.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"kaapda juna aahe","quality_score":1,"source_id":"ST432::young_female"}
-{"source_english":"This fruit is sweet.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"pandu gulcheet aahe","quality_score":1,"source_id":"ST435::young_female"}
-{"source_english":"That fruit is sour.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"pandu ambat aahe","quality_score":1,"source_id":"ST436::young_female"}
-{"source_english":"The man is old.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"manus maatara aaheta","quality_score":1,"source_id":"ST438::young_female"}
-{"source_english":"This work is better.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye kaam anki besh aahe","quality_score":1,"source_id":"ST439::young_female"}
-{"source_english":"That method is easier.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye method anki sulabha aahe","quality_score":1,"source_id":"ST440::young_female"}
-{"source_english":"My house is farther.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha ghar anki door aahe","quality_score":1,"source_id":"ST441::young_female"}
-{"source_english":"Your house is nearer.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tujha ghar sadari aahe","quality_score":1,"source_id":"ST442::young_female"}
-{"source_english":"He is taller than me.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"to majha bacha anki laamb aahe","quality_score":1,"source_id":"ST443::young_female"}
-{"source_english":"She is faster than him.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"tna tajha bacha anki lokar aahe","quality_score":1,"source_id":"ST444::young_female"}
-{"source_english":"I went home.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"mi ghar-aala gele","quality_score":1,"source_id":"ST446::young_female"}
-{"source_english":"She came early.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"tina lokar aali","quality_score":1,"source_id":"ST447::young_female"}
-{"source_english":"He finished the work.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"to kaam sampla","quality_score":1,"source_id":"ST448::young_female"}
-{"source_english":"We saw the rain.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami paus paalo","quality_score":1,"source_id":"ST449::young_female"}
-{"source_english":"They heard the news.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tani samaachar ahikle","quality_score":1,"source_id":"ST450::young_female"}
-{"source_english":"I did not go yesterday.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"mi kaale gela-nahi","quality_score":1,"source_id":"ST451::young_female"}
-{"source_english":"She did not eat in the morning.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"tina paashte jeval-nahi","quality_score":1,"source_id":"ST452::young_female"}
-{"source_english":"He did not come on time.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"to boror vel-aala aala nahi","quality_score":1,"source_id":"ST453::young_female"}
-{"source_english":"We will go tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami uja jaato","quality_score":1,"source_id":"ST454::young_female"}
-{"source_english":"She will cook tonight.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"tina raatri sampaak karala","quality_score":1,"source_id":"ST455::young_female"}
-{"source_english":"He will call later.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"to nantara balaavto","quality_score":1,"source_id":"ST456::young_female"}
-{"source_english":"They will visit next week.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"tani pullan week yeta yetaat","quality_score":1,"source_id":"ST457::young_female"}
-{"source_english":"I will study tonight.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"mi aaje raatri vaachte","quality_score":1,"source_id":"ST458::young_female"}
-{"source_english":"I will study tonight.","speaker_profile":"young_male","sentence_family":"future","target_tm_romanized":"mi aaje raatrui vachto","quality_score":1,"source_id":"ST458::young_male"}
-{"source_english":"We will start early tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami uja pashte lokar aarambh karto","quality_score":1,"source_id":"ST459::young_female"}
-{"source_english":"She is going to buy vegetables.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tina bhaaji geyala geli","quality_score":1,"source_id":"ST460::young_female"}
-{"source_english":"He is going to repair the door.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"to kavaad boror karala","quality_score":1,"source_id":"ST461::young_female"}
-{"source_english":"I want to learn more.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mala anki sikhingaama","quality_score":1,"source_id":"ST464::young_female"}
-{"source_english":"We need to leave now.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"ami ata nigaama","quality_score":1,"source_id":"ST467::young_female"}
-{"source_english":"I forgot to bring the key.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mi key aanaal visrun gele","quality_score":1,"source_id":"ST469::young_female"}
-{"source_english":"I forgot to bring the key.","speaker_profile":"young_male","sentence_family":"description","target_tm_romanized":"mi key aanaal visrun gelo","quality_score":1,"source_id":"ST469::young_male"}
-{"source_english":"She remembered to call him.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina balaav-aala saya karli","quality_score":1,"source_id":"ST470::young_female"}
-{"source_english":"Many people came to the temple.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"dande lok deyaul-aala aale","quality_score":1,"source_id":"ST472::young_female"}
-{"source_english":"The festival starts tonight.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"saen aaje aarambh hota","quality_score":1,"source_id":"ST473::young_female"}
-{"source_english":"The children wore new clothes.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lenkra nava kaapda gaalingle","quality_score":1,"source_id":"ST475::young_female"}
-{"source_english":"Everyone brought food.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"aggi lok jevna aanle","quality_score":1,"source_id":"ST476::young_female"}
-{"source_english":"We lit the lamps.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami diva laavlo","quality_score":1,"source_id":"ST479::young_female"}
-{"source_english":"The women sang beautifully.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"baiko besh gaana mantli","quality_score":1,"source_id":"ST492::young_female"}
-{"source_english":"I will come soon.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"mi lokar yete","quality_score":1,"source_id":"ST497::young_female"}
-{"source_english":"I will come soon.","speaker_profile":"young_male","sentence_family":"future","target_tm_romanized":"mi lokar yeto","quality_score":1,"source_id":"ST497::young_male"}
-{"source_english":"He is still sleeping.","speaker_profile":"young_female","sentence_family":"identity","target_tm_romanized":"to anki nijat-aahe","quality_score":0.75,"source_id":"ST498::young_female"}
-{"source_english":"The water pot is empty.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"matka-aanta paani nahi","quality_score":1,"source_id":"ST500::young_female"}
-{"source_english":"Fill the pot with water.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"matka paani bhare","quality_score":1,"source_id":"ST501::young_female"}
-{"source_english":"The child is asking for food.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkru jevaal vichaarat-aahe","quality_score":1,"source_id":"ST502::young_female"}
-{"source_english":"My mother went outside.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"majha amma bahir geli","quality_score":1,"source_id":"ST503::young_female"}
-{"source_english":"My father is in the kitchen","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"majha bapa sampakkoli-aant aaheta","quality_score":1,"source_id":"ST504::young_female"}
-{"source_english":"Take off your shoes.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha shoes kaade","quality_score":1,"source_id":"ST506::young_female"}
-{"source_english":"Leave the bag here.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"bag yeta sode","quality_score":1,"source_id":"ST507::young_female"}
-{"source_english":"Do not forget your book.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha pustaka visruko","quality_score":1,"source_id":"ST508::young_female"}
-{"source_english":"The baby is awake now.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lenkru ata uthlaay","quality_score":1,"source_id":"ST509::young_female"}
-{"source_english":"We are leaving after lunch.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"ami jevla-nantara nigto","quality_score":1,"source_id":"ST510::young_female"}
-{"source_english":"He came back early.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"to lokar partun aala","quality_score":1,"source_id":"ST511::young_female"}
-{"source_english":"She stayed at home.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"tina ghar-aant asli","quality_score":1,"source_id":"ST512::young_female"}
-{"source_english":"The mat is on the floor.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"mat bhoi-var aahe","quality_score":1,"source_id":"ST514::young_female"}
-{"source_english":"Open the back door.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"maagla asaach kavaad ugade","quality_score":1,"source_id":"ST516::young_female"}
-{"source_english":"Open the back door.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"maagla asaach kavaad jaankaant","quality_score":1,"source_id":"ST516::elder_respectful"}
-{"source_english":"Close the front gate.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"puda asaach kavaad jaanke","quality_score":1,"source_id":"ST517::young_female"}
-{"source_english":"Close the front gate.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"puda asaach kavaad jaankaant","quality_score":1,"source_id":"ST517::elder_respectful"}
-{"source_english":"Bring the small plate.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"chumna plate aane","quality_score":1,"source_id":"ST519::young_female"}
-{"source_english":"Bring the small plate.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"chumna plate aane","quality_score":1,"source_id":"ST519::young_male"}
-{"source_english":"Bring the small plate.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"chumna plate aanaant","quality_score":1,"source_id":"ST519::elder_respectful"}
-{"source_english":"Keep the clothes inside.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"kaapda aant tive","quality_score":1,"source_id":"ST520::young_female"}
-{"source_english":"Keep the clothes inside.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"kaapda aant tive","quality_score":1,"source_id":"ST520::young_male"}
-{"source_english":"Keep the clothes inside.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"kaapda aant tivaant","quality_score":1,"source_id":"ST520::elder_respectful"}
-{"source_english":"The rice needs more water.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"bhaat-aala anki paani pajhet asala","quality_score":1,"source_id":"ST522::young_female"}
-{"source_english":"The curry smells good.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"currych vaas besh aahe","quality_score":1,"source_id":"ST523::young_female"}
-{"source_english":"This food is too spicy.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"jevna tikkhat hota","quality_score":1,"source_id":"ST524::young_female"}
-{"source_english":"The tea is too sweet.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"chai udande gulcheet aahe","quality_score":1,"source_id":"ST525::young_female"}
-{"source_english":"Please give me some buttermilk.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun todka chaach de","quality_score":1,"source_id":"ST526::young_female"}
-{"source_english":"Please give me some buttermilk.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"daya karun todka chaach de","quality_score":1,"source_id":"ST526::young_male"}
-{"source_english":"Please give me some buttermilk.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun todka chaach dyaant","quality_score":1,"source_id":"ST526::elder_respectful"}
-{"source_english":"He wants another chapati.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tala anki ek chapati pajhe mana","quality_score":1,"source_id":"ST527::young_female"}
-{"source_english":"She is serving food.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tina jevana vhaadat-aahe","quality_score":1,"source_id":"ST528::young_female"}
-{"source_english":"We are eating in the hall.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"ami hall-aant jhevat-aahein","quality_score":1,"source_id":"ST529::young_female"}
-{"source_english":"Dinner was very tasty.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"jevna pramaad hota","quality_score":1,"source_id":"ST539::young_female"}
-{"source_english":"I am washing the dishes.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"mi paatra ghaasat-aahe","quality_score":1,"source_id":"ST540::young_female"}
-{"source_english":"He is filling the bottles.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"to bottles bharat-aahe","quality_score":1,"source_id":"ST542::young_female"}
-{"source_english":"We need more firewood.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"amaans anki firewood pajhe","quality_score":1,"source_id":"ST543::young_female"}
-{"source_english":"The salt fell on the floor.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"meeth bhoi-var padla","quality_score":1,"source_id":"ST544::young_female"}
-{"source_english":"The market opens early today.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"market aaje lokar ugadta","quality_score":1,"source_id":"ST546::young_female"}
-{"source_english":"She studies before breakfast.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina naashta puda vaachte","quality_score":1,"source_id":"ST548::young_female"}
-{"source_english":"The school bell rang.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"shaalaach ghaant vajla","quality_score":1,"source_id":"ST551::young_female"}
-{"source_english":"Come back by evening.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"sahenkali partun ye","quality_score":1,"source_id":"ST556::young_female"}
-{"source_english":"We waited for a long time.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami udande vel wait karlo","quality_score":1,"source_id":"ST557::young_female"}
-{"source_english":"He arrived before noon.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"to dupara puda aala","quality_score":1,"source_id":"ST558::young_female"}
-{"source_english":"She left after sunset.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina sunset-a nantara geli","quality_score":1,"source_id":"ST559::young_female"}
-{"source_english":"She reached on time.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"tina vel-aant paavli","quality_score":1,"source_id":"ST569::young_female"}
-{"source_english":"Is there a shorter road?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"yeja bacha chumna vaat aahe ka?","quality_score":1,"source_id":"ST571::young_female"}
-{"source_english":"Take this road to the left.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ye dava vaat kadinge","quality_score":1,"source_id":"ST572::young_female"}
-{"source_english":"The shopkeeper knows me.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"dukaandaar mala kalala","quality_score":1,"source_id":"ST573::young_female"}
-{"source_english":"I need to buy soap.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mi soap gengaam","quality_score":1,"source_id":"ST574::young_female"}
-{"source_english":"We also need sugar.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"amaal saakar-pani pajhe","quality_score":1,"source_id":"ST575::young_female"}
-{"source_english":"Give me some bananas.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mala todka kela de","quality_score":1,"source_id":"ST576::young_female"}
-{"source_english":"Give me some bananas.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"mala todka kela dyaant","quality_score":1,"source_id":"ST576::elder_respectful"}
-{"source_english":"This price is fair.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"yeja mol boror aahe","quality_score":1,"source_id":"ST579::young_female"}
-{"source_english":"He forgot his wallet.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to wallet visarla","quality_score":1,"source_id":"ST581::young_female"}
-{"source_english":"She bought a new sari.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina nava sari getli","quality_score":1,"source_id":"ST582::young_female"}
-{"source_english":"Do you sell notebooks?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tu pustaka viktis ka?","quality_score":1,"source_id":"ST584::young_female"}
-{"source_english":"Do you sell notebooks?","speaker_profile":"young_male","sentence_family":"yes_no_question","target_tm_romanized":"tu pustaka viktos ka?","quality_score":1,"source_id":"ST584::young_male"}
-{"source_english":"Do you sell notebooks?","speaker_profile":"elder_respectful","sentence_family":"yes_no_question","target_tm_romanized":"tumi pustaka viktaant ka?","quality_score":1,"source_id":"ST584::elder_respectful"}
-{"source_english":"The tailor will come later.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"tailor nantara yete","quality_score":1,"source_id":"ST585::young_female"}
-{"source_english":"The tailor will come later.","speaker_profile":"young_male","sentence_family":"future","target_tm_romanized":"tailor nantara yeto","quality_score":1,"source_id":"ST585::young_male"}
-{"source_english":"The tailor will come later.","speaker_profile":"elder_respectful","sentence_family":"future","target_tm_romanized":"tailor nantara yetat","quality_score":1,"source_id":"ST585::elder_respectful"}
-{"source_english":"Write the answer clearly.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"uttar-aala spashta live","quality_score":1,"source_id":"ST587::young_female"}
-{"source_english":"He forgot his homework.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to tajha homework aan-aala visrun gela","quality_score":1,"source_id":"ST588::young_female"}
-{"source_english":"She brought her pen.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina tijha pen aanli","quality_score":1,"source_id":"ST589::young_female"}
-{"source_english":"The lesson ended early.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"lesson lokar sampla","quality_score":1,"source_id":"ST590::young_female"}
-{"source_english":"We have an exam tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"amaans uja exam aahe","quality_score":1,"source_id":"ST591::young_female"}
-{"source_english":"I understand a little.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mala todka artha-ola","quality_score":1,"source_id":"ST593::young_female"}
-{"source_english":"He does not understand.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tala artha-ola-nahi","quality_score":1,"source_id":"ST594::young_female"}
-{"source_english":"Do this carefully.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"yela jagardaana kare","quality_score":1,"source_id":"ST596::young_female"}
-{"source_english":"Do this carefully.","speaker_profile":"elder_respectful","sentence_family":"description","target_tm_romanized":"yela jagardaana karaant","quality_score":1,"source_id":"ST596::elder_respectful"}
-{"source_english":"We need to finish today.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"ami aajecha sampaama","quality_score":1,"source_id":"ST597::young_female"}
-{"source_english":"Call me after work.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"mala kaam-a nantara balave","quality_score":1,"source_id":"ST598::young_female"}
-{"source_english":"Call me after work.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"mala kaam-a nantara balaavaant","quality_score":1,"source_id":"ST598::elder_respectful"}
-{"source_english":"Take this tablet after food.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ye tablet jevla-nantara kadinge","quality_score":1,"source_id":"ST602::young_female"}
-{"source_english":"Take this tablet after food.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"ye tablet jevla-nantara kadingaant","quality_score":1,"source_id":"ST602::elder_respectful"}
-{"source_english":"My back hurts today.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"majha paati sool hot-aahe","quality_score":1,"source_id":"ST604::young_female"}
-{"source_english":"She has a headache.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"tila kapal sool aahe","quality_score":1,"source_id":"ST605::young_female"}
-{"source_english":"Drink more water.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"anki paani pi","quality_score":1,"source_id":"ST607::young_female"}
-{"source_english":"Drink more water.","speaker_profile":"elder_respectful","sentence_family":"description","target_tm_romanized":"anki paani piyaant","quality_score":1,"source_id":"ST607::elder_respectful"}
-{"source_english":"The breeze feels nice.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"biri-biri vaara besh aahe","quality_score":1,"source_id":"ST611::young_female"}
-{"source_english":"The cow is eating grass.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"gaay ghaas khaat-aahe","quality_score":1,"source_id":"ST615::young_female"}
-{"source_english":"The mango tree has flowers.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ambaach jhaadaant poola aahe","quality_score":1,"source_id":"ST628::young_female"}
-{"source_english":"The fence is broken.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"fence modl-aahe","quality_score":1,"source_id":"ST631::young_female"}
-{"source_english":"Repair it today.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"aaje boror kare","quality_score":1,"source_id":"ST632::young_female"}
-{"source_english":"Repair it today.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"aaje boror karaant","quality_score":1,"source_id":"ST632::elder_respectful"}
-{"source_english":"I feel better now.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"ata boro vaat-ta","quality_score":1,"source_id":"ST633::young_female"}
-{"source_english":"He seems worried.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"to chinta bhogto","quality_score":1,"source_id":"ST635::young_female"}
-{"source_english":"They are very happy.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"tani santosh aaheta","quality_score":1,"source_id":"ST637::young_female"}
-{"source_english":"Why did he leave?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"to kasala nigla?","quality_score":1,"source_id":"ST639::young_female"}
-{"source_english":"Where did she go?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tina kuta geli?","quality_score":1,"source_id":"ST640::young_female"}
-{"source_english":"When will they arrive?","speaker_profile":"young_female","sentence_family":"wh_question","target_tm_romanized":"tani kamma yetila?","quality_score":1,"source_id":"ST641::young_female"}
-{"source_english":"Can we start now?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"ami ata aarambh karuya ka?","quality_score":1,"source_id":"ST642::young_female"}
-{"source_english":"Please tell the truth.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun khara saange","quality_score":1,"source_id":"ST643::young_female"}
-{"source_english":"Sit near me.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"majha baaju baise","quality_score":1,"source_id":"ST645::young_female"}
-{"source_english":"Do not go alone.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ekat jaauko","quality_score":1,"source_id":"ST646::young_female"}
-{"source_english":"Bring your notebook.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha pustaka aane","quality_score":1,"source_id":"ST647::young_female"}
-{"source_english":"Show me your hand.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha haath daakive","quality_score":1,"source_id":"ST648::young_female"}
-{"source_english":"Show me your hand.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"tujha haath daakive","quality_score":1,"source_id":"ST648::young_male"}
-{"source_english":"Show me your hand.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tumcha haath daakivaant","quality_score":1,"source_id":"ST648::elder_respectful"}
-{"source_english":"Call him immediately.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tala atach balave","quality_score":1,"source_id":"ST649::young_female"}
-{"source_english":"Ask her to wait.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tila asaala vichaare","quality_score":1,"source_id":"ST650::young_female"}
-{"source_english":"Write your phone number.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha phone number live","quality_score":1,"source_id":"ST651::young_female"}
-{"source_english":"Write your phone number.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"tujha phone number live","quality_score":1,"source_id":"ST651::young_male"}
-{"source_english":"Write your phone number.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tumcha phone number livaant","quality_score":1,"source_id":"ST651::elder_respectful"}
-{"source_english":"I am walking home.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"mi ghar-aala chalun jaate","quality_score":1,"source_id":"ST653::young_female"}
-{"source_english":"I am walking home.","speaker_profile":"young_male","sentence_family":"progressive","target_tm_romanized":"mi ghar-aala chalun jaato","quality_score":1,"source_id":"ST653::young_male"}
-{"source_english":"She is opening the box.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tina baxa ugadat-aahe","quality_score":1,"source_id":"ST654::young_female"}
-{"source_english":"He is closing the window.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"to khidki jaankat-aahe","quality_score":1,"source_id":"ST655::young_female"}
-{"source_english":"They are washing the car.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tani bandi duingtaa-ta","quality_score":1,"source_id":"ST656::young_female"}
-{"source_english":"We are carrying water.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"amcha kada paani aahe","quality_score":1,"source_id":"ST657::young_female"}
-{"source_english":"The boy is climbing the tree.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"por jhaadaavar jaat-aahe","quality_score":1,"source_id":"ST658::young_female"}
-{"source_english":"He is sweeping the yard.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"to varaanda jaadat-aahe","quality_score":1,"source_id":"ST660::young_female"}
-{"source_english":"She is folding the clothes.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"tina kaapada gadi karat-aahe","quality_score":1,"source_id":"ST661::young_female"}
-{"source_english":"The baby is smiling.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkru hasat-aahe","quality_score":1,"source_id":"ST662::young_female"}
-{"source_english":"My brother is stronger.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"majha bhau anki shakti-shaali","quality_score":1,"source_id":"ST669::young_female"}
-{"source_english":"She will return tomorrow morning.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"tina uja paashte partun yete","quality_score":1,"source_id":"ST674::young_female"}
-{"source_english":"I need to buy medicines.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"mi maatra gengaam","quality_score":1,"source_id":"ST678::young_female"}
-{"source_english":"He wants to speak to you.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tala tujha boror bolaam","quality_score":1,"source_id":"ST680::young_female"}
-{"source_english":"They may come later.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tani nantra yetil","quality_score":1,"source_id":"ST682::young_female"}
-{"source_english":"The temple bell is ringing.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"deyaulaach ghaant vaajat-aahe","quality_score":1,"source_id":"ST683::young_female"}
-{"source_english":"We offered flowers at the temple.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"ami deyaul-aant poola delo","quality_score":1,"source_id":"ST686::young_female"}
-{"source_english":"Food is being served outside.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"jevna bahir vhaad-at aahe","quality_score":1,"source_id":"ST690::young_female"}
-{"source_english":"The event went well.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"event besh gela","quality_score":1,"source_id":"ST692::young_female"}
-{"source_english":"Please call me on the phone.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun mala phone-aant balave","quality_score":1,"source_id":"ST693::young_female"}
-{"source_english":"I missed your call.","speaker_profile":"young_female","sentence_family":"past","target_tm_romanized":"tujha call sutla","quality_score":1,"source_id":"ST694::young_female"}
-{"source_english":"I cannot hear clearly.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mala ayikna manta","quality_score":1,"source_id":"ST710::young_female"}
-{"source_english":"Please speak again on the phone.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun anki ek dava phone-aant saange","quality_score":1,"source_id":"ST711::young_female"}
-{"source_english":"Send the photo later.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"photo natara paative","quality_score":1,"source_id":"ST713::young_female"}
-{"source_english":"Send the photo later.","speaker_profile":"elder_respectful","sentence_family":"description","target_tm_romanized":"photo natara paativaant","quality_score":1,"source_id":"ST713::elder_respectful"}
-{"source_english":"Please take me to the clinic.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun mala clinic-aal kading jaa","quality_score":1,"source_id":"ST715::young_female"}
-{"source_english":"Call the ambulance.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ambulance-aala balave","quality_score":1,"source_id":"ST716::young_female"}
-{"source_english":"The child has a high fever.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"lenkr-aala besh jaera aahe","quality_score":1,"source_id":"ST717::young_female"}
-{"source_english":"Help me lift this box.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"ye baxa uthiv-aala mala help kare","quality_score":1,"source_id":"ST718::young_female"}
-{"source_english":"Can you stay with her?","speaker_profile":"young_female","sentence_family":"yes_no_question","target_tm_romanized":"tija boror astis ka?","quality_score":1,"source_id":"ST719::young_female"}
-{"source_english":"Please bring blankets.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun paangroon aane","quality_score":1,"source_id":"ST720::young_female"}
-{"source_english":"Please bring blankets.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun paangroon aanaant","quality_score":1,"source_id":"ST720::elder_respectful"}
-{"source_english":"Do not worry too much.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"dande chinta bhoguko","quality_score":1,"source_id":"ST722::young_female"}
-{"source_english":"Let us eat first.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"paila amaal jevaal sode","quality_score":1,"source_id":"ST724::young_female"}
-{"source_english":"I will talk to him later.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"mi tajha kada nantara bolte","quality_score":1,"source_id":"ST725::young_female"}
-{"source_english":"I will talk to him later.","speaker_profile":"young_male","sentence_family":"future","target_tm_romanized":"mi tajha kada nantara bolto","quality_score":1,"source_id":"ST725::young_male"}
-{"source_english":"She asked me to come.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tina yela vichaarli","quality_score":1,"source_id":"ST726::young_female"}
-{"source_english":"He told us to wait.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to amaala asaal mantla","quality_score":1,"source_id":"ST727::young_female"}
-{"source_english":"We should leave early tomorrow.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"ami uja lokar nigaam","quality_score":1,"source_id":"ST728::young_female"}
-{"source_english":"Please remind me in the morning.","speaker_profile":"young_female","sentence_family":"location","target_tm_romanized":"daya karun mala paashte saya karive","quality_score":1,"source_id":"ST729::young_female"}
-{"source_english":"I do not remember that.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"mala te saya anhi","quality_score":1,"source_id":"ST730::young_female"}
-{"source_english":"She remembers everything.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"tila tavdeen saya aahe","quality_score":1,"source_id":"ST731::young_female"}
-{"source_english":"He always speaks softly.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"to kammin hallu bolto","quality_score":1,"source_id":"ST732::young_female"}
-{"source_english":"Let us meet after dinner.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"jevla nantara milto","quality_score":1,"source_id":"ST735::young_female"}
-{"source_english":"They want to come with us.","speaker_profile":"young_female","sentence_family":"experiencer","target_tm_romanized":"tanaal amcha boror yema","quality_score":1,"source_id":"ST736::young_female"}
-{"source_english":"The old man walks slowly.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"maataara hallu chalat-aaheta","quality_score":1,"source_id":"ST737::young_female"}
-{"source_english":"The child is learning quickly.","speaker_profile":"young_female","sentence_family":"progressive","target_tm_romanized":"lenkru lokar sikhingat-aahe","quality_score":1,"source_id":"ST739::young_female"}
-{"source_english":"Please sit near the window.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"daya karun khidki kada baise","quality_score":1,"source_id":"ST740::young_female"}
-{"source_english":"Please sit near the window.","speaker_profile":"young_male","sentence_family":"imperative","target_tm_romanized":"daya karun khidki kada baise","quality_score":1,"source_id":"ST740::young_male"}
-{"source_english":"Please sit near the window.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"daya karun khidki kada basaant","quality_score":1,"source_id":"ST740::elder_respectful"}
-{"source_english":"Keep your phone in the bag.","speaker_profile":"young_female","sentence_family":"imperative","target_tm_romanized":"tujha phoen bag-aant tive","quality_score":1,"source_id":"ST741::young_female"}
-{"source_english":"Keep your phone in the bag.","speaker_profile":"elder_respectful","sentence_family":"imperative","target_tm_romanized":"tumcha phone bag-aant tivaant","quality_score":1,"source_id":"ST741::elder_respectful"}
-{"source_english":"The answer will come soon.","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"uttar todka vel nantra yeta","quality_score":1,"source_id":"ST743::young_female"}
-{"source_english":"This matter is important.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ye matter udande mukhya","quality_score":1,"source_id":"ST744::young_female"}
-{"source_english":"Let us think about it.","speaker_profile":"young_female","sentence_family":"description","target_tm_romanized":"ami visaar karto","quality_score":1,"source_id":"ST745::young_female"}
-{"source_english":"Everything will be fine","speaker_profile":"young_female","sentence_family":"future","target_tm_romanized":"tavdeen boror onjahila","quality_score":1,"source_id":"ST746::young_female"}
+﻿{"promptEnglish":"How are you?","sentence_family":"fixed_formula","translation":"tumi kasa ahenta?","source_id":"ST001"}
+{"promptEnglish":"I am fine.","sentence_family":"fixed_formula","translation":"mi bhara aahe.","source_id":"ST002"}
+{"promptEnglish":"What is your name?","sentence_family":"wh_question","translation":"tumcha naav kaay?","source_id":"ST003"}
+{"promptEnglish":"My name is Ravi.","sentence_family":"identity","translation":"majha naav ravi","source_id":"ST004"}
+{"promptEnglish":"Where are you from?","sentence_family":"wh_question","translation":"tumi kotasoon aalayenta?","source_id":"ST006"}
+{"promptEnglish":"Please come in.","sentence_family":"imperative","translation":"daya karoon aant yaant","source_id":"ST008"}
+{"promptEnglish":"Please sit down.","sentence_family":"imperative","translation":"daya karoon basaa","source_id":"ST009"}
+{"promptEnglish":"Goodbye.","sentence_family":"fixed_formula","translation":"mi jaoon yete","source_id":"ST014"}
+{"promptEnglish":"See you tomorrow.","sentence_family":"fixed_formula","translation":"tula uja paate","source_id":"ST015"}
+{"promptEnglish":"Did you eat?","sentence_family":"yes_no_question","translation":"besh jhevlaant ka?","source_id":"ST017"}
+{"promptEnglish":"Are you well?","sentence_family":"yes_no_question","translation":"tumi bhara ahenta ka?","source_id":"ST018"}
+{"promptEnglish":"We are happy to see you.","sentence_family":"experiencer","translation":"tumaans paayeltra santosh aahe","source_id":"ST020"}
+{"promptEnglish":"This is my father.","sentence_family":"identity","translation":"ye majha baapa","source_id":"ST022"}
+{"promptEnglish":"This is my mother.","sentence_family":"identity","translation":"ye majha amma","source_id":"ST023"}
+{"promptEnglish":"This is my brother.","sentence_family":"identity","translation":"ye majha bhaau","source_id":"ST024"}
+{"promptEnglish":"This is my sister.","sentence_family":"identity","translation":"ye majha bhahin","source_id":"ST025"}
+{"promptEnglish":"This is my son.","sentence_family":"identity","translation":"ye majha lonk","source_id":"ST028"}
+{"promptEnglish":"This is my daughter.","sentence_family":"identity","translation":"ye majha lenke","source_id":"ST029"}
+{"promptEnglish":"My grandfather is old.","sentence_family":"description","translation":"majha aaja maataare aahe","source_id":"ST033"}
+{"promptEnglish":"My grandmother is wise.","sentence_family":"description","translation":"majha aaji shaani aahe","source_id":"ST034"}
+{"promptEnglish":"The baby is sleeping.","sentence_family":"progressive","translation":"lenkru nijat aahe","source_id":"ST035"}
+{"promptEnglish":"The children are playing.","sentence_family":"progressive","translation":"lenkra khelat aaheta.","source_id":"ST036"}
+{"promptEnglish":"My uncle came yesterday.","sentence_family":"past","translation":"majha mama kaale aale.","source_id":"ST037"}
+{"promptEnglish":"My aunt will come tomorrow.","sentence_family":"future","translation":"majha mausi uja yeyla","source_id":"ST038"}
+{"promptEnglish":"My cousin studies in town.","sentence_family":"location","translation":"majha bahin town-aant vachte","source_id":"ST039"}
+{"promptEnglish":"My parents are at home.","sentence_family":"location","translation":"majha amma-baapa gha-aant aaheta","source_id":"ST040"}
+{"promptEnglish":"My brother cooks well.","sentence_family":"description","translation":"majha bhaau besh sampaak karto","source_id":"ST041"}
+{"promptEnglish":"The old man is sitting outside.","sentence_family":"progressive","translation":"maataara bahir basl-aahe","source_id":"ST043"}
+{"promptEnglish":"The old woman is telling a story.","sentence_family":"progressive","translation":"maataari kaani saangat-aahe","source_id":"ST044"}
+{"promptEnglish":"The young boy is running.","sentence_family":"progressive","translation":"chumna por palat-aahe","source_id":"ST045"}
+{"promptEnglish":"The young girl is singing.","sentence_family":"progressive","translation":"chumna pori gaana manat-aahe","source_id":"ST046"}
+{"promptEnglish":"This is our house.","sentence_family":"identity","translation":"ye amcha ghar","source_id":"ST047"}
+{"promptEnglish":"The house is small.","sentence_family":"description","translation":"ghar chumna aahe","source_id":"ST048"}
+{"promptEnglish":"Open the door.","sentence_family":"imperative","translation":"kavaad ugdaant","source_id":"ST050"}
+{"promptEnglish":"Close the door.","sentence_family":"imperative","translation":"kavaad jankaant","source_id":"ST051"}
+{"promptEnglish":"The window is open.","sentence_family":"description","translation":"khidki ugada aahe","source_id":"ST052"}
+{"promptEnglish":"The lamp is on.","sentence_family":"location","translation":"diva on aahe","source_id":"ST053"}
+{"promptEnglish":"The lamp is off.","sentence_family":"description","translation":"diva off aahe","source_id":"ST054"}
+{"promptEnglish":"Sweep the floor.","sentence_family":"description","translation":"kalle jadaant","source_id":"ST055"}
+{"promptEnglish":"Bring the chair.","sentence_family":"imperative","translation":"chair aanaant","source_id":"ST056"}
+{"promptEnglish":"Keep the book on the table.","sentence_family":"imperative","translation":"pustak table-a vaar tivaant","source_id":"ST057"}
+{"promptEnglish":"The bag is near the wall.","sentence_family":"location","translation":"bag wall-a kada aahe","source_id":"ST058"}
+{"promptEnglish":"Water is in the pot.","sentence_family":"location","translation":"paani matki aant aahe","source_id":"ST059"}
+{"promptEnglish":"The clothes are dry.","sentence_family":"description","translation":"kaapda vaalun aahe","source_id":"ST060"}
+{"promptEnglish":"The clothes are wet.","sentence_family":"description","translation":"kaapda vola aahe","source_id":"ST061"}
+{"promptEnglish":"There is dust in the room.","sentence_family":"location","translation":"room-aant dust aahe","source_id":"ST062"}
+{"promptEnglish":"The room is dark.","sentence_family":"description","translation":"room andaar aahe","source_id":"ST063"}
+{"promptEnglish":"The room is bright.","sentence_family":"description","translation":"room ujaad aahe","source_id":"ST064"}
+{"promptEnglish":"The key is missing.","sentence_family":"progressive","translation":"key arpun gela","source_id":"ST065"}
+{"promptEnglish":"The child is inside the house.","sentence_family":"location","translation":"lenkru ghar-aant aahe","source_id":"ST066"}
+{"promptEnglish":"The dog is outside the house.","sentence_family":"location","translation":"kutra ghar-a bahir aahe","source_id":"ST067"}
+{"promptEnglish":"We cleaned the house today.","sentence_family":"description","translation":"ami ghar puslo","source_id":"ST068"}
+{"promptEnglish":"We will repair the roof.","sentence_family":"future","translation":"ami roof-aal boro karto","source_id":"ST069"}
+{"promptEnglish":"The wall is white.","sentence_family":"description","translation":"wall pandra aahe","source_id":"ST070"}
+{"promptEnglish":"The old box is heavy.","sentence_family":"description","translation":"juna baxa dhandag aahe","source_id":"ST071"}
+{"promptEnglish":"I am hungry.","sentence_family":"experiencer","translation":"mala bhook laagta","source_id":"ST072"}
+{"promptEnglish":"I am thirsty.","sentence_family":"experiencer","translation":"mala thaan laagta","source_id":"ST073"}
+{"promptEnglish":"Please give me water.","sentence_family":"imperative","translation":"daya karun mala paani dyaant","source_id":"ST074"}
+{"promptEnglish":"Please give me rice.","sentence_family":"imperative","translation":"daya karun mala bhaat dyaant","source_id":"ST075"}
+{"promptEnglish":"The food is hot.","sentence_family":"description","translation":"jevna oon aahe","source_id":"ST076"}
+{"promptEnglish":"The food is cold.","sentence_family":"description","translation":"jevna himsa aahe","source_id":"ST077"}
+{"promptEnglish":"The milk is spoilt.","sentence_family":"description","translation":"doodh sutun gela","source_id":"ST079"}
+{"promptEnglish":"This curry is good.","sentence_family":"description","translation":"curry besh aahe","source_id":"ST080"}
+{"promptEnglish":"This tea is very hot.","sentence_family":"description","translation":"chai oon aahe","source_id":"ST081"}
+{"promptEnglish":"The child wants milk.","sentence_family":"description","translation":"lenkr-aala doodh pajhe","source_id":"ST082"}
+{"promptEnglish":"We are cooking now.","sentence_family":"progressive","translation":"ami ata sampaak karat-aahein","source_id":"ST083"}
+{"promptEnglish":"He is making tea.","sentence_family":"progressive","translation":"tani chai karat-ayeta","source_id":"ST085"}
+{"promptEnglish":"The salt is less.","sentence_family":"description","translation":"meeth una aahe","source_id":"ST087"}
+{"promptEnglish":"The chili is strong.","sentence_family":"description","translation":"thikkat bharun aahe","source_id":"ST088"}
+{"promptEnglish":"Add more water.","sentence_family":"imperative","translation":"anki paani galaant","source_id":"ST089"}
+{"promptEnglish":"Bring a plate.","sentence_family":"imperative","translation":"plate aanaant","source_id":"ST090"}
+{"promptEnglish":"Wash the vessel.","sentence_family":"imperative","translation":"paatra ghaasaant","source_id":"ST091"}
+{"promptEnglish":"Keep the spoon here.","sentence_family":"imperative","translation":"spoon-aal yeta tivaant","source_id":"ST092"}
+{"promptEnglish":"I ate already.","sentence_family":"description","translation":"majha jevan jhala","source_id":"ST094"}
+{"promptEnglish":"He did not eat.","sentence_family":"past","translation":"tani khaale nahi","source_id":"ST095"}
+{"promptEnglish":"We will eat later.","sentence_family":"future","translation":"ami nantra jevto","source_id":"ST096"}
+{"promptEnglish":"I wake up early.","sentence_family":"description","translation":"mi lokar uthte","source_id":"ST097"}
+{"promptEnglish":"He brushes his teeth.","sentence_family":"description","translation":"to daant ghaasingto","source_id":"ST099"}
+{"promptEnglish":"I wash my face.","sentence_family":"description","translation":"mi tond pusingte","source_id":"ST100"}
+{"promptEnglish":"We take a bath in the morning.","sentence_family":"location","translation":"ami paashte angoli karto","source_id":"ST101"}
+{"promptEnglish":"She combs her hair.","sentence_family":"description","translation":"tina kes baachingat-aashe","source_id":"ST102"}
+{"promptEnglish":"I go to work every day.","sentence_family":"description","translation":"mi darroja kaamal jaate","source_id":"ST104"}
+{"promptEnglish":"We eat breakfast at home.","sentence_family":"location","translation":"ami gharaant nashta karton","source_id":"ST106"}
+{"promptEnglish":"She cooks in the morning.","sentence_family":"location","translation":"tina paashte sampaak karte","source_id":"ST107"}
+{"promptEnglish":"He returns in the evening.","sentence_family":"location","translation":"to sahenkali partun yeto","source_id":"ST108"}
+{"promptEnglish":"I study at night.","sentence_family":"location","translation":"mi raatri vachte","source_id":"ST110"}
+{"promptEnglish":"The baby sleeps early.","sentence_family":"description","translation":"lenkru lokar nijta","source_id":"ST111"}
+{"promptEnglish":"My mother cleans the house daily.","sentence_family":"description","translation":"majha amma darroja ghar puste","source_id":"ST112"}
+{"promptEnglish":"My father reads the news.","sentence_family":"description","translation":"majha bapa samachar vachtaat","source_id":"ST113"}
+{"promptEnglish":"We drink tea in the evening.","sentence_family":"location","translation":"ami sahekali chai peeto","source_id":"ST114"}
+{"promptEnglish":"I call my friend at night.","sentence_family":"location","translation":"mi majha mitraala raatri balaavte","source_id":"ST115"}
+{"promptEnglish":"He sleeps on the cot.","sentence_family":"location","translation":"to untroon-a var nijto","source_id":"ST116"}
+{"promptEnglish":"She wakes the children.","sentence_family":"description","translation":"tina lenkr-aala utivte","source_id":"ST117"}
+{"promptEnglish":"We leave home at eight.","sentence_family":"location","translation":"ami raatri aat vajtama ghar sodto","source_id":"ST118"}
+{"promptEnglish":"I come back before dark.","sentence_family":"description","translation":"ami andaar volta puda partun aale","source_id":"ST119"}
+{"promptEnglish":"They work all day.","sentence_family":"description","translation":"tani darroj kaam kartat","source_id":"ST120"}
+{"promptEnglish":"We sleep after dinner.","sentence_family":"description","translation":"ami jevla nantara nijto","source_id":"ST121"}
+{"promptEnglish":"What time is it?","sentence_family":"wh_question","translation":"vel kaay hot-aahe?","source_id":"ST122"}
+{"promptEnglish":"It is one oâ€™clock.","sentence_family":"description","translation":"vel ek vajta","source_id":"ST123"}
+{"promptEnglish":"It is two oâ€™clock.","sentence_family":"description","translation":"vel don vajta","source_id":"ST124"}
+{"promptEnglish":"It is early.","sentence_family":"description","translation":"lokar aahe.","source_id":"ST126"}
+{"promptEnglish":"Today is Monday.","sentence_family":"description","translation":"aaje somvaar aahe","source_id":"ST127"}
+{"promptEnglish":"Tomorrow is Tuesday.","sentence_family":"future","translation":"uja mangalvar aahe","source_id":"ST128"}
+{"promptEnglish":"Yesterday was Sunday.","sentence_family":"past","translation":"kaale ravivar hota","source_id":"ST129"}
+{"promptEnglish":"The meeting is today.","sentence_family":"description","translation":"meeting aaje aahe","source_id":"ST130"}
+{"promptEnglish":"The festival is tomorrow.","sentence_family":"future","translation":"saen uja aahe","source_id":"ST131"}
+{"promptEnglish":"We came yesterday.","sentence_family":"past","translation":"ami kaale aalon","source_id":"ST132"}
+{"promptEnglish":"He will leave tomorrow.","sentence_family":"future","translation":"to uja nigto","source_id":"ST133"}
+{"promptEnglish":"She came last week.","sentence_family":"past","translation":"tina gayla week aali","source_id":"ST134"}
+{"promptEnglish":"We will meet next week.","sentence_family":"future","translation":"ami pullan week milto","source_id":"ST135"}
+{"promptEnglish":"The work takes one hour.","sentence_family":"description","translation":"te kaam ek ghanta vohila","source_id":"ST136"}
+{"promptEnglish":"Wait for five minutes.","sentence_family":"imperative","translation":"paanch nimisha asaant","source_id":"ST137"}
+{"promptEnglish":"Come before noon.","sentence_family":"imperative","translation":"dupara puda ye","source_id":"ST138"}
+{"promptEnglish":"Return before sunset.","sentence_family":"description","translation":"sunsenta puda partun ye","source_id":"ST139"}
+{"promptEnglish":"The shop opens in the morning.","sentence_family":"location","translation":"dukaan paashte ugadta","source_id":"ST141"}
+{"promptEnglish":"The shop closes at night.","sentence_family":"location","translation":"dukaan raatri jaankta","source_id":"ST142"}
+{"promptEnglish":"Next year will be better.","sentence_family":"future","translation":"pullan varsha anki besh asala","source_id":"ST145"}
+{"promptEnglish":"Time goes fast.","sentence_family":"description","translation":"vel lokar jaata","source_id":"ST146"}
+{"promptEnglish":"Where are you going?","sentence_family":"wh_question","translation":"tumi kuta jaataant?","source_id":"ST147"}
+{"promptEnglish":"I am going home.","sentence_family":"progressive","translation":"mi ghar-aala jaat aahe","source_id":"ST148"}
+{"promptEnglish":"He is going to town.","sentence_family":"progressive","translation":"to town-aala jaato","source_id":"ST149"}
+{"promptEnglish":"She went to the market.","sentence_family":"past","translation":"tina market geli","source_id":"ST150"}
+{"promptEnglish":"We will go tomorrow.","sentence_family":"future","translation":"tina uja jaahila","source_id":"ST151"}
+{"promptEnglish":"Come with me.","sentence_family":"imperative","translation":"majha boror ye","source_id":"ST152"}
+{"promptEnglish":"Wait here.","sentence_family":"imperative","translation":"yeta asaant","source_id":"ST153"}
+{"promptEnglish":"Walk slowly.","sentence_family":"imperative","translation":"nidaan chalaant","source_id":"ST154"}
+{"promptEnglish":"The road is long.","sentence_family":"description","translation":"vaat laamb aahe","source_id":"ST155"}
+{"promptEnglish":"The road is bad.","sentence_family":"description","translation":"vaat bara nahi","quality_score":0.75,"source_id":"ST156"}
+{"promptEnglish":"This way is shorter.","sentence_family":"description","translation":"vaat chumna aahe","source_id":"ST157"}
+{"promptEnglish":"That place is far.","sentence_family":"description","translation":"te tikaan door aahe","source_id":"ST158"}
+{"promptEnglish":"We missed the bus.","sentence_family":"past","translation":"ami bus sutlo","source_id":"ST160"}
+{"promptEnglish":"The train has arrived.","sentence_family":"past","translation":"train aala","source_id":"ST161"}
+{"promptEnglish":"Call the driver.","sentence_family":"imperative","translation":"driveraal balaave","source_id":"ST162"}
+{"promptEnglish":"Stop here.","sentence_family":"imperative","translation":"yeta asaant","source_id":"ST163"}
+{"promptEnglish":"Turn left.","sentence_family":"imperative","translation":"dava partaant","source_id":"ST164"}
+{"promptEnglish":"Turn right.","sentence_family":"imperative","translation":"ujava partaant","source_id":"ST165"}
+{"promptEnglish":"Go straight.","sentence_family":"imperative","translation":"laamb jaant","source_id":"ST166"}
+{"promptEnglish":"The bridge is broken.","sentence_family":"description","translation":"bridge modl-aahe","source_id":"ST167"}
+{"promptEnglish":"The path is muddy.","sentence_family":"description","translation":"vaat maati-maati aahe","source_id":"ST168"}
+{"promptEnglish":"We reached safely.","sentence_family":"description","translation":"ami boror jaaun paavlo","source_id":"ST169"}
+{"promptEnglish":"Show me the way.","sentence_family":"imperative","translation":"vaat daakivaant","source_id":"ST170"}
+{"promptEnglish":"Is the village near?","sentence_family":"yes_no_question","translation":"village baaju aahe ka?","source_id":"ST171"}
+{"promptEnglish":"I want vegetables.","sentence_family":"experiencer","translation":"mala bhaaji pajhe","source_id":"ST172"}
+{"promptEnglish":"I want fruits.","sentence_family":"experiencer","translation":"mala pandu pajhe","source_id":"ST173"}
+{"promptEnglish":"How much is this?","sentence_family":"wh_question","translation":"ye kavda?","source_id":"ST174"}
+{"promptEnglish":"This is too costly.","sentence_family":"identity","translation":"yeja mol jaasti aahe","source_id":"ST175"}
+{"promptEnglish":"Give me a lower price.","sentence_family":"imperative","translation":"mol kammi karun sangaant","source_id":"ST176"}
+{"promptEnglish":"I will take this.","sentence_family":"future","translation":"mi ye kaadingte","source_id":"ST177"}
+{"promptEnglish":"I do not want that.","sentence_family":"experiencer","translation":"mala te nokko","source_id":"ST178"}
+{"promptEnglish":"We need rice.","sentence_family":"experiencer","translation":"amaala bhaat pajhe","source_id":"ST179"}
+{"promptEnglish":"We need oil.","sentence_family":"experiencer","translation":"amaala tel pajhe","source_id":"ST180"}
+{"promptEnglish":"We need salt.","sentence_family":"experiencer","translation":"amaala meeth pajhe","source_id":"ST181"}
+{"promptEnglish":"The shop is open.","sentence_family":"description","translation":"dukaan ugda aahe","source_id":"ST182"}
+{"promptEnglish":"The shop is closed.","sentence_family":"description","translation":"dukaan jaankl-aahe","source_id":"ST183"}
+{"promptEnglish":"He bought a bag.","sentence_family":"description","translation":"to bag getla","source_id":"ST184"}
+{"promptEnglish":"She bought clothes.","sentence_family":"description","translation":"tina kaapda getli","source_id":"ST185"}
+{"promptEnglish":"I forgot the money.","sentence_family":"description","translation":"mi paisa visrun gele","source_id":"ST186"}
+{"promptEnglish":"Do you have change?","sentence_family":"yes_no_question","translation":"tumcha kada change aahe ka?","source_id":"ST187"}
+{"promptEnglish":"This cloth is good.","sentence_family":"description","translation":"ye kaapda besh aahe","source_id":"ST189"}
+{"promptEnglish":"That pot is big.","sentence_family":"description","translation":"te matki mota aahe","source_id":"ST190"}
+{"promptEnglish":"The onions are costly today.","sentence_family":"description","translation":"aaje kaanda mol jaasti aahe","source_id":"ST192"}
+{"promptEnglish":"Give me half a kilo.","sentence_family":"imperative","translation":"mala ardha kilo dyaant","source_id":"ST193"}
+{"promptEnglish":"Give me one kilo.","sentence_family":"imperative","translation":"mala ek kilo dyaant","source_id":"ST194"}
+{"promptEnglish":"We will come later.","sentence_family":"future","translation":"mi nantra yete","source_id":"ST195"}
+{"promptEnglish":"Keep it aside for me.","sentence_family":"imperative","translation":"mala ye kaadun tive","source_id":"ST196"}
+{"promptEnglish":"The children are in school.","sentence_family":"location","translation":"lenkra shaalaant ahita","source_id":"ST197"}
+{"promptEnglish":"I am learning now.","sentence_family":"progressive","translation":"mi ata sikhingat-aahe","source_id":"ST198"}
+{"promptEnglish":"She reads well.","sentence_family":"description","translation":"tina besh vaachti","source_id":"ST199"}
+{"promptEnglish":"He writes neatly.","sentence_family":"description","translation":"to besh livto","source_id":"ST200"}
+{"promptEnglish":"Open your book.","sentence_family":"imperative","translation":"tujha pustak ugadaant","source_id":"ST201"}
+{"promptEnglish":"Close your notebook.","sentence_family":"imperative","translation":"tujha pustak jaankaant","source_id":"ST202"}
+{"promptEnglish":"Repeat after me.","sentence_family":"description","translation":"majha nantara saange","source_id":"ST204"}
+{"promptEnglish":"Write your name.","sentence_family":"imperative","translation":"tujha naav live","source_id":"ST205"}
+{"promptEnglish":"Read this sentence.","sentence_family":"imperative","translation":"ye vaakya vaache","source_id":"ST206"}
+{"promptEnglish":"What is the answer?","sentence_family":"wh_question","translation":"yeja uttar kaahe?","source_id":"ST207"}
+{"promptEnglish":"The answer is correct.","sentence_family":"description","translation":"uttar boror aahe","source_id":"ST208"}
+{"promptEnglish":"The answer is wrong.","sentence_family":"description","translation":"uttar chook aahe","source_id":"ST209"}
+{"promptEnglish":"Ask the teacher.","sentence_family":"imperative","translation":"panthoji-la vichaare","source_id":"ST210"}
+{"promptEnglish":"The class starts early.","sentence_family":"description","translation":"class lokar aarambh hota","source_id":"ST211"}
+{"promptEnglish":"The lesson is easy.","sentence_family":"description","translation":"paath sulabh aahe","source_id":"ST212"}
+{"promptEnglish":"We studied yesterday.","sentence_family":"past","translation":"ami kaale vaachlo","source_id":"ST216"}
+{"promptEnglish":"We will study tomorrow.","sentence_family":"future","translation":"ami uja vaachto","source_id":"ST217"}
+{"promptEnglish":"The teacher is absent today.","sentence_family":"description","translation":"panthoji aaje aali-nahi","source_id":"ST218"}
+{"promptEnglish":"Bring your pencil.","sentence_family":"imperative","translation":"tujha pencil aane","source_id":"ST219"}
+{"promptEnglish":"The child learns fast.","sentence_family":"description","translation":"lenkru lokar sikhingta","source_id":"ST221"}
+{"promptEnglish":"I have work today.","sentence_family":"description","translation":"mala aaje kaam aahe","source_id":"ST222"}
+{"promptEnglish":"He has a lot of work.","sentence_family":"description","translation":"tala dande kaam aahe","source_id":"ST223"}
+{"promptEnglish":"We finished the work.","sentence_family":"past","translation":"ami kaam samplo","source_id":"ST225"}
+{"promptEnglish":"The work is not finished.","sentence_family":"past","translation":"kaam anki sampal-nahi","source_id":"ST226"}
+{"promptEnglish":"Start the work now.","sentence_family":"imperative","translation":"kaam ata araambh karaant","source_id":"ST227"}
+{"promptEnglish":"Do this first.","sentence_family":"description","translation":"ye paila kare","source_id":"ST228"}
+{"promptEnglish":"Do that later.","sentence_family":"description","translation":"te nantara kare","source_id":"ST229"}
+{"promptEnglish":"She stitches clothes.","sentence_family":"description","translation":"tina kaapda seevte","source_id":"ST231"}
+{"promptEnglish":"This work is easy.","sentence_family":"description","translation":"kaam sulabh aahe","source_id":"ST234"}
+{"promptEnglish":"We need more people.","sentence_family":"experiencer","translation":"amaal anki lok pajhe","source_id":"ST236"}
+{"promptEnglish":"We repaired it.","sentence_family":"description","translation":"ami boror karlo","source_id":"ST242"}
+{"promptEnglish":"Finish this by evening.","sentence_family":"description","translation":"ye sahenkali-tanka sampive","source_id":"ST243"}
+{"promptEnglish":"Check it again.","sentence_family":"description","translation":"anki ek dava paa","source_id":"ST244"}
+{"promptEnglish":"Be careful while working.","sentence_family":"description","translation":"kaam kartama jaagarde","source_id":"ST245"}
+{"promptEnglish":"I am not well.","sentence_family":"identity","translation":"mala aang bara nahi","source_id":"ST247"}
+{"promptEnglish":"She has a fever.","sentence_family":"experiencer","translation":"tila jaera aahe","source_id":"ST248"}
+{"promptEnglish":"He has a cold.","sentence_family":"description","translation":"tala padasa aahe","source_id":"ST249"}
+{"promptEnglish":"My head hurts.","sentence_family":"experiencer","translation":"majha doska dukhta","source_id":"ST250"}
+{"promptEnglish":"My stomach hurts.","sentence_family":"experiencer","translation":"majha pot dukhta","source_id":"ST251"}
+{"promptEnglish":"My leg hurts.","sentence_family":"experiencer","translation":"majha paiy dukhta","source_id":"ST252"}
+{"promptEnglish":"The child is coughing.","sentence_family":"progressive","translation":"lenkru konkat-aahe","source_id":"ST253"}
+{"promptEnglish":"The baby is crying.","sentence_family":"progressive","translation":"lenkru radat-aahe","source_id":"ST254"}
+{"promptEnglish":"Give the medicine.","sentence_family":"imperative","translation":"maatra dyaant","source_id":"ST255"}
+{"promptEnglish":"Did you take the medicine?","sentence_family":"yes_no_question","translation":"timi maatra kadinglaant ka?","source_id":"ST256"}
+{"promptEnglish":"We went to the doctor.","sentence_family":"past","translation":"ami vaidya kada gelo","source_id":"ST261"}
+{"promptEnglish":"The doctor came home.","sentence_family":"past","translation":"vaidya ghar-aala aale","source_id":"ST262"}
+{"promptEnglish":"The wound is small.","sentence_family":"description","translation":"ghaav chumna aahe","source_id":"ST263"}
+{"promptEnglish":"The pain is strong.","sentence_family":"experiencer","translation":"sool ghatti aahe","source_id":"ST264"}
+{"promptEnglish":"He cannot walk properly.","sentence_family":"description","translation":"tala boror chaal-aala voyna","source_id":"ST265"}
+{"promptEnglish":"She should eat well.","sentence_family":"description","translation":"tina boror jevaama","source_id":"ST266"}
+{"promptEnglish":"Wash your hands.","sentence_family":"imperative","translation":"haath duinge","source_id":"ST267"}
+{"promptEnglish":"Keep the place clean.","sentence_family":"imperative","translation":"tikaan nirambal tive","source_id":"ST268"}
+{"promptEnglish":"The water is not clean.","sentence_family":"description","translation":"paani nirambal nahi","source_id":"ST269"}
+{"promptEnglish":"Boil the water first.","sentence_family":"description","translation":"paani-la paila sijive","source_id":"ST270"}
+{"promptEnglish":"It is very hot today.","sentence_family":"description","translation":"aaje udande oob aahe","source_id":"ST272"}
+{"promptEnglish":"It is very cold today.","sentence_family":"description","translation":"aaje udande himsa aahe","source_id":"ST273"}
+{"promptEnglish":"It is raining.","sentence_family":"progressive","translation":"paus padat-aahe","source_id":"ST274"}
+{"promptEnglish":"It may rain today.","sentence_family":"description","translation":"paus paduya","source_id":"ST275"}
+{"promptEnglish":"The tree is tall.","sentence_family":"description","translation":"jhaad laamb aahe","source_id":"ST284"}
+{"promptEnglish":"The leaves are green.","sentence_family":"description","translation":"patta hirva aahe","source_id":"ST285"}
+{"promptEnglish":"The flowers are beautiful.","sentence_family":"description","translation":"poola changla aahe","source_id":"ST286"}
+{"promptEnglish":"The ground is wet.","sentence_family":"description","translation":"kalle vola aahe","source_id":"ST287"}
+{"promptEnglish":"The soil is dry.","sentence_family":"description","translation":"maati vara-vara aahe","source_id":"ST288"}
+{"promptEnglish":"It rained yesterday.","sentence_family":"past","translation":"kaale paus padla","source_id":"ST289"}
+{"promptEnglish":"It will be windy tomorrow.","sentence_family":"future","translation":"uja windy asala","source_id":"ST290"}
+{"promptEnglish":"The morning is cool.","sentence_family":"description","translation":"paashte himsa aahe","source_id":"ST291"}
+{"promptEnglish":"The afternoon is hot.","sentence_family":"description","translation":"dupaara oon aahe","source_id":"ST292"}
+{"promptEnglish":"The night is quiet.","sentence_family":"description","translation":"raatri shaant aahe","source_id":"ST293"}
+{"promptEnglish":"The crow is on the tree.","sentence_family":"location","translation":"kaavla jhaadavar aahe","source_id":"ST294"}
+{"promptEnglish":"The well has water.","sentence_family":"description","translation":"koontaant paani aahe","source_id":"ST303"}
+{"promptEnglish":"The cow gives milk.","sentence_family":"description","translation":"gaay doodh deta","source_id":"ST305"}
+{"promptEnglish":"The dog guards the house.","sentence_family":"description","translation":"kutra gharach raksha karta","source_id":"ST309"}
+{"promptEnglish":"The cat is sleeping.","sentence_family":"progressive","translation":"manjhara nijat-aahe","source_id":"ST310"}
+{"promptEnglish":"I am happy.","sentence_family":"experiencer","translation":"mala santosh aahe","source_id":"ST322"}
+{"promptEnglish":"He is angry.","sentence_family":"identity","translation":"tala raag yet-aahe","source_id":"ST324"}
+{"promptEnglish":"She is worried.","sentence_family":"experiencer","translation":"tina chinta bogat-aahe","source_id":"ST325"}
+{"promptEnglish":"They are afraid.","sentence_family":"experiencer","translation":"tanaala bey vaat-ta","source_id":"ST327"}
+{"promptEnglish":"I like this.","sentence_family":"experiencer","translation":"mala ye avadta","source_id":"ST329"}
+{"promptEnglish":"I do not like that.","sentence_family":"experiencer","translation":"mala ye avadta-nahi","source_id":"ST330"}
+{"promptEnglish":"This is good.","sentence_family":"identity","translation":"ye besh aahe","source_id":"ST331"}
+{"promptEnglish":"This is bad.","sentence_family":"identity","translation":"ye barni","quality_score":0.75,"source_id":"ST332"}
+{"promptEnglish":"That is better.","sentence_family":"description","translation":"ye anki besh aahe","source_id":"ST333"}
+{"promptEnglish":"This is the best.","sentence_family":"identity","translation":"ye paar besh aahe","source_id":"ST334"}
+{"promptEnglish":"He is a good man.","sentence_family":"identity","translation":"to chokot manus","source_id":"ST335"}
+{"promptEnglish":"The boy is clever.","sentence_family":"description","translation":"por shaana aahe","source_id":"ST337"}
+{"promptEnglish":"The girl is brave.","sentence_family":"description","translation":"pori dhairya aahe","source_id":"ST338"}
+{"promptEnglish":"What is this?","sentence_family":"wh_question","translation":"ye kaay?","source_id":"ST347"}
+{"promptEnglish":"What is that?","sentence_family":"wh_question","translation":"te kaay?","source_id":"ST348"}
+{"promptEnglish":"Who is he?","sentence_family":"wh_question","translation":"to kon?","source_id":"ST349"}
+{"promptEnglish":"Who is she?","sentence_family":"wh_question","translation":"tina kon?","source_id":"ST350"}
+{"promptEnglish":"Where is the book?","sentence_family":"wh_question","translation":"pustak kuta aahe?","source_id":"ST351"}
+{"promptEnglish":"Where is the bag?","sentence_family":"wh_question","translation":"bag kuta aahe?","source_id":"ST352"}
+{"promptEnglish":"When did you come?","sentence_family":"wh_question","translation":"tumi kamma aalaant?","source_id":"ST353"}
+{"promptEnglish":"When will you go?","sentence_family":"wh_question","translation":"tumi kamma jaataant?","source_id":"ST354"}
+{"promptEnglish":"Why are you late?","sentence_family":"wh_question","translation":"tumi kasala laate aalaant?","source_id":"ST355"}
+{"promptEnglish":"Why is the door open?","sentence_family":"wh_question","translation":"kavad ugada kasala aahe?","source_id":"ST356"}
+{"promptEnglish":"How do you know?","sentence_family":"wh_question","translation":"tumaans kasa kalala?","source_id":"ST357"}
+{"promptEnglish":"How much water is there?","sentence_family":"wh_question","translation":"tata kevda paani aahe?","source_id":"ST358"}
+{"promptEnglish":"How many people came?","sentence_family":"wh_question","translation":"kevda lok aale?","source_id":"ST359"}
+{"promptEnglish":"Which road is correct?","sentence_family":"wh_question","translation":"konta vaat boror aahe?","source_id":"ST360"}
+{"promptEnglish":"Which one do you want?","sentence_family":"wh_question","translation":"konta tumaans pajhe?","source_id":"ST361"}
+{"promptEnglish":"Is he at home?","sentence_family":"yes_no_question","translation":"to ghar-aant aahe ka?","source_id":"ST362"}
+{"promptEnglish":"Is she in the kitchen?","sentence_family":"yes_no_question","translation":"tina sampakkoli-aant aahe ka?","source_id":"ST363"}
+{"promptEnglish":"Did you call him?","sentence_family":"yes_no_question","translation":"tala balavlaant ka?","source_id":"ST365"}
+{"promptEnglish":"Did she eat?","sentence_family":"yes_no_question","translation":"tina jevli ka?","source_id":"ST366"}
+{"promptEnglish":"Can you hear me?","sentence_family":"yes_no_question","translation":"tula mi aykal-ota ka?","source_id":"ST367"}
+{"promptEnglish":"Can he read?","sentence_family":"yes_no_question","translation":"tala vaach-aala voil ka?","source_id":"ST368"}
+{"promptEnglish":"Should we wait?","sentence_family":"yes_no_question","translation":"ami asun ka?","source_id":"ST369"}
+{"promptEnglish":"Shall I come now?","sentence_family":"yes_no_question","translation":"mi ata yaun ka?","source_id":"ST370"}
+{"promptEnglish":"Do you understand?","sentence_family":"yes_no_question","translation":"tumaans samjhata ka?","quality_score":0.75,"source_id":"ST371"}
+{"promptEnglish":"Please come here.","sentence_family":"imperative","translation":"daya karun yeta yaant","source_id":"ST372"}
+{"promptEnglish":"Please go there.","sentence_family":"imperative","translation":"daya karun tata jaant","source_id":"ST373"}
+{"promptEnglish":"Sit here.","sentence_family":"imperative","translation":"yeta basaant","source_id":"ST374"}
+{"promptEnglish":"Stand there.","sentence_family":"imperative","translation":"tata votaakaant","source_id":"ST375"}
+{"promptEnglish":"Listen to me.","sentence_family":"imperative","translation":"mala ayikaant","source_id":"ST376"}
+{"promptEnglish":"Speak slowly.","sentence_family":"imperative","translation":"hallu bolaant","source_id":"ST377"}
+{"promptEnglish":"Tell me again.","sentence_family":"imperative","translation":"anki ek daba saangaant","source_id":"ST378"}
+{"promptEnglish":"Show me the book.","sentence_family":"imperative","translation":"ustak daakivaant","source_id":"ST379"}
+{"promptEnglish":"Bring some water.","sentence_family":"imperative","translation":"todka paani aane","source_id":"ST380"}
+{"promptEnglish":"Open the window.","sentence_family":"imperative","translation":"khidki ugadaant","source_id":"ST381"}
+{"promptEnglish":"Close the window.","sentence_family":"imperative","translation":"khidki jaankaant","source_id":"ST382"}
+{"promptEnglish":"Keep quiet.","sentence_family":"imperative","translation":"uga asaant","source_id":"ST383"}
+{"promptEnglish":"Do not shout.","sentence_family":"imperative","translation":"vardukaant","source_id":"ST384"}
+{"promptEnglish":"Do not run.","sentence_family":"imperative","translation":"palukaant","source_id":"ST385"}
+{"promptEnglish":"Wait a little.","sentence_family":"imperative","translation":"nankra vel asaa","source_id":"ST386"}
+{"promptEnglish":"Start now.","sentence_family":"imperative","translation":"ata aarambh karaant","source_id":"ST387"}
+{"promptEnglish":"Call your mother.","sentence_family":"imperative","translation":"amma-aal balave","source_id":"ST388"}
+{"promptEnglish":"Ask your father.","sentence_family":"imperative","translation":"tumcha bapaala vichaaraant","source_id":"ST389"}
+{"promptEnglish":"They are standing.","sentence_family":"progressive","translation":"tani votaakat-aaheta","source_id":"ST399"}
+{"promptEnglish":"We are writing.","sentence_family":"progressive","translation":"ami livt-aahein","source_id":"ST405"}
+{"promptEnglish":"They are talking.","sentence_family":"progressive","translation":"tani bolat-aaheta","source_id":"ST408"}
+{"promptEnglish":"We are listening.","sentence_family":"progressive","translation":"ami aykat-aahein","source_id":"ST409"}
+{"promptEnglish":"She is holding the baby.","sentence_family":"progressive","translation":"tina lenkru daringat-aahe","source_id":"ST415"}
+{"promptEnglish":"I opened the box.","sentence_family":"description","translation":"mi baxa ugadle","source_id":"ST416"}
+{"promptEnglish":"He closed the gate.","sentence_family":"description","translation":"to gate jaankla","source_id":"ST417"}
+{"promptEnglish":"We filled the pot.","sentence_family":"description","translation":"ami matka bharlo","source_id":"ST418"}
+{"promptEnglish":"She washed the clothes.","sentence_family":"description","translation":"tina kaapda duingli","source_id":"ST419"}
+{"promptEnglish":"They crossed the road.","sentence_family":"description","translation":"tani roadach te patis gele","source_id":"ST420"}
+{"promptEnglish":"This house is big.","sentence_family":"description","translation":"ye ghar mota aahe","source_id":"ST421"}
+{"promptEnglish":"That house is small.","sentence_family":"description","translation":"ye ghar chumna aahe","source_id":"ST422"}
+{"promptEnglish":"The water is dirty.","sentence_family":"description","translation":"paani malaka aahe","source_id":"ST426"}
+{"promptEnglish":"This tree is tall.","sentence_family":"description","translation":"jhaad laamb aahe","source_id":"ST427"}
+{"promptEnglish":"The cloth is new.","sentence_family":"description","translation":"kaapda nava aahe","source_id":"ST431"}
+{"promptEnglish":"The cloth is old.","sentence_family":"description","translation":"kaapda juna aahe","source_id":"ST432"}
+{"promptEnglish":"This fruit is sweet.","sentence_family":"description","translation":"pandu gulcheet aahe","source_id":"ST435"}
+{"promptEnglish":"That fruit is sour.","sentence_family":"description","translation":"pandu ambat aahe","source_id":"ST436"}
+{"promptEnglish":"The man is old.","sentence_family":"description","translation":"manus maatara aaheta","source_id":"ST438"}
+{"promptEnglish":"This work is better.","sentence_family":"description","translation":"ye kaam anki besh aahe","source_id":"ST439"}
+{"promptEnglish":"That method is easier.","sentence_family":"description","translation":"ye method anki sulabha aahe","source_id":"ST440"}
+{"promptEnglish":"My house is farther.","sentence_family":"description","translation":"majha ghar anki door aahe","source_id":"ST441"}
+{"promptEnglish":"Your house is nearer.","sentence_family":"description","translation":"tujha ghar sadari aahe","source_id":"ST442"}
+{"promptEnglish":"He is taller than me.","sentence_family":"identity","translation":"to majha bacha anki laamb aahe","source_id":"ST443"}
+{"promptEnglish":"She is faster than him.","sentence_family":"identity","translation":"tna tajha bacha anki lokar aahe","source_id":"ST444"}
+{"promptEnglish":"I went home.","sentence_family":"past","translation":"mi ghar-aala gele","source_id":"ST446"}
+{"promptEnglish":"She came early.","sentence_family":"past","translation":"tina lokar aali","source_id":"ST447"}
+{"promptEnglish":"He finished the work.","sentence_family":"past","translation":"to kaam sampla","source_id":"ST448"}
+{"promptEnglish":"We saw the rain.","sentence_family":"description","translation":"ami paus paalo","source_id":"ST449"}
+{"promptEnglish":"They heard the news.","sentence_family":"description","translation":"tani samaachar ahikle","source_id":"ST450"}
+{"promptEnglish":"I did not go yesterday.","sentence_family":"past","translation":"mi kaale gela-nahi","source_id":"ST451"}
+{"promptEnglish":"She did not eat in the morning.","sentence_family":"past","translation":"tina paashte jeval-nahi","source_id":"ST452"}
+{"promptEnglish":"He did not come on time.","sentence_family":"past","translation":"to boror vel-aala aala nahi","source_id":"ST453"}
+{"promptEnglish":"She will cook tonight.","sentence_family":"future","translation":"tina raatri sampaak karala","source_id":"ST455"}
+{"promptEnglish":"He will call later.","sentence_family":"future","translation":"to nantara balaavto","source_id":"ST456"}
+{"promptEnglish":"They will visit next week.","sentence_family":"future","translation":"tani pullan week yeta yetaat","source_id":"ST457"}
+{"promptEnglish":"I will study tonight.","sentence_family":"future","translation":"mi aaje raatri vaachte","source_id":"ST458"}
+{"promptEnglish":"We will start early tomorrow.","sentence_family":"future","translation":"ami uja pashte lokar aarambh karto","source_id":"ST459"}
+{"promptEnglish":"She is going to buy vegetables.","sentence_family":"progressive","translation":"tina bhaaji geyala geli","source_id":"ST460"}
+{"promptEnglish":"He is going to repair the door.","sentence_family":"progressive","translation":"to kavaad boror karala","source_id":"ST461"}
+{"promptEnglish":"I want to learn more.","sentence_family":"experiencer","translation":"mala anki sikhingaama","source_id":"ST464"}
+{"promptEnglish":"We need to leave now.","sentence_family":"experiencer","translation":"ami ata nigaama","source_id":"ST467"}
+{"promptEnglish":"I forgot to bring the key.","sentence_family":"description","translation":"mi key aanaal visrun gele","source_id":"ST469"}
+{"promptEnglish":"She remembered to call him.","sentence_family":"description","translation":"tina balaav-aala saya karli","source_id":"ST470"}
+{"promptEnglish":"Many people came to the temple.","sentence_family":"past","translation":"dande lok deyaul-aala aale","source_id":"ST472"}
+{"promptEnglish":"The festival starts tonight.","sentence_family":"description","translation":"saen aaje aarambh hota","source_id":"ST473"}
+{"promptEnglish":"The children wore new clothes.","sentence_family":"description","translation":"lenkra nava kaapda gaalingle","source_id":"ST475"}
+{"promptEnglish":"Everyone brought food.","sentence_family":"description","translation":"aggi lok jevna aanle","source_id":"ST476"}
+{"promptEnglish":"We lit the lamps.","sentence_family":"description","translation":"ami diva laavlo","source_id":"ST479"}
+{"promptEnglish":"The women sang beautifully.","sentence_family":"description","translation":"baiko besh gaana mantli","source_id":"ST492"}
+{"promptEnglish":"I will come soon.","sentence_family":"future","translation":"mi lokar yete","source_id":"ST497"}
+{"promptEnglish":"He is still sleeping.","sentence_family":"identity","translation":"to anki nijat-aahe","quality_score":0.75,"source_id":"ST498"}
+{"promptEnglish":"The water pot is empty.","sentence_family":"description","translation":"matka-aanta paani nahi","source_id":"ST500"}
+{"promptEnglish":"Fill the pot with water.","sentence_family":"imperative","translation":"matka paani bhare","source_id":"ST501"}
+{"promptEnglish":"The child is asking for food.","sentence_family":"progressive","translation":"lenkru jevaal vichaarat-aahe","source_id":"ST502"}
+{"promptEnglish":"My mother went outside.","sentence_family":"past","translation":"majha amma bahir geli","source_id":"ST503"}
+{"promptEnglish":"My father is in the kitchen","sentence_family":"location","translation":"majha bapa sampakkoli-aant aaheta","source_id":"ST504"}
+{"promptEnglish":"Take off your shoes.","sentence_family":"imperative","translation":"tujha shoes kaade","source_id":"ST506"}
+{"promptEnglish":"Leave the bag here.","sentence_family":"location","translation":"bag yeta sode","source_id":"ST507"}
+{"promptEnglish":"Do not forget your book.","sentence_family":"imperative","translation":"tujha pustaka visruko","source_id":"ST508"}
+{"promptEnglish":"The baby is awake now.","sentence_family":"description","translation":"lenkru ata uthlaay","source_id":"ST509"}
+{"promptEnglish":"We are leaving after lunch.","sentence_family":"progressive","translation":"ami jevla-nantara nigto","source_id":"ST510"}
+{"promptEnglish":"He came back early.","sentence_family":"past","translation":"to lokar partun aala","source_id":"ST511"}
+{"promptEnglish":"She stayed at home.","sentence_family":"past","translation":"tina ghar-aant asli","source_id":"ST512"}
+{"promptEnglish":"The mat is on the floor.","sentence_family":"location","translation":"mat bhoi-var aahe","source_id":"ST514"}
+{"promptEnglish":"Open the back door.","sentence_family":"imperative","translation":"maagla asaach kavaad jaankaant","source_id":"ST516"}
+{"promptEnglish":"Close the front gate.","sentence_family":"imperative","translation":"puda asaach kavaad jaankaant","source_id":"ST517"}
+{"promptEnglish":"Bring the small plate.","sentence_family":"imperative","translation":"chumna plate aanaant","source_id":"ST519"}
+{"promptEnglish":"Keep the clothes inside.","sentence_family":"imperative","translation":"kaapda aant tivaant","source_id":"ST520"}
+{"promptEnglish":"The rice needs more water.","sentence_family":"description","translation":"bhaat-aala anki paani pajhet asala","source_id":"ST522"}
+{"promptEnglish":"The curry smells good.","sentence_family":"description","translation":"curry-ch vaas besh aahe","source_id":"ST523"}
+{"promptEnglish":"This food is too spicy.","sentence_family":"description","translation":"jevna tikkhat hota","source_id":"ST524"}
+{"promptEnglish":"The tea is too sweet.","sentence_family":"description","translation":"chai udande gulcheet aahe","source_id":"ST525"}
+{"promptEnglish":"Please give me some buttermilk.","sentence_family":"imperative","translation":"daya karun todka chaach dyaant","source_id":"ST526"}
+{"promptEnglish":"He wants another chapati.","sentence_family":"description","translation":"tala anki ek chapati pajhe mana","source_id":"ST527"}
+{"promptEnglish":"She is serving food.","sentence_family":"progressive","translation":"tina jevana vhaadat-aahe","source_id":"ST528"}
+{"promptEnglish":"We are eating in the hall.","sentence_family":"progressive","translation":"ami hall-aant jhevat-aahein","source_id":"ST529"}
+{"promptEnglish":"Dinner was very tasty.","sentence_family":"past","translation":"jevna pramaad hota","source_id":"ST539"}
+{"promptEnglish":"I am washing the dishes.","sentence_family":"progressive","translation":"mi paatra ghaasat-aahe","source_id":"ST540"}
+{"promptEnglish":"He is filling the bottles.","sentence_family":"progressive","translation":"to bottles bharat-aahe","source_id":"ST542"}
+{"promptEnglish":"We need more firewood.","sentence_family":"experiencer","translation":"amaans anki firewood pajhe","source_id":"ST543"}
+{"promptEnglish":"The salt fell on the floor.","sentence_family":"location","translation":"meeth bhoi-var padla","source_id":"ST544"}
+{"promptEnglish":"The market opens early today.","sentence_family":"description","translation":"market aaje lokar ugadta","source_id":"ST546"}
+{"promptEnglish":"She studies before breakfast.","sentence_family":"description","translation":"tina naashta puda vaachte","source_id":"ST548"}
+{"promptEnglish":"The school bell rang.","sentence_family":"location","translation":"shaalaach ghaant vajla","source_id":"ST551"}
+{"promptEnglish":"Come back by evening.","sentence_family":"imperative","translation":"sahenkali partun ye","source_id":"ST556"}
+{"promptEnglish":"We waited for a long time.","sentence_family":"description","translation":"ami udande vel wait karlo","source_id":"ST557"}
+{"promptEnglish":"He arrived before noon.","sentence_family":"past","translation":"to dupara puda aala","source_id":"ST558"}
+{"promptEnglish":"She left after sunset.","sentence_family":"description","translation":"tina sunset-a nantara geli","source_id":"ST559"}
+{"promptEnglish":"She reached on time.","sentence_family":"location","translation":"tina vel-aant paavli","source_id":"ST569"}
+{"promptEnglish":"Is there a shorter road?","sentence_family":"yes_no_question","translation":"yeja bacha chumna vaat aahe ka?","source_id":"ST571"}
+{"promptEnglish":"Take this road to the left.","sentence_family":"imperative","translation":"ye dava vaat kadinge","source_id":"ST572"}
+{"promptEnglish":"The shopkeeper knows me.","sentence_family":"description","translation":"dukaandaar mala kalala","source_id":"ST573"}
+{"promptEnglish":"I need to buy soap.","sentence_family":"experiencer","translation":"mi soap gengaam","source_id":"ST574"}
+{"promptEnglish":"We also need sugar.","sentence_family":"experiencer","translation":"amaal saakar-pani pajhe","source_id":"ST575"}
+{"promptEnglish":"Give me some bananas.","sentence_family":"imperative","translation":"mala todka kela dyaant","source_id":"ST576"}
+{"promptEnglish":"This price is fair.","sentence_family":"description","translation":"yeja mol boror aahe","source_id":"ST579"}
+{"promptEnglish":"He forgot his wallet.","sentence_family":"description","translation":"to wallet visarla","source_id":"ST581"}
+{"promptEnglish":"She bought a new sari.","sentence_family":"description","translation":"tina nava sari getli","source_id":"ST582"}
+{"promptEnglish":"Do you sell notebooks?","sentence_family":"yes_no_question","translation":"tumi pustaka viktaant ka?","source_id":"ST584"}
+{"promptEnglish":"The tailor will come later.","sentence_family":"future","translation":"tailor nantara yetat","source_id":"ST585"}
+{"promptEnglish":"Write the answer clearly.","sentence_family":"imperative","translation":"uttar-aala spashta live","source_id":"ST587"}
+{"promptEnglish":"He forgot his homework.","sentence_family":"description","translation":"to tajha homework aan-aala visrun gela","source_id":"ST588"}
+{"promptEnglish":"She brought her pen.","sentence_family":"description","translation":"tina tijha pen aanli","source_id":"ST589"}
+{"promptEnglish":"The lesson ended early.","sentence_family":"description","translation":"lesson lokar sampla","source_id":"ST590"}
+{"promptEnglish":"We have an exam tomorrow.","sentence_family":"future","translation":"amaans uja exam aahe","source_id":"ST591"}
+{"promptEnglish":"I understand a little.","sentence_family":"description","translation":"mala todka artha-ola","source_id":"ST593"}
+{"promptEnglish":"He does not understand.","sentence_family":"description","translation":"tala artha-ola-nahi","source_id":"ST594"}
+{"promptEnglish":"Do this carefully.","sentence_family":"description","translation":"yela jagardaana karaant","source_id":"ST596"}
+{"promptEnglish":"We need to finish today.","sentence_family":"experiencer","translation":"ami aajecha sampaama","source_id":"ST597"}
+{"promptEnglish":"Call me after work.","sentence_family":"imperative","translation":"mala kaam-a nantara balaavaant","source_id":"ST598"}
+{"promptEnglish":"Take this tablet after food.","sentence_family":"imperative","translation":"ye tablet jevla-nantara kadingaant","source_id":"ST602"}
+{"promptEnglish":"My back hurts today.","sentence_family":"experiencer","translation":"majha paati sool hot-aahe","source_id":"ST604"}
+{"promptEnglish":"She has a headache.","sentence_family":"experiencer","translation":"tila kapal sool aahe","source_id":"ST605"}
+{"promptEnglish":"Drink more water.","sentence_family":"description","translation":"anki paani piyaant","source_id":"ST607"}
+{"promptEnglish":"The breeze feels nice.","sentence_family":"description","translation":"biri-biri vaara besh aahe","source_id":"ST611"}
+{"promptEnglish":"The cow is eating grass.","sentence_family":"progressive","translation":"gaay ghaas khaat-aahe","source_id":"ST615"}
+{"promptEnglish":"The mango tree has flowers.","sentence_family":"description","translation":"ambaach jhaadaant poola aahe","source_id":"ST628"}
+{"promptEnglish":"The fence is broken.","sentence_family":"description","translation":"fence modl-aahe","source_id":"ST631"}
+{"promptEnglish":"Repair it today.","sentence_family":"imperative","translation":"aaje boror karaant","source_id":"ST632"}
+{"promptEnglish":"I feel better now.","sentence_family":"experiencer","translation":"ata boro vaat-ta","source_id":"ST633"}
+{"promptEnglish":"He seems worried.","sentence_family":"experiencer","translation":"to chinta bhogto","source_id":"ST635"}
+{"promptEnglish":"They are very happy.","sentence_family":"experiencer","translation":"tani santosh aaheta","source_id":"ST637"}
+{"promptEnglish":"Why did he leave?","sentence_family":"wh_question","translation":"to kasala nigla?","source_id":"ST639"}
+{"promptEnglish":"Where did she go?","sentence_family":"wh_question","translation":"tina kuta geli?","source_id":"ST640"}
+{"promptEnglish":"When will they arrive?","sentence_family":"wh_question","translation":"tani kamma yetila?","source_id":"ST641"}
+{"promptEnglish":"Can we start now?","sentence_family":"yes_no_question","translation":"ami ata aarambh karuya ka?","source_id":"ST642"}
+{"promptEnglish":"Please tell the truth.","sentence_family":"imperative","translation":"daya karun khara saange","source_id":"ST643"}
+{"promptEnglish":"Sit near me.","sentence_family":"imperative","translation":"majha baaju baise","source_id":"ST645"}
+{"promptEnglish":"Do not go alone.","sentence_family":"imperative","translation":"ekat jaauko","source_id":"ST646"}
+{"promptEnglish":"Bring your notebook.","sentence_family":"imperative","translation":"tujha pustaka aane","source_id":"ST647"}
+{"promptEnglish":"Show me your hand.","sentence_family":"imperative","translation":"tumcha haath daakivaant","source_id":"ST648"}
+{"promptEnglish":"Call him immediately.","sentence_family":"imperative","translation":"tala atach balave","source_id":"ST649"}
+{"promptEnglish":"Ask her to wait.","sentence_family":"imperative","translation":"tila asaala vichaare","source_id":"ST650"}
+{"promptEnglish":"Write your phone number.","sentence_family":"imperative","translation":"tumcha phone number livaant","source_id":"ST651"}
+{"promptEnglish":"I am walking home.","sentence_family":"progressive","translation":"mi ghar-aala chalun jaate","source_id":"ST653"}
+{"promptEnglish":"She is opening the box.","sentence_family":"progressive","translation":"tina baxa ugadat-aahe","source_id":"ST654"}
+{"promptEnglish":"He is closing the window.","sentence_family":"progressive","translation":"to khidki jaankat-aahe","source_id":"ST655"}
+{"promptEnglish":"They are washing the car.","sentence_family":"progressive","translation":"tani bandi duingtaa-ta","source_id":"ST656"}
+{"promptEnglish":"We are carrying water.","sentence_family":"progressive","translation":"amcha kada paani aahe","source_id":"ST657"}
+{"promptEnglish":"The boy is climbing the tree.","sentence_family":"progressive","translation":"por jhaadaavar jaat-aahe","source_id":"ST658"}
+{"promptEnglish":"He is sweeping the yard.","sentence_family":"progressive","translation":"to varaanda jaadat-aahe","source_id":"ST660"}
+{"promptEnglish":"She is folding the clothes.","sentence_family":"progressive","translation":"tina kaapada gadi karat-aahe","source_id":"ST661"}
+{"promptEnglish":"The baby is smiling.","sentence_family":"progressive","translation":"lenkru hasat-aahe","source_id":"ST662"}
+{"promptEnglish":"My brother is stronger.","sentence_family":"description","translation":"majha bhau anki shakti-shaali","source_id":"ST669"}
+{"promptEnglish":"She will return tomorrow morning.","sentence_family":"future","translation":"tina uja paashte partun yete","source_id":"ST674"}
+{"promptEnglish":"I need to buy medicines.","sentence_family":"experiencer","translation":"mi maatra gengaam","source_id":"ST678"}
+{"promptEnglish":"He wants to speak to you.","sentence_family":"description","translation":"tala tujha boror bolaam","source_id":"ST680"}
+{"promptEnglish":"They may come later.","sentence_family":"description","translation":"tani nantra yetil","source_id":"ST682"}
+{"promptEnglish":"The temple bell is ringing.","sentence_family":"progressive","translation":"deyaulaach ghaant vaajat-aahe","source_id":"ST683"}
+{"promptEnglish":"We offered flowers at the temple.","sentence_family":"location","translation":"ami deyaul-aant poola delo","source_id":"ST686"}
+{"promptEnglish":"Food is being served outside.","sentence_family":"progressive","translation":"jevna bahir vhaad-at aahe","source_id":"ST690"}
+{"promptEnglish":"The event went well.","sentence_family":"past","translation":"event besh gela","source_id":"ST692"}
+{"promptEnglish":"Please call me on the phone.","sentence_family":"imperative","translation":"daya karun mala phone-aant balave","source_id":"ST693"}
+{"promptEnglish":"I missed your call.","sentence_family":"past","translation":"tujha call sutla","source_id":"ST694"}
+{"promptEnglish":"I cannot hear clearly.","sentence_family":"description","translation":"mala ayikna manta","source_id":"ST710"}
+{"promptEnglish":"Please speak again on the phone.","sentence_family":"imperative","translation":"daya karun anki ek dava phone-aant saange","source_id":"ST711"}
+{"promptEnglish":"Send the photo later.","sentence_family":"description","translation":"photo natara paativaant","source_id":"ST713"}
+{"promptEnglish":"Please take me to the clinic.","sentence_family":"imperative","translation":"daya karun mala clinic-aal kading jaa","source_id":"ST715"}
+{"promptEnglish":"Call the ambulance.","sentence_family":"imperative","translation":"ambulance-aala balave","source_id":"ST716"}
+{"promptEnglish":"The child has a high fever.","sentence_family":"experiencer","translation":"lenkr-aala besh jaera aahe","source_id":"ST717"}
+{"promptEnglish":"Help me lift this box.","sentence_family":"imperative","translation":"ye baxa uthiv-aala mala help kare","source_id":"ST718"}
+{"promptEnglish":"Can you stay with her?","sentence_family":"yes_no_question","translation":"tija boror astis ka?","source_id":"ST719"}
+{"promptEnglish":"Please bring blankets.","sentence_family":"imperative","translation":"daya karun paangroon aanaant","source_id":"ST720"}
+{"promptEnglish":"Do not worry too much.","sentence_family":"imperative","translation":"dande chinta bhoguko","source_id":"ST722"}
+{"promptEnglish":"Let us eat first.","sentence_family":"description","translation":"paila amaal jevaal sode","source_id":"ST724"}
+{"promptEnglish":"I will talk to him later.","sentence_family":"future","translation":"mi tajha kada nantara bolte","source_id":"ST725"}
+{"promptEnglish":"She asked me to come.","sentence_family":"description","translation":"tina yela vichaarli","source_id":"ST726"}
+{"promptEnglish":"He told us to wait.","sentence_family":"description","translation":"to amaala asaal mantla","source_id":"ST727"}
+{"promptEnglish":"We should leave early tomorrow.","sentence_family":"future","translation":"ami uja lokar nigaam","source_id":"ST728"}
+{"promptEnglish":"Please remind me in the morning.","sentence_family":"location","translation":"daya karun mala paashte saya karive","source_id":"ST729"}
+{"promptEnglish":"I do not remember that.","sentence_family":"description","translation":"mala te saya nahi","source_id":"ST730"}
+{"promptEnglish":"She remembers everything.","sentence_family":"description","translation":"tila tavdeen saya aahe","source_id":"ST731"}
+{"promptEnglish":"He always speaks softly.","sentence_family":"description","translation":"to kammin hallu bolto","source_id":"ST732"}
+{"promptEnglish":"Let us meet after dinner.","sentence_family":"description","translation":"jevla nantara milto","source_id":"ST735"}
+{"promptEnglish":"They want to come with us.","sentence_family":"experiencer","translation":"tanaal amcha boror yema","source_id":"ST736"}
+{"promptEnglish":"The old man walks slowly.","sentence_family":"description","translation":"maataara hallu chalat-aaheta","source_id":"ST737"}
+{"promptEnglish":"The child is learning quickly.","sentence_family":"progressive","translation":"lenkru lokar sikhingat-aahe","source_id":"ST739"}
+{"promptEnglish":"Please sit near the window.","sentence_family":"imperative","translation":"daya karun khidki kada basaant","source_id":"ST740"}
+{"promptEnglish":"Keep your phone in the bag.","sentence_family":"imperative","translation":"tumcha phone bag-aant tivaant","source_id":"ST741"}
+{"promptEnglish":"The answer will come soon.","sentence_family":"future","translation":"uttar todka vel nantra yeta","source_id":"ST743"}
+{"promptEnglish":"This matter is important.","sentence_family":"description","translation":"ye matter udande mukhya","source_id":"ST744"}
+{"promptEnglish":"Let us think about it.","sentence_family":"description","translation":"ami visaar karto","source_id":"ST745"}
+{"promptEnglish":"Everything will be fine","sentence_family":"future","translation":"tavdeen boror onjahila","source_id":"ST746"}

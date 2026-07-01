@@ -1,67 +1,66 @@
-{"input_text":"[PROFILE=young_female] [FAMILY=identity] My name is Ravi.","target_text":"majha naav ravi","weight":1,"source_id":"ST004::young_female","source_type":"training"}
-{"input_text":"[PROFILE=elder_respectful] [FAMILY=identity] My name is Ravi.","target_text":"majha naav ravi","weight":1,"source_id":"ST004::elder_respectful","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=yes_no_question] Are you well?","target_text":"tu boror ahes ka?","weight":1,"source_id":"ST018::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=progressive] The children are playing.","target_text":"lenkra khelat aaheta.","weight":1,"source_id":"ST036::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=progressive] The young girl is singing.","target_text":"chumna pori gaana manat-aahe","weight":1,"source_id":"ST046::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The room is dark.","target_text":"room andaar aahe","weight":1,"source_id":"ST063::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] We cleaned the house today.","target_text":"ami ghar puslo","weight":1,"source_id":"ST068::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The food is hot.","target_text":"jevna oon aahe","weight":1,"source_id":"ST076::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The chili is strong.","target_text":"thikkat bharun aahe","weight":1,"source_id":"ST088::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Wash the vessel.","target_text":"paatra ghaanse","weight":1,"source_id":"ST091::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=past] He did not eat.","target_text":"to khaala nahi","weight":1,"source_id":"ST095::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=location] We take a bath in the morning.","target_text":"ami paashte angoli karto","weight":1,"source_id":"ST101::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] It is one o’clock.","target_text":"vel ek vajta","weight":1,"source_id":"ST123::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] It is two o’clock.","target_text":"vel don vajta","weight":1,"source_id":"ST124::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] Today is Monday.","target_text":"aaje somvaar aahe","weight":1,"source_id":"ST127::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=future] The festival is tomorrow.","target_text":"saen uja aahe","weight":1,"source_id":"ST131::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=future] Next year will be better.","target_text":"pullan varsha anki besh asala","weight":1,"source_id":"ST145::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_male] [FAMILY=wh_question] Where are you going?","target_text":"tu kuta jaatos?","weight":1,"source_id":"ST147::young_male","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The road is long.","target_text":"vaat laamb aahe","weight":1,"source_id":"ST155::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Turn right.","target_text":"ujava parte","weight":1,"source_id":"ST165::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The path is muddy.","target_text":"vaat maati-maati aahe","weight":1,"source_id":"ST168::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Give me a lower price.","target_text":"mol kammi karun sange","weight":1,"source_id":"ST176::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=yes_no_question] Do you have change?","target_text":"tujha kada change aahe ka?","weight":1,"source_id":"ST187::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=progressive] I am learning now.","target_text":"mi ata sikhingat-aahe","weight":1,"source_id":"ST198::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Close your notebook.","target_text":"tujha pustak jaanke","weight":1,"source_id":"ST202::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The answer is wrong.","target_text":"uttar chook aahe","weight":1,"source_id":"ST209::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The teacher is absent today.","target_text":"panthoji aaje aali-nahi","weight":1,"source_id":"ST218::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=progressive] The baby is crying.","target_text":"lenkru radat-aahe","weight":1,"source_id":"ST254::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=yes_no_question] Did you take the medicine?","target_text":"tu maatra kadinglis ka?","weight":1,"source_id":"ST256::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_male] [FAMILY=yes_no_question] Did you take the medicine?","target_text":"tu maatra kadinglos ka?","weight":1,"source_id":"ST256::young_male","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=past] The doctor came home.","target_text":"vaidya ghar-aala aale","weight":1,"source_id":"ST262::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The wound is small.","target_text":"ghaav chumna aahe","weight":1,"source_id":"ST263::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] She should eat well.","target_text":"tina boror jevaama","weight":1,"source_id":"ST266::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=experiencer] I like this.","target_text":"mala ye avadta","weight":1,"source_id":"ST329::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=wh_question] What is this?","target_text":"ye kaay?","weight":1,"source_id":"ST347::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=wh_question] Who is she?","target_text":"tina kon?","weight":1,"source_id":"ST350::young_female","source_type":"training"}
-{"input_text":"[PROFILE=elder_respectful] [FAMILY=yes_no_question] Did you call him?","target_text":"tala balavlaant ka?","weight":1,"source_id":"ST365::elder_respectful","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=yes_no_question] Can you hear me?","target_text":"tula mi aykal-ota ka?","weight":1,"source_id":"ST367::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=yes_no_question] Do you understand?","target_text":"tula samjhata ka?","weight":0.75,"source_id":"ST371::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Stand there.","target_text":"tata votaake","weight":1,"source_id":"ST375::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_male] [FAMILY=imperative] Listen to me.","target_text":"mala ayike","weight":1,"source_id":"ST376::young_male","source_type":"training"}
-{"input_text":"[PROFILE=elder_respectful] [FAMILY=imperative] Tell me again.","target_text":"anki ek daba saangaant","weight":1,"source_id":"ST378::elder_respectful","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Do not shout.","target_text":"varduko","weight":1,"source_id":"ST384::young_female","source_type":"training"}
-{"input_text":"[PROFILE=elder_respectful] [FAMILY=imperative] Start now.","target_text":"ata aarambh karaant","weight":1,"source_id":"ST387::elder_respectful","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=progressive] She is holding the baby.","target_text":"tina lenkru daringat-aahe","weight":1,"source_id":"ST415::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] This fruit is sweet.","target_text":"pandu gulcheet aahe","weight":1,"source_id":"ST435::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] They heard the news.","target_text":"tani samaachar ahikle","weight":1,"source_id":"ST450::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=past] He did not come on time.","target_text":"to boror vel-aala aala nahi","weight":1,"source_id":"ST453::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=experiencer] I want to learn more.","target_text":"mala anki sikhingaama","weight":1,"source_id":"ST464::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The children wore new clothes.","target_text":"lenkra nava kaapda gaalingle","weight":1,"source_id":"ST475::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The women sang beautifully.","target_text":"baiko besh gaana mantli","weight":1,"source_id":"ST492::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The water pot is empty.","target_text":"matka-aanta paani nahi","weight":1,"source_id":"ST500::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=past] She stayed at home.","target_text":"tina ghar-aant asli","weight":1,"source_id":"ST512::young_female","source_type":"training"}
-{"input_text":"[PROFILE=elder_respectful] [FAMILY=imperative] Close the front gate.","target_text":"puda asaach kavaad jaankaant","weight":1,"source_id":"ST517::elder_respectful","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] The rice needs more water.","target_text":"bhaat-aala anki paani pajhet asala","weight":1,"source_id":"ST522::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=progressive] He is filling the bottles.","target_text":"to bottles bharat-aahe","weight":1,"source_id":"ST542::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] She studies before breakfast.","target_text":"tina naashta puda vaachte","weight":1,"source_id":"ST548::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] She bought a new sari.","target_text":"tina nava sari getli","weight":1,"source_id":"ST582::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=future] The tailor will come later.","target_text":"tailor nantara yete","weight":1,"source_id":"ST585::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=wh_question] Why did he leave?","target_text":"to kasala nigla?","weight":1,"source_id":"ST639::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_male] [FAMILY=progressive] I am walking home.","target_text":"mi ghar-aala chalun jaato","weight":1,"source_id":"ST653::young_male","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=location] We offered flowers at the temple.","target_text":"ami deyaul-aant poola delo","weight":1,"source_id":"ST686::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Please speak again on the phone.","target_text":"daya karun anki ek dava phone-aant saange","weight":1,"source_id":"ST711::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Please take me to the clinic.","target_text":"daya karun mala clinic-aal kading jaa","weight":1,"source_id":"ST715::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Call the ambulance.","target_text":"ambulance-aala balave","weight":1,"source_id":"ST716::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=imperative] Help me lift this box.","target_text":"ye baxa uthiv-aala mala help kare","weight":1,"source_id":"ST718::young_female","source_type":"training"}
-{"input_text":"[PROFILE=young_female] [FAMILY=description] She asked me to come.","target_text":"tina yela vichaarli","weight":1,"source_id":"ST726::young_female","source_type":"training"}
+{"promptEnglish":"  [FAMILY=identity] My name is Ravi.","translation":"majha naav ravi","source_id":"ST004","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Are you well?","translation":"tu boror ahes ka?","source_id":"ST018","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] The children are playing.","translation":"lenkra khelat aaheta.","source_id":"ST036","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] The young girl is singing.","translation":"chumna pori gaana manat-aahe","source_id":"ST046","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The room is dark.","translation":"room andaar aahe","source_id":"ST063","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] We cleaned the house today.","translation":"ami ghar puslo","source_id":"ST068","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The food is hot.","translation":"jevna oon aahe","source_id":"ST076","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The chili is strong.","translation":"thikkat bharun aahe","source_id":"ST088","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Wash the vessel.","translation":"paatra ghaanse","source_id":"ST091","source_type":"training"}
+{"promptEnglish":"  [FAMILY=past] He did not eat.","translation":"to khaala nahi","source_id":"ST095","source_type":"training"}
+{"promptEnglish":"  [FAMILY=location] We take a bath in the morning.","translation":"ami paashte angoli karto","source_id":"ST101","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] It is one o’clock.","translation":"vel ek vajta","source_id":"ST123","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] It is two o’clock.","translation":"vel don vajta","source_id":"ST124","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] Today is Monday.","translation":"aaje somvaar aahe","source_id":"ST127","source_type":"training"}
+{"promptEnglish":"  [FAMILY=future] The festival is tomorrow.","translation":"saen uja aahe","source_id":"ST131","source_type":"training"}
+{"promptEnglish":"  [FAMILY=future] Next year will be better.","translation":"pullan varsha anki besh asala","source_id":"ST145","source_type":"training"}
+{"promptEnglish":"  [FAMILY=wh_question] Where are you going?","translation":"tu kuta jaatos?","source_id":"ST147","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The road is long.","translation":"vaat laamb aahe","source_id":"ST155","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Turn right.","translation":"ujava parte","source_id":"ST165","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The path is muddy.","translation":"vaat maati-maati aahe","source_id":"ST168","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Give me a lower price.","translation":"mol kammi karun sange","source_id":"ST176","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Do you have change?","translation":"tujha kada change aahe ka?","source_id":"ST187","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] I am learning now.","translation":"mi ata sikhingat-aahe","source_id":"ST198","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Close your notebook.","translation":"tujha pustak jaanke","source_id":"ST202","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The answer is wrong.","translation":"uttar chook aahe","source_id":"ST209","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The teacher is absent today.","translation":"panthoji aaje aali-nahi","source_id":"ST218","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] The baby is crying.","translation":"lenkru radat-aahe","source_id":"ST254","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Did you take the medicine?","translation":"tu maatra kadinglis ka?","source_id":"ST256","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Did you take the medicine?","translation":"tu maatra kadinglos ka?","source_id":"ST256","source_type":"training"}
+{"promptEnglish":"  [FAMILY=past] The doctor came home.","translation":"vaidya ghar-aala aale","source_id":"ST262","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The wound is small.","translation":"ghaav chumna aahe","source_id":"ST263","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] She should eat well.","translation":"tina boror jevaama","source_id":"ST266","source_type":"training"}
+{"promptEnglish":"  [FAMILY=experiencer] I like this.","translation":"mala ye avadta","source_id":"ST329","source_type":"training"}
+{"promptEnglish":"  [FAMILY=wh_question] What is this?","translation":"ye kaay?","source_id":"ST347","source_type":"training"}
+{"promptEnglish":"  [FAMILY=wh_question] Who is she?","translation":"tina kon?","source_id":"ST350","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Did you call him?","translation":"tala balavlaant ka?","source_id":"ST365","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Can you hear me?","translation":"tula mi aykal-ota ka?","source_id":"ST367","source_type":"training"}
+{"promptEnglish":"  [FAMILY=yes_no_question] Do you understand?","translation":"tula samjhata ka?","source_id":"ST371","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Stand there.","translation":"tata votaake","source_id":"ST375","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Listen to me.","translation":"mala ayike","source_id":"ST376","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Tell me again.","translation":"anki ek daba saangaant","source_id":"ST378","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Do not shout.","translation":"varduko","source_id":"ST384","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Start now.","translation":"ata aarambh karaant","source_id":"ST387","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] She is holding the baby.","translation":"tina lenkru daringat-aahe","source_id":"ST415","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] This fruit is sweet.","translation":"pandu gulcheet aahe","source_id":"ST435","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] They heard the news.","translation":"tani samaachar ahikle","source_id":"ST450","source_type":"training"}
+{"promptEnglish":"  [FAMILY=past] He did not come on time.","translation":"to boror vel-aala aala nahi","source_id":"ST453","source_type":"training"}
+{"promptEnglish":"  [FAMILY=experiencer] I want to learn more.","translation":"mala anki sikhingaama","source_id":"ST464","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The children wore new clothes.","translation":"lenkra nava kaapda gaalingle","source_id":"ST475","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The women sang beautifully.","translation":"baiko besh gaana mantli","source_id":"ST492","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The water pot is empty.","translation":"matka-aanta paani nahi","source_id":"ST500","source_type":"training"}
+{"promptEnglish":"  [FAMILY=past] She stayed at home.","translation":"tina ghar-aant asli","source_id":"ST512","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Close the front gate.","translation":"puda asaach kavaad jaankaant","source_id":"ST517","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] The rice needs more water.","translation":"bhaat-aala anki paani pajhet asala","source_id":"ST522","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] He is filling the bottles.","translation":"to bottles bharat-aahe","source_id":"ST542","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] She studies before breakfast.","translation":"tina naashta puda vaachte","source_id":"ST548","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] She bought a new sari.","translation":"tina nava sari getli","source_id":"ST582","source_type":"training"}
+{"promptEnglish":"  [FAMILY=future] The tailor will come later.","translation":"tailor nantara yete","source_id":"ST585","source_type":"training"}
+{"promptEnglish":"  [FAMILY=wh_question] Why did he leave?","translation":"to kasala nigla?","source_id":"ST639","source_type":"training"}
+{"promptEnglish":"  [FAMILY=progressive] I am walking home.","translation":"mi ghar-aala chalun jaato","source_id":"ST653","source_type":"training"}
+{"promptEnglish":"  [FAMILY=location] We offered flowers at the temple.","translation":"ami deyaul-aant poola delo","source_id":"ST686","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Please speak again on the phone.","translation":"daya karun anki ek dava phone-aant saange","source_id":"ST711","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Please take me to the clinic.","translation":"daya karun mala clinic-aal kading jaa","source_id":"ST715","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Call the ambulance.","translation":"ambulance-aala balave","source_id":"ST716","source_type":"training"}
+{"promptEnglish":"  [FAMILY=imperative] Help me lift this box.","translation":"ye baxa uthiv-aala mala help kare","source_id":"ST718","source_type":"training"}
+{"promptEnglish":"  [FAMILY=description] She asked me to come.","translation":"tina yela vichaarli","source_id":"ST726","source_type":"training"}

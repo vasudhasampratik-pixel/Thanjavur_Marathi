@@ -98,6 +98,21 @@ npm install
 
 With this setup, the app will require sign-in with Google or email/password before showing content.
 
+#### Firebase Dynamic Links shutdown note
+
+Firebase Dynamic Links shutdown affects these auth flows:
+- Email link authentication for mobile apps
+- Cordova OAuth support for web apps
+
+Current app status:
+- Uses Google OAuth and email/password
+- Does not use email-link authentication
+
+If you package this web app in a native wrapper (for example Cordova/Capacitor), do not depend on Firebase web OAuth redirect/popup inside the in-app webview. Prefer one of these paths:
+1. Keep email/password enabled for wrapped builds.
+2. For Google on mobile, use native provider sign-in in the wrapper and exchange credentials with Firebase.
+3. Open sign-in in the system browser instead of embedded webview.
+
 ### Publishing to Android / iOS
 
 This app now includes Firebase authentication and can be packaged for Android and iOS using a web-to-native wrapper such as Capacitor, or by turning the site into a PWA and then using a native wrapper.

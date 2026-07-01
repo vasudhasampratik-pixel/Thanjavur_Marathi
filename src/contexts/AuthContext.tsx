@@ -56,6 +56,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
   const [authError, setAuthError] = useState<string | null>(null)
 
+  const isHybridWrapper = () => {
+    if (typeof window === 'undefined') return false
+    const runtime = window as typeof window & { cordova?: unknown; Capacitor?: unknown }
+    return Boolean(runtime.cordova || runtime.Capacitor)
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
@@ -98,7 +104,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await signInWithPopup(auth, googleProvider)
     } catch (error) {
       const errorCode = (error as { code?: string }).code
+      if (
+        errorCode === 'auth/operation-not-supported-in-this-environment' &&
+        isHybridWrapper()
+      ) {
+        setAuthError(
+          'Google sign-in via Firebase web OAuth is not supported in this native wrapper environment. Use email/password sign-in or open the app in a regular browser for Google sign-in.'
+        )
+        return
+      }
+
       if (errorCode === 'auth/popup-blocked' || errorCode === 'auth/cancelled-popup-request') {
+        // Redirect fallback is safe for normal web, but not for Cordova/Capacitor-style wrappers.
+        if (isHybridWrapper()) {
+          setAuthError(
+            'Google popup sign-in was blocked in this native wrapper. Redirect fallback is not reliable here. Use email/password sign-in or open the app in your browser for Google sign-in.'
+          )
+          return
+        }
         try {
           await signInWithRedirect(auth, googleProvider)
           return

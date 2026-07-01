@@ -13,7 +13,8 @@
     "scrape:cookbook": "tsx scripts/scrape-cookbook.ts",
     "data:prepare": "tsx scripts/prepare-training-data.ts",
     "retrieve": "tsx scripts/retrieve-similar.ts",
-    "data:export:hf": "tsx scripts/export-hf-dataset.ts"
+    "data:export:hf": "tsx scripts/export-hf-dataset.ts",
+    "data:export:translated": "tsx scripts/export-translated-sentences.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.0",

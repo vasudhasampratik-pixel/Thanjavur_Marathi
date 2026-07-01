@@ -1,8 +1,0 @@
-{
-  "generated_at": "2026-05-10T14:51:50.646Z",
-  "rows_all": 621,
-  "rows_train": 554,
-  "rows_eval": 67,
-  "training_source_rows": 621,
-  "feedback_source_rows": 1
-}

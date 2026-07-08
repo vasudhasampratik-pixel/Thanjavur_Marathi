@@ -226,7 +226,6 @@ function App() {
         {activeTab === 'translate' && (
           <TranslatorBox
             entries={combinedEntries}
-            totalEntries={combinedEntries.length}
           />
         )}
         {activeTab === 'family-tree' && <FamilyTreePage />}

@@ -5,10 +5,9 @@ import { SingleTranslationResult, PhraseTranslationResult } from './TranslationR
 
 interface TranslatorBoxProps {
   entries: DictionaryEntry[];
-  totalEntries: number;
 }
 
-export function TranslatorBox({ entries, totalEntries }: TranslatorBoxProps) {
+export function TranslatorBox({ entries }: TranslatorBoxProps) {
   const [inputValue, setInputValue] = useState('');
   const [query, setQuery] = useState('');
 
@@ -79,7 +78,7 @@ export function TranslatorBox({ entries, totalEntries }: TranslatorBoxProps) {
 
       {!query && (
         <div className="text-center text-gray-900 text-sm pt-4">
-          <p>Please note: The app is in a nascent stage. Sentence and phrase formation has to be perfected. For this, community contribution is required. Please head to the first tab 'Contribute' to support.</p>
+          <p>Please note: The app is in a nascent stage. The sentence and phrase formation has to be perfected. For this, community contribution is required. Please head over to the first tab 'Contribute' for your support.</p>
         </div>
       )}
 

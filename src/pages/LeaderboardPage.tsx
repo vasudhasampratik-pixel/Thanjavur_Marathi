@@ -42,8 +42,7 @@ const PODIUM_META = [
     bg: 'from-yellow-50 to-orange-50',
     border: 'border-yellow-200',
     labelColor: 'text-yellow-700',
-    heightClass: 'min-h-[140px]',
-    order: 'order-2',
+    heightClass: 'h-[178px]',
   },
   {
     rank: 2,
@@ -52,8 +51,7 @@ const PODIUM_META = [
     bg: 'from-slate-50 to-gray-50',
     border: 'border-slate-200',
     labelColor: 'text-slate-600',
-    heightClass: 'min-h-[110px]',
-    order: 'order-1',
+    heightClass: 'h-[152px]',
   },
   {
     rank: 3,
@@ -62,8 +60,7 @@ const PODIUM_META = [
     bg: 'from-orange-50 to-amber-50',
     border: 'border-orange-200',
     labelColor: 'text-orange-600',
-    heightClass: 'min-h-[90px]',
-    order: 'order-3',
+    heightClass: 'h-[128px]',
   },
 ];
 
@@ -93,7 +90,6 @@ function PodiumCard({ entry, rank, isMe }: PodiumCardProps) {
         meta.bg,
         meta.border,
         meta.heightClass,
-        meta.order,
         isMe ? 'ring-2 ring-saffron-400 ring-offset-2' : '',
       ].join(' ')}
     >
@@ -272,15 +268,25 @@ export function LeaderboardPage() {
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3 text-center">
             Hall of Fame
           </p>
-          <div className="flex items-end justify-center gap-3">
-            {top3.map((entry, i) => (
-              <PodiumCard
-                key={entry.uid}
-                entry={entry}
-                rank={(i + 1) as 1 | 2 | 3}
-                isMe={entry.uid === user?.uid}
-              />
-            ))}
+          <div className="relative mx-auto max-w-xl px-2 pt-2">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-0 left-2 right-2 h-5 rounded-full bg-gradient-to-r from-orange-100/60 via-saffron-100/70 to-orange-100/60 blur-[1px]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-0 left-0 right-0 h-3 rounded-2xl border border-orange-100 bg-gradient-to-b from-white/90 to-orange-50/90"
+            />
+            <div className="relative flex items-end justify-center gap-3 pb-2">
+              {top3.map((entry, i) => (
+                <PodiumCard
+                  key={entry.uid}
+                  entry={entry}
+                  rank={(i + 1) as 1 | 2 | 3}
+                  isMe={entry.uid === user?.uid}
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}

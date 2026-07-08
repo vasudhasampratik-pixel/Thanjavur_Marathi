@@ -78,7 +78,8 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
 
       {!query && (
         <div className="text-center text-gray-900 text-sm pt-4">
-          <p>Please note: The app is in a nascent stage. The sentence and phrase formation has to be perfected. For this, community contribution is required. Please head over to the first tab 'Contribute' for your support.</p>
+          <p>Please note: The app is in a nascent stage. The sentence and phrase formation has to be perfected. For this, community contribution is required. </p>
+          <p>Please head over to the first tab 'Contribute' for your support.</p>
         </div>
       )}
 

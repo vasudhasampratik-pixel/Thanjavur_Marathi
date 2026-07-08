@@ -79,8 +79,7 @@ export function TranslatorBox({ entries, totalEntries }: TranslatorBoxProps) {
 
       {!query && (
         <div className="text-center text-gray-900 text-sm pt-4">
-          <p>Database contains <span className="font-semibold text-peacock-600">{totalEntries}</span> Thanjavur Marathi words &amp; phrases</p>
-          <p className="mt-1">Try: &ldquo;fruit&rdquo;, &ldquo;bland&rdquo;, &ldquo;earrings&rdquo;, &ldquo;dirty&rdquo;, &ldquo;teacher&rdquo;</p>
+          <p>Please note: The app is in a nascent stage. Sentence and phrase formation has to be perfected. For this, community contribution is required. Please head to the first tab 'Contribute' to support.</p>
         </div>
       )}
 

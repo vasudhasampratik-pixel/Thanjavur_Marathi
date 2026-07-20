@@ -152,6 +152,9 @@
     {"id":"emotions_021","english":"dignified","english_variants":[],"tm_romanized":"gambhir","tm_devanagari":"गंभीर","category":"emotions"},
     {"id":"emotions_022","english":"liking","english_variants":["fondness"],"tm_romanized":"aavad","tm_devanagari":"आवड","category":"emotions"},
 
+    {"id":"body_368","english":"urine","english_variants":["pee", "susu"],"tm_romanized":"muthi","tm_devanagari":"मुति","category":"body"},
+    {"id":"body_367","english":"vomit","english_variants":["puke", "barf"],"tm_romanized":"vaanta","tm_devanagari":"वांत","category":"body"},
+    {"id":"body_366","english":"hiccups","english_variants":["hiccup"],"tm_romanized":"uchkaa","tm_devanagari":"उचका","category":"body"},
     {"id":"body_001","english":"unwell","english_variants":[],"tm_romanized":"aang bharni","tm_devanagari":"आंग भरनी","category":"body"},
     {"id":"body_002","english":"cold (sickness)","english_variants":[],"tm_romanized":"phadasa","tm_devanagari":"फदासा","category":"body"},
     {"id":"body_003","english":"cough","english_variants":[],"tm_romanized":"khonkla","tm_devanagari":"खोंकला","category":"body"},
@@ -596,7 +599,10 @@
     {"id":"xl_902","english":"butt","english_variants":["buttocks"],"tm_romanized":"tiree","tm_devanagari":"टिरी","category":"body_parts"},
     {"id":"xl_902","english":"thigh","english_variants":["thighs"],"tm_romanized":"maandi","tm_devanagari":"मांडी","category":"body_parts"},
     
-    
+
+    {"id":"xl_173","english":"shake","english_variants":[],"tm_romanized":"haleevna","tm_devanagari":"हलीवन","category":"verbs"},
+    {"id":"xl_172","english":"tremble","english_variants":["shiver"],"tm_romanized":"kaampna","tm_devanagari":"कांपन","category":"verbs"},
+    {"id":"xl_171","english":"crawl","english_variants":[],"tm_romanized":"raangna","tm_devanagari":"रांगन","category":"verbs"},
     {"id":"xl_101","english":"comb","english_variants":[],"tm_romanized":"vinchring","tm_devanagari":"विंचरिंग","category":"verbs"},
     {"id":"xl_101","english":"comb","english_variants":[],"tm_romanized":"pani","tm_devanagari":"पनि","category":"verbs"},
     {"id":"xl_102","english":"be","english_variants":[],"tm_romanized":"asna","tm_devanagari":"","category":"verbs"},
@@ -889,12 +895,14 @@
     {"id":"xl_438","english":"slow","english_variants":[],"tm_romanized":"hallu","tm_devanagari":"निदाण/हळू","category":"adjectives"},
     {"id":"xl_440","english":"full","english_variants":[],"tm_romanized":"poorti","tm_devanagari":"पूर्ती","category":"adjectives"},
     {"id":"xl_441","english":"message","english_variants":[],"tm_romanized":"goshta","tm_devanagari":"गोष्ट","category":"nouns"},
+    {"id":"xl_463","english":"wall","english_variants":[],"tm_romanized":"bhinta","tm_devanagari":"भिंत","category":"nouns"},
     {"id":"xl_443","english":"thin","english_variants":["skinny"],"tm_romanized":"rodka","tm_devanagari":"रोडक","category":"adjectives"},
     {"id":"xl_444","english":"stitch","english_variants":[],"tm_romanized":"siv","tm_devanagari":"सिव","category":"verbs"},
     {"id":"xl_445","english":"sticky","english_variants":[],"tm_romanized":"chikkat","tm_devanagari":"चिक्कट","category":"adjectives"},
     {"id":"xl_446","english":"somebody's","english_variants":["someone's", "someone", "somebody"],"tm_romanized":"konachki","tm_devanagari":"कोणाचकि","category":"pronouns"},
     {"id":"xl_447","english":"that's why","english_variants":[],"tm_romanized":"tajhasva","tm_devanagari":"तझस्व","category":"phrases"},
-    {"id":"xl_448","english":"shop","english_variants":[],"tm_romanized":"dukaan","tm_devanagari":"दुकान","category":"phrases"}
+    {"id":"xl_448","english":"shop","english_variants":[],"tm_romanized":"dukaan","tm_devanagari":"दुकान","category":"phrases"},
+    {"id":"xl_463","english":"terrace","english_variants":["roof","rooftop"],"tm_romanized":"maadi-vara","tm_devanagari":"माडी-वर","category":"nouns"}
 
   ]
 }

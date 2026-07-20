@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react';
 import type { DictionaryEntry } from '../types';
 import { useTranslate } from '../hooks/useTranslate';
+import { useSpeechInput } from '../hooks/useSpeechInput';
 import { SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
+import { VoiceInputButton } from './VoiceInputButton';
 
 interface TranslatorBoxProps {
   entries: DictionaryEntry[];
@@ -12,6 +14,18 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
   const [query, setQuery] = useState('');
 
   const { singleResults, phraseResults, composed, isPhrase, hasResults } = useTranslate(query, entries);
+
+  const handleSpeechResult = useCallback((transcript: string) => {
+    const nextValue = transcript.trim();
+    if (!nextValue) return;
+    setInputValue(nextValue);
+    setQuery(nextValue);
+  }, []);
+
+  const { isListening, isSupported, startListening, stopListening } = useSpeechInput({
+    lang: 'en-US',
+    onResult: handleSpeechResult,
+  });
 
   const handleSearch = useCallback(() => {
     setQuery(inputValue);
@@ -44,28 +58,42 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               onChange={e => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="e.g. fruit, bland, earrings, dirty, teacher"
-              className="input-field pr-10"
+              className="input-field pr-24"
               autoComplete="off"
               spellCheck="false"
             />
-            {displayValue && (
-              <button
-                onClick={handleClear}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-900 hover:text-gray-900"
-                aria-label="Clear input"
-              >
-                ✕
-              </button>
-            )}
+            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+              {displayValue && (
+                <button
+                  onClick={handleClear}
+                  className="text-gray-900 hover:text-gray-900"
+                  aria-label="Clear input"
+                >
+                  ✕
+                </button>
+              )}
+              <VoiceInputButton
+                isListening={isListening}
+                isSupported={isSupported}
+                onStart={startListening}
+                onStop={stopListening}
+              />
+            </div>
           </div>
           <button onClick={handleSearch} className="btn-primary w-full sm:w-auto">
             Translate
           </button>
         </div>
+        <p className="text-xs text-gray-600 mt-2">
+          {isListening
+            ? 'Listening for a simple English word…'
+            : isSupported
+              ? 'Tap the mic and say a simple English word.'
+              : 'Voice input is not supported in this browser.'}
+        </p>
 
       </div>
 
-      {/* Results */}
       {query && (
         <>
           {isPhrase ? (
@@ -78,8 +106,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
 
       {!query && (
         <div className="text-center text-gray-900 text-sm pt-4">
-          <p>Please note: The app is in a nascent stage. The sentence and phrase formation has to be perfected. For this, community contribution is required. </p>
-          <p>Please head over to the first tab 'Contribute' for your support.</p>
+          <p>The app is still in early stage and needs help improving sentence/phrase formation. Community support is needed to help train it. Please head to the first tab, <b>Contribute</b>, to help</p>
         </div>
       )}
 

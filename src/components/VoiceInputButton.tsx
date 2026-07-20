@@ -16,7 +16,7 @@ export function VoiceInputButton({
       <button
         disabled
         title="Voice input not supported in this browser"
-        className="flex-shrink-0 p-3 rounded-xl bg-gray-100 text-gray-900 cursor-not-allowed"
+        className="flex-shrink-0 p-2 rounded-xl bg-gray-100 text-gray-900 cursor-not-allowed"
         aria-label="Voice input not supported"
       >
         <MicOffIcon />
@@ -29,7 +29,7 @@ export function VoiceInputButton({
       onClick={isListening ? onStop : onStart}
       title={isListening ? 'Stop listening' : 'Speak to translate'}
       aria-label={isListening ? 'Stop listening' : 'Speak your word or phrase'}
-      className={`relative flex-shrink-0 p-3 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2
+      className={`relative flex-shrink-0 p-2 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2
         ${
           isListening
             ? 'bg-red-500 text-white focus:ring-red-400 mic-pulse'

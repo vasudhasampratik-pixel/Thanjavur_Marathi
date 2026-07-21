@@ -54,6 +54,38 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
     .map((word) => word[0].toUpperCase())
     .join('') || 'A';
 
+  const shareApp = async () => {
+    const shareUrl = window.location.href;
+    const shareData = {
+      title: 'Thanjavur Marathi',
+      text: 'Try the Thanjavur Marathi app.',
+      url: shareUrl,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        return;
+      }
+
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+        window.alert('App link copied to clipboard.');
+        return;
+      }
+
+      window.open(
+        `mailto:?subject=${encodeURIComponent('Thanjavur Marathi')}&body=${encodeURIComponent(`Check out this app: ${shareUrl}`)}`,
+        '_blank',
+        'noopener,noreferrer'
+      );
+    } catch (error) {
+      if ((error as Error).name !== 'AbortError') {
+        console.error('Unable to share app', error);
+      }
+    }
+  };
+
   return (
     <header>
       <div className="sticky top-0 z-40 border-b border-orange-100 bg-cream/95 backdrop-blur">
@@ -97,9 +129,20 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
                     type="button"
                     onClick={() => {
                       setIsMenuOpen(false);
+                      void shareApp();
+                    }}
+                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 transition hover:bg-orange-100"
+                  >
+                    <span aria-hidden="true">📤</span>
+                    <span>Share this app</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMenuOpen(false);
                       signOutUser();
                     }}
-                    className="mt-4 w-full rounded-2xl bg-saffron-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-saffron-600"
+                    className="mt-3 w-full rounded-2xl bg-saffron-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-saffron-600"
                   >
                     Sign out
                   </button>

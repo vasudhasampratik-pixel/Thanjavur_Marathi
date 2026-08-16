@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type { DictionaryEntry } from '../types';
 import { useTranslate } from '../hooks/useTranslate';
 import { useSpeechInput } from '../hooks/useSpeechInput';
@@ -7,6 +7,62 @@ import type { TranslationOutcome } from '../utils/crowdsourcedLookup';
 import { SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
 import { VoiceInputButton } from './VoiceInputButton';
 import { trackTranslationEvent } from '../utils/analytics';
+
+function CorpusAudioButton({ audioUrl }: { audioUrl?: string }) {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  if (!audioUrl) {
+    return <p className="text-[11px] italic text-gray-500">No pronunciation submitted for this translation.</p>;
+  }
+
+  const togglePlayback = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      if (isPlaying) {
+        audio.pause();
+        return;
+      }
+
+      await audio.play();
+    } catch {
+      setHasError(true);
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <audio
+        ref={audioRef}
+        src={audioUrl}
+        preload="none"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+        onError={() => setHasError(true)}
+      />
+      <button
+        type="button"
+        onClick={togglePlayback}
+        aria-label={isPlaying ? 'Pause pronunciation' : 'Translate by voice'}
+        title="Translate by voice"
+        className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-peacock-200 bg-peacock-50 text-peacock-700 transition hover:bg-peacock-100"
+      >
+        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          {isPlaying ? (
+            <path d="M7 5a1 1 0 0 1 1 1v12a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1Zm10 0a1 1 0 0 1 1 1v12a1 1 0 1 1-2 0V6a1 1 0 0 1 1-1Z" />
+          ) : (
+            <path d="M8.5 6.5a1 1 0 0 1 1.53-.848l7 4.5a1 1 0 0 1 0 1.696l-7 4.5A1 1 0 0 1 8.5 15.5v-9Z" />
+          )}
+        </svg>
+      </button>
+      {hasError && <span className="text-[11px] text-red-500">Audio unavailable</span>}
+    </div>
+  );
+}
 
 interface TranslatorBoxProps {
   entries: DictionaryEntry[];
@@ -154,9 +210,16 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
                     {orchestratorState.loadStatus === 'ready' ? 'Corpus ready' : 'Loading corpus'}
                   </span>
                 </div>
-                <div className="mt-3 space-y-2 rounded-2xl border border-orange-100 bg-orange-50/60 p-3">
-                  <p className="devanagari text-5xl font-bold text-saffron-600 leading-tight">{outcome.devanagariText || '—'}</p>
-                  <p className="text-xl font-semibold text-peacock-800">{outcome.romanisedText || '—'}</p>
+                <div className="mt-3 space-y-3 rounded-2xl border border-orange-100 bg-orange-50/60 p-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-2">
+                      <p className="devanagari text-5xl font-bold text-saffron-600 leading-tight">{outcome.devanagariText || '—'}</p>
+                      <p className="text-xl font-semibold text-peacock-800">{outcome.romanisedText || '—'}</p>
+                    </div>
+                    <div className="pt-1">
+                      <CorpusAudioButton audioUrl={outcome.audioUrl} />
+                    </div>
+                  </div>
                 </div>
               </div>
 

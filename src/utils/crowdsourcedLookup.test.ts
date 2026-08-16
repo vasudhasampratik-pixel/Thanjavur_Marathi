@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   adaptCrowdsourcedRecord,
+  buildExactMatchOutcome,
   findExactCrowdsourcedMatch,
   normalizeEnglishText,
   selectLookupCandidateRecords,
@@ -59,4 +60,19 @@ test('keeps pending community contributions available for lookup', () => {
   const candidates = selectLookupCandidateRecords([pendingRecord as any]);
   assert.equal(candidates.length, 1);
   assert.equal(candidates[0]?.id, 'doc-pending');
+});
+
+test('retains submitted audio along with the verified crowd translation', () => {
+  const record = adaptCrowdsourcedRecord('doc-audio', {
+    promptEnglish: 'How are you?',
+    romanisedText: 'Tu kasa aahe?',
+    devanagariText: 'तू कसा आहे?',
+    audioUrl: 'https://example.com/hello.mp3',
+    status: 'approved',
+  });
+
+  assert.ok(record);
+  const outcome = buildExactMatchOutcome('How are you?', record as any, 42);
+  assert.equal(outcome.audioUrl, 'https://example.com/hello.mp3');
+  assert.equal(outcome.romanisedText, 'Tu kasa aahe?');
 });

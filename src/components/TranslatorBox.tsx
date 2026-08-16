@@ -47,8 +47,8 @@ function CorpusAudioButton({ audioUrl }: { audioUrl?: string }) {
       <button
         type="button"
         onClick={togglePlayback}
-        aria-label={isPlaying ? 'Pause pronunciation' : 'Translate by voice'}
-        title="Translate by voice"
+        aria-label={isPlaying ? 'Pause pronunciation' : 'Listen'}
+        title="Listen"
         className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-peacock-200 bg-peacock-50 text-peacock-700 transition hover:bg-peacock-100"
       >
         <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

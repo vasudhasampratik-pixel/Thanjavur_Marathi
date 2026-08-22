@@ -118,6 +118,79 @@ export function normalise(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim();
 }
 
+export type InputLanguage = 'english' | 'tm';
+
+function normaliseDevanagari(s: string): string {
+  return s.normalize('NFKC').replace(/\s+/g, ' ').trim();
+}
+
+function isDevanagariInput(input: string): boolean {
+  return /[\u0900-\u097F]/.test(input);
+}
+
+function matchesTmText(query: string, entry: DictionaryEntry): boolean {
+  const romanizedQuery = normalise(query);
+  const devanagariQuery = normaliseDevanagari(query);
+
+  return (
+    (romanizedQuery.length > 0 && normalise(entry.tm_romanized) === romanizedQuery) ||
+    (devanagariQuery.length > 0 && normaliseDevanagari(entry.tm_devanagari) === devanagariQuery)
+  );
+}
+
+/** Determine whether the query is English or Tanjavur Marathi in either supported script. */
+export function detectInputLanguage(input: string, entries: DictionaryEntry[]): InputLanguage {
+  if (isDevanagariInput(input)) return 'tm';
+
+  const normalizedInput = normalise(input);
+  if (!normalizedInput) return 'english';
+
+  const tokens = normalizedInput.split(/\s+/).filter(Boolean);
+  return entries.some(entry =>
+    matchesTmText(input, entry) ||
+    tokens.some(token => normalise(entry.tm_romanized) === token)
+  ) ? 'tm' : 'english';
+}
+
+/** Search Tanjavur Marathi text and return entries whose English field is the translation. */
+export function searchTmText(
+  text: string,
+  entries: DictionaryEntry[],
+  limit = 5
+): SearchResult[] {
+  const queryRomanized = normalise(text);
+  const queryDevanagari = normaliseDevanagari(text);
+  if (!queryRomanized && !queryDevanagari) return [];
+
+  const results: SearchResult[] = [];
+  for (const entry of entries) {
+    const romanized = normalise(entry.tm_romanized);
+    const devanagari = normaliseDevanagari(entry.tm_devanagari);
+
+    if (
+      (queryRomanized && romanized && romanized === queryRomanized) ||
+      (queryDevanagari && devanagari && devanagari === queryDevanagari)
+    ) {
+      results.push({ entry, score: 100, matchType: 'exact' });
+      continue;
+    }
+
+    const isPhraseQuery = queryRomanized.includes(' ') || queryDevanagari.includes(' ');
+    if (isPhraseQuery) continue;
+
+    if (
+      (romanized && queryRomanized.length >= 3 && (romanized.startsWith(queryRomanized) || queryRomanized.startsWith(romanized))) ||
+      (devanagari && queryDevanagari.length >= 2 && (devanagari.startsWith(queryDevanagari) || queryDevanagari.startsWith(devanagari)))
+    ) {
+      results.push({ entry, score: 80, matchType: 'partial' });
+    }
+  }
+
+  return results
+    .sort((left, right) => right.score - left.score)
+    .slice(0, limit);
+}
+
 /** Generate possible plural forms of a word */
 function getPluralForms(word: string): string[] {
   const plurals: string[] = [];

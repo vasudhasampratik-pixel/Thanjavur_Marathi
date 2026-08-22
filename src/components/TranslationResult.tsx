@@ -1,9 +1,10 @@
 import type { SearchResult, PhraseTranslation, ComposedTranslation } from '../types';
-import { CategoryBadge } from './CategoryBadge';
+import type { InputLanguage } from '../utils/search';
 
 interface SingleResultProps {
   results: SearchResult[];
   query: string;
+  inputLanguage: InputLanguage;
 }
 
 interface PhraseResultProps {
@@ -11,7 +12,7 @@ interface PhraseResultProps {
   composed: ComposedTranslation | null;
 }
 
-export function SingleTranslationResult({ results, query }: SingleResultProps) {
+export function SingleTranslationResult({ results, query, inputLanguage }: SingleResultProps) {
   if (!query.trim()) return null;
 
   if (results.length === 0) {
@@ -28,7 +29,7 @@ export function SingleTranslationResult({ results, query }: SingleResultProps) {
     );
   }
 
-  const [best, ...others] = results;
+  const [best] = results;
 
   return (
     <div className="space-y-3">
@@ -36,15 +37,19 @@ export function SingleTranslationResult({ results, query }: SingleResultProps) {
       <div className="card border-saffron-200">
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <p className="devanagari text-5xl font-bold text-saffron-600 leading-tight">
-              {best.entry.tm_devanagari || '—'}
-            </p>
-            <p className="mt-2 text-xl font-semibold text-peacock-700">
-              {best.entry.tm_romanized}
-            </p>
+            {inputLanguage === 'tm' ? (
+              <p className="text-3xl font-bold text-saffron-600 leading-tight">{best.entry.english || '—'}</p>
+            ) : (
+              <>
+                <p className="devanagari text-5xl font-bold text-saffron-600 leading-tight">
+                  {best.entry.tm_devanagari || '—'}
+                </p>
+                <p className="mt-2 text-xl font-semibold text-peacock-700">
+                  {best.entry.tm_romanized}
+                </p>
+              </>
+            )}
             <div className="flex items-center gap-2 mt-3">
-              <CategoryBadge category={best.entry.category} />
-              <span className="text-xs text-gray-900 capitalize">{best.entry.type}</span>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full border bg-peacock-100 text-peacock-800 border-peacock-200">
                 confidence {Math.max(0, Math.min(100, Math.round(best.score)))}%
               </span>
@@ -61,29 +66,17 @@ export function SingleTranslationResult({ results, query }: SingleResultProps) {
         )}
       </div>
 
-      {/* Alternate results */}
-      {others.length > 0 && (
-        <div>
-          <p className="text-xs uppercase tracking-wide text-gray-900 font-semibold mb-2 px-1">
-            Also found
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {others.map(r => (
-              <div key={r.entry.id} className="card py-4">
-                <p className="devanagari text-2xl font-semibold text-saffron-500">
-                  {r.entry.tm_devanagari || '—'}
-                </p>
-                <p className="text-base text-peacock-700 mt-0.5">{r.entry.tm_romanized}</p>
-                <p className="text-sm text-gray-900 mt-1">{r.entry.english}</p>
-                <div className="mt-2 flex items-center gap-2">
-                  <CategoryBadge category={r.entry.category} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
+  );
+}
+
+export function LanguageBadge({ inputLanguage }: { inputLanguage: InputLanguage }) {
+  const isTmInput = inputLanguage === 'tm';
+
+  return (
+    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full border bg-saffron-100 text-saffron-800 border-saffron-200">
+      Input detected: {isTmInput ? 'Tanjavur Marathi' : 'English'} → Output: {isTmInput ? 'English' : 'Tanjavur Marathi'}
+    </span>
   );
 }
 

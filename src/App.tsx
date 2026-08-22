@@ -40,45 +40,27 @@ function buildPhraseEntriesFromAppDictionary(raw: unknown): DictionaryEntry[] {
     const english = sentence.english?.trim();
     if (!english) continue;
 
-    const variants = sentence.variants ?? {};
-    const preferredOrder = ['elder_respectful', 'young_female', 'young_male'];
+    for (const [variantName, variant] of Object.entries(sentence.variants ?? {})) {
+      if (!variant?.tm_romanized && !variant?.tm_devanagari) continue;
 
-    let selectedVariant: AppDictionaryVariant | undefined;
-    for (const key of preferredOrder) {
-      const candidate = variants[key];
-      if (candidate?.tm_romanized || candidate?.tm_devanagari) {
-        selectedVariant = candidate;
-        break;
-      }
+      const notesParts = [sentence.domain, sentence.sentence_type, variant.register, variantName]
+        .filter(Boolean)
+        .map(value => String(value));
+
+      phraseEntries.push({
+        id: `app_${sentence.sentence_id || phraseEntries.length + 1}_${variantName}`,
+        english,
+        english_variants: [english.replace(/[?.!,]+$/g, '').trim()].filter(
+          variant => variant.length > 0 && variant !== english
+        ),
+        tm_romanized: variant.tm_romanized ?? '',
+        tm_devanagari: variant.tm_devanagari ?? '',
+        category: 'misc',
+        type: 'phrase',
+        notes: notesParts.join(' · '),
+        source_url: 'app_dictionary.json',
+      });
     }
-
-    if (!selectedVariant) {
-      selectedVariant = Object.values(variants).find(
-        variant => variant?.tm_romanized || variant?.tm_devanagari
-      );
-    }
-
-    if (!selectedVariant?.tm_romanized && !selectedVariant?.tm_devanagari) {
-      continue;
-    }
-
-    const notesParts = [sentence.domain, sentence.sentence_type, selectedVariant.register]
-      .filter(Boolean)
-      .map(value => String(value));
-
-    phraseEntries.push({
-      id: `app_${sentence.sentence_id || phraseEntries.length + 1}`,
-      english,
-      english_variants: [english.replace(/[?.!,]+$/g, '').trim()].filter(
-        variant => variant.length > 0 && variant !== english
-      ),
-      tm_romanized: selectedVariant.tm_romanized ?? '',
-      tm_devanagari: selectedVariant.tm_devanagari ?? '',
-      category: 'misc',
-      type: 'phrase',
-      notes: notesParts.join(' · '),
-      source_url: 'app_dictionary.json',
-    });
   }
 
   return phraseEntries;

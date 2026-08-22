@@ -4,7 +4,7 @@ import { useTranslate } from '../hooks/useTranslate';
 import { useSpeechInput } from '../hooks/useSpeechInput';
 import { useTranslationOrchestrator } from '../hooks/useTranslationOrchestrator';
 import type { TranslationOutcome } from '../utils/crowdsourcedLookup';
-import { SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
+import { LanguageBadge, SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
 import { VoiceInputButton } from './VoiceInputButton';
 import { trackTranslationEvent } from '../utils/analytics';
 
@@ -73,7 +73,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
   const [query, setQuery] = useState('');
   const [outcome, setOutcome] = useState<TranslationOutcome | null>(null);
 
-  const { singleResults, phraseResults, composed, isPhrase, hasResults } = useTranslate(query, entries);
+  const { singleResults, phraseResults, composed, isPhrase, hasResults, inputLanguage } = useTranslate(query, entries);
   const { state: orchestratorState, translate, reset } = useTranslationOrchestrator();
 
   const handleSpeechResult = useCallback((transcript: string) => {
@@ -152,7 +152,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
       {/* Search bar */}
       <div className="card p-4">
         <label htmlFor="translator-input" className="block text-sm font-medium text-gray-900 mb-2">
-          Type an English word, phrase, or sentence
+          Type an English or Tanjavur Marathi word or phrase
         </label>
         <div className="flex flex-col gap-2 sm:flex-row">
           <div className="relative w-full sm:flex-1">
@@ -162,7 +162,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               value={displayValue}
               onChange={e => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="e.g. fruit, bland, earrings, dirty, teacher"
+              placeholder="e.g. fruit, pandu, पंडु"
               className="input-field pr-24"
               autoComplete="off"
               spellCheck="false"
@@ -193,11 +193,17 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
           {isListening
             ? 'Listening for a simple English word…'
             : isSupported
-              ? 'Tap the mic and say a simple English word.'
+              ? 'Tap the mic and say a simple English/TM word.'
               : 'Voice input is not supported in this browser.'}
         </p>
 
       </div>
+
+      {query && (
+        <div className="flex justify-center">
+          <LanguageBadge inputLanguage={inputLanguage} />
+        </div>
+      )}
 
       {query && (
         <div className="space-y-4">
@@ -206,9 +212,6 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               <div className="rounded-2xl border border-orange-100 bg-white/95 p-4 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <p className="text-sm font-semibold text-gray-900">Verified community translation</p>
-                  <span className="rounded-full border border-peacock-200 bg-peacock-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-peacock-700">
-                    {orchestratorState.loadStatus === 'ready' ? 'Corpus ready' : 'Loading corpus'}
-                  </span>
                 </div>
                 <div className="mt-3 space-y-3 rounded-2xl border border-orange-100 bg-orange-50/60 p-3">
                   <div className="flex items-start justify-between gap-3">
@@ -238,7 +241,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               {isPhrase ? (
                 <PhraseTranslationResult phraseResults={phraseResults} composed={composed} />
               ) : (
-                <SingleTranslationResult results={singleResults} query={query} />
+                <SingleTranslationResult results={singleResults} query={query} inputLanguage={inputLanguage} />
               )}
 
               {/* Feedback controls commented out for now.

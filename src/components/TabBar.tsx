@@ -5,9 +5,10 @@ interface TabBarProps {
   activeTab: Tab;
   onTabChange: (tab: Tab) => void;
   visibleTabs?: Tab[];
+  ariaLabel?: string;
 }
 
-export function TabBar({ activeTab, onTabChange, visibleTabs }: TabBarProps) {
+export function TabBar({ activeTab, onTabChange, visibleTabs, ariaLabel = 'Main navigation' }: TabBarProps) {
   const tabs = visibleTabs ?? TAB_ORDER;
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const [showSwipeHint, setShowSwipeHint] = useState(false);
@@ -37,32 +38,34 @@ export function TabBar({ activeTab, onTabChange, visibleTabs }: TabBarProps) {
   }, []);
 
   return (
-    <nav className="relative border-t border-orange-100 bg-white/75" aria-label="Main navigation">
+    <nav className="relative border-t border-orange-100 bg-white/75" aria-label={ariaLabel}>
       <div className="mx-auto max-w-6xl px-2 sm:px-4">
         <div
           ref={scrollerRef}
-          className="flex items-center gap-2 overflow-x-auto py-2 pr-10 sm:pr-2"
+          className="overflow-x-auto"
         >
-          {tabs.map((tabId) => {
-            const tab = TAB_CONFIG[tabId];
-            const isActive = activeTab === tabId;
-            return (
-              <button
-                key={tabId}
-                onClick={() => onTabChange(tabId)}
-                className={[
-                  'shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 snap-start',
-                  isActive
-                    ? 'bg-saffron-500 text-white shadow-md'
-                    : 'text-gray-900 hover:text-saffron-600 hover:bg-saffron-50',
-                ].join(' ')}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {isActive ? tab.iconActive : tab.icon}
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
+          <div className="flex w-max min-w-full items-center justify-center gap-2 py-2">
+            {tabs.map((tabId) => {
+              const tab = TAB_CONFIG[tabId];
+              const isActive = activeTab === tabId;
+              return (
+                <button
+                  key={tabId}
+                  onClick={() => onTabChange(tabId)}
+                  className={[
+                    'shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 snap-start',
+                    isActive
+                      ? 'bg-saffron-500 text-white shadow-md'
+                      : 'text-gray-900 hover:text-saffron-600 hover:bg-saffron-50',
+                  ].join(' ')}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {isActive ? tab.iconActive : tab.icon}
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 

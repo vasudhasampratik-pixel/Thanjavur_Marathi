@@ -1,4 +1,4 @@
-export type Tab = 'contributor' | 'translate' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community' | 'reviewer' | 'leaderboard';
+export type Tab = 'contributor' | 'translate' | 'legacy' | 'family-tree' | 'bhaav' | 'cookbook' | 'varaad' | 'community' | 'reviewer' | 'leaderboard';
 
 export interface TabConfig {
   label: string;
@@ -14,13 +14,10 @@ export const TAB_ORDER: Tab[] = [
   'contributor',
   'leaderboard',
   'translate',
-  'family-tree',
-  'bhaav',
-  'cookbook',
-  'varaad',
-  // Temporarily hidden due to community-post issues. Re-enable by adding 'community' back.
-  'reviewer',
+  'legacy',
 ];
+
+export const LEGACY_TAB_ORDER: Tab[] = ['family-tree', 'bhaav', 'cookbook', 'varaad'];
 
 // Tabs that are only visible to specific roles (checked in Header)
 export const ROLE_RESTRICTED_TABS: Partial<Record<Tab, string[]>> = {
@@ -59,6 +56,24 @@ export const TAB_CONFIG: Record<Tab, TabConfig> = {
     iconActive: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path fillRule="evenodd" clipRule="evenodd" d="M10.5 3a7.5 7.5 0 1 0 4.55 13.61l4.17 4.18a1 1 0 0 0 1.41-1.41l-4.17-4.18A7.5 7.5 0 0 0 10.5 3Zm-5.5 7.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Z" />
+      </svg>
+    ),
+  },
+  legacy: {
+    label: 'Our Legacy',
+    subtitle: {
+      en: 'Our Legacy - Culture, Family, and Tradition',
+      hint: 'Explore the family tree, emotions, cookbook, and wedding traditions of Thanjavur Marathi',
+    },
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3 4 7v5c0 4.5 3.2 7.5 8 9 4.8-1.5 8-4.5 8-9V7l-8-4Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="m9 12 2 2 4-4" />
+      </svg>
+    ),
+    iconActive: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5 3.5 6.75v5.1c0 4.7 3.35 8.1 8.5 9.65 5.15-1.55 8.5-4.95 8.5-9.65v-5.1L12 2.5Zm-1.2 13.1-3.05-3.05 1.4-1.4 1.65 1.65 4.25-4.25 1.4 1.4-5.65 5.65Z" />
       </svg>
     ),
   },

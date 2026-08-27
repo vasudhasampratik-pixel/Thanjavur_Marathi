@@ -11,10 +11,9 @@ Hard rules (never violate):
 - Speech: only English STT (already built) + English TTS on output. Text MVP must work before touching anything speech-adjacent.
 - Document every new service, config value, and data step.
 
-
 1. What Exists Today
 - App with a Translate tab and a Contribute (crowdsourcing) tab.
-- 5,000-word JSON glossary; ~2,200 crowdsourced sentences in Firestore.
+- approx 800-word JSON glossary in codebase (dictionary.json); ~2,200 crowdsourced sentences in Firestore.
 - Deterministic exact-match word/phrase lookup. - Crowdsourced sentences are echoed back verbatim on exact match (unreviewed — to be fixed).
 - No ML model, no generalization to unseen sentences.
 

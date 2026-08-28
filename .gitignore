@@ -31,3 +31,7 @@ Thumbs.db
 
 # Optional local outputs (uncomment if generated locally)
 # src/data/processed/
+
+models/
+.venv/
+.env

@@ -9,6 +9,7 @@ import {
   type CrowdsourcedSentenceRecord,
   type TranslationOutcome,
 } from '../utils/crowdsourcedLookup';
+import { translateWithIndicTrans } from '../utils/indicTransClient';
 
 interface TranslationOrchestratorState {
   loading: boolean;
@@ -20,7 +21,7 @@ interface TranslationOrchestratorState {
 
 interface UseTranslationOrchestratorResult {
   state: TranslationOrchestratorState;
-  translate: (input: string) => Promise<TranslationOutcome>;
+  translate: (input: string, options?: { useIndicTrans?: boolean }) => Promise<TranslationOutcome>;
   reset: () => void;
 }
 
@@ -73,7 +74,7 @@ export function useTranslationOrchestrator(): UseTranslationOrchestratorResult {
     void loadCorpus();
   }, [loadCorpus]);
 
-  const translate = useCallback(async (input: string): Promise<TranslationOutcome> => {
+  const translate = useCallback(async (input: string, options: { useIndicTrans?: boolean } = {}): Promise<TranslationOutcome> => {
     const trimmedInput = input.trim();
     const startedAt = performance.now();
 
@@ -87,6 +88,32 @@ export function useTranslationOrchestrator(): UseTranslationOrchestratorResult {
         latencyMs: Math.round(performance.now() - startedAt),
         dataQualityWarnings: [],
       };
+    }
+
+    if (options.useIndicTrans) {
+      try {
+        const modelTranslation = await translateWithIndicTrans(trimmedInput);
+        return {
+          originalInput: input,
+          romanisedText: modelTranslation.romanisedText,
+          devanagariText: modelTranslation.devanagariText,
+          matchType: 'indictrans2',
+          verified: false,
+          latencyMs: modelTranslation.latencyMs,
+          dataQualityWarnings: [],
+        };
+      } catch (error) {
+        console.error('IndicTrans2 translation failed', error);
+        return {
+          originalInput: input,
+          romanisedText: '',
+          devanagariText: '',
+          matchType: 'no-result',
+          verified: false,
+          latencyMs: Math.round(performance.now() - startedAt),
+          dataQualityWarnings: ['indictrans2-unavailable'],
+        };
+      }
     }
 
     if (!state.corpusLoaded && !recordsRef.current.length) {

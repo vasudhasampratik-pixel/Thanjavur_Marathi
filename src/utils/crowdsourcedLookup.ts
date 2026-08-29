@@ -1,4 +1,4 @@
-export type TranslationMatchType = 'verified-community' | 'word-based' | 'no-result';
+export type TranslationMatchType = 'verified-community' | 'indictrans2' | 'word-based' | 'no-result';
 
 export interface CrowdsourcedSentenceRecord {
   id: string;

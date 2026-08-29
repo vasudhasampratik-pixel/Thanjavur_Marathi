@@ -4,6 +4,7 @@ import { useTranslate } from '../hooks/useTranslate';
 import { useSpeechInput } from '../hooks/useSpeechInput';
 import { useTranslationOrchestrator } from '../hooks/useTranslationOrchestrator';
 import type { TranslationOutcome } from '../utils/crowdsourcedLookup';
+import { detectInputLanguage } from '../utils/search';
 import { LanguageBadge, SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
 import { VoiceInputButton } from './VoiceInputButton';
 import { trackTranslationEvent } from '../utils/analytics';
@@ -76,20 +77,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
   const { singleResults, phraseResults, composed, isPhrase, hasResults, inputLanguage } = useTranslate(query, entries);
   const { state: orchestratorState, translate, reset } = useTranslationOrchestrator();
 
-  const handleSpeechResult = useCallback((transcript: string) => {
-    const nextValue = transcript.trim();
-    if (!nextValue) return;
-    setInputValue(nextValue);
-    setQuery(nextValue);
-  }, []);
-
-  const { isListening, isSupported, startListening, stopListening } = useSpeechInput({
-    lang: 'en-US',
-    onResult: handleSpeechResult,
-  });
-
-  const handleSearch = useCallback(async () => {
-    const nextQuery = inputValue.trim();
+  const runTranslation = useCallback(async (nextQuery: string) => {
     if (!nextQuery) {
       setQuery('');
       setOutcome(null);
@@ -100,7 +88,8 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
     trackTranslationEvent('translation_started', { inputType: 'text' });
 
     try {
-      const nextOutcome = await translate(nextQuery);
+      const detectedLanguage = detectInputLanguage(nextQuery, entries);
+      const nextOutcome = await translate(nextQuery, { useIndicTrans: detectedLanguage === 'english' });
       setOutcome(nextOutcome);
       trackTranslationEvent('translation_completed', {
         inputType: 'text',
@@ -122,7 +111,23 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
         dataQualityWarnings: ['translation-error'],
       });
     }
-  }, [inputValue, translate]);
+  }, [entries, translate]);
+
+  const handleSpeechResult = useCallback((transcript: string) => {
+    const nextValue = transcript.trim();
+    if (!nextValue) return;
+    setInputValue(nextValue);
+    void runTranslation(nextValue);
+  }, [runTranslation]);
+
+  const { isListening, isSupported, startListening, stopListening } = useSpeechInput({
+    lang: 'en-US',
+    onResult: handleSpeechResult,
+  });
+
+  const handleSearch = useCallback(async () => {
+    await runTranslation(inputValue.trim());
+  }, [inputValue, runTranslation]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') handleSearch();
@@ -207,7 +212,29 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
 
       {query && (
         <div className="space-y-4">
-          {outcome?.matchType === 'verified-community' ? (
+          {outcome?.matchType === 'indictrans2' ? (
+            <div className="rounded-2xl border border-orange-100 bg-white/95 p-4 shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <p className="text-sm font-semibold text-gray-900">IndicTrans2 translation</p>
+                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full border bg-peacock-100 text-peacock-800 border-peacock-200">
+                  {outcome.latencyMs} ms
+                </span>
+              </div>
+              <div className="mt-3 rounded-2xl border border-orange-100 bg-orange-50/60 p-3">
+                <p className="devanagari text-5xl font-bold text-saffron-600 leading-tight">{outcome.devanagariText || '—'}</p>
+                {outcome.romanisedText && (
+                  <p className="mt-2 text-xl font-semibold text-peacock-800">{outcome.romanisedText}</p>
+                )}
+              </div>
+            </div>
+          ) : outcome?.dataQualityWarnings.includes('indictrans2-unavailable') ? (
+            <div className="card text-center py-10">
+              <p className="text-gray-900 font-medium">IndicTrans2 local server is unavailable.</p>
+              <p className="text-sm text-gray-900 mt-1">
+                Start it with <span className="font-mono">npm run indictrans:serve</span>, then translate again.
+              </p>
+            </div>
+          ) : outcome?.matchType === 'verified-community' ? (
             <>
               <div className="rounded-2xl border border-orange-100 bg-white/95 p-4 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-2">

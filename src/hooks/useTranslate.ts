@@ -5,7 +5,7 @@ import type {
   PhraseTranslation,
   SearchResult,
 } from '../types';
-import { detectInputLanguage, findBestNgram, searchTmText, searchToken, tokenise, normalise, type InputLanguage } from '../utils/search';
+import { findBestNgram, searchToken, tokenise, normalise } from '../utils/search';
 import { applySentenceRules } from '../utils/sentenceRules';
 
 interface UseTranslateResult {
@@ -16,7 +16,6 @@ interface UseTranslateResult {
   composed: ComposedTranslation | null;
   isPhrase: boolean;
   hasResults: boolean;
-  inputLanguage: InputLanguage;
 }
 
 export function useTranslate(
@@ -37,58 +36,11 @@ export function useTranslate(
         composed: null,
         isPhrase: false,
         hasResults: false,
-        inputLanguage: 'english',
       };
     }
 
-    const inputLanguage = detectInputLanguage(q, entries);
     const tokens = tokenise(q);
     const isPhrase = tokens.length > 1;
-
-    if (inputLanguage === 'tm') {
-      const exactPhraseResults = searchTmText(q, entries);
-      const exactTokenResults = isPhrase
-        ? tokens.map(token => searchTmText(token, entries, 1).find(result => result.matchType === 'exact'))
-        : [];
-      const canComposePhrase = isPhrase && exactTokenResults.every(Boolean);
-      const englishWords = exactTokenResults.map(result => result!.entry.english);
-      const finalWord = englishWords[englishWords.length - 1]?.toLowerCase();
-      const hasFinalCopula = englishWords.length > 2 && ['is', 'are', 'am', 'was', 'were'].includes(finalWord ?? '');
-      const composedEnglish = hasFinalCopula
-        ? [...englishWords.slice(0, -2), englishWords[englishWords.length - 1]!, englishWords[englishWords.length - 2]!].join(' ')
-        : englishWords.join(' ');
-      const composedPhraseResults: SearchResult[] = canComposePhrase
-        ? [{
-              entry: {
-                id: `tm_composed_${normalise(q)}`,
-                english: composedEnglish,
-                english_variants: [],
-                tm_romanized: q,
-                tm_devanagari: q,
-                category: 'misc',
-                type: 'phrase',
-                notes: '',
-                source_url: '',
-              },
-              score: Math.round(
-                exactTokenResults.reduce((total, result) => total + (result?.score ?? 0), 0) /
-                  exactTokenResults.length
-              ),
-              matchType: 'exact' as const,
-            }]
-        : [];
-      const singleResults = exactPhraseResults.length > 0
-        ? exactPhraseResults
-        : composedPhraseResults;
-      return {
-        singleResults,
-        phraseResults: [],
-        composed: null,
-        isPhrase: false,
-        hasResults: singleResults.length > 0,
-        inputLanguage,
-      };
-    }
 
     // Parse grammar structure early so structural rules (existence, location,
     // postpositions, etc.) can take precedence over full-phrase dictionary hits.
@@ -98,7 +50,7 @@ export function useTranslate(
     if (!isPhrase) {
       const normalized = normalise(q);
       if (normalized === 'the' || normalized === 'am' || normalized === 'a') {
-        return { singleResults: [], phraseResults: [], composed: null, isPhrase: false, hasResults: false, inputLanguage };
+        return { singleResults: [], phraseResults: [], composed: null, isPhrase: false, hasResults: false };
       }
       const singleResults = searchToken(normalized, entries);
       return {
@@ -107,7 +59,6 @@ export function useTranslate(
         composed: null,
         isPhrase: false,
         hasResults: singleResults.length > 0,
-        inputLanguage,
       };
     }
 
@@ -121,7 +72,6 @@ export function useTranslate(
         composed: null,
         isPhrase: true,
         hasResults: false,
-        inputLanguage,
       };
     }
 
@@ -147,7 +97,7 @@ export function useTranslate(
             confidence: fullPhraseMatch.score,
           }],
         };
-        return { singleResults: [], phraseResults: [], composed, isPhrase: true, hasResults: true, inputLanguage };
+        return { singleResults: [], phraseResults: [], composed, isPhrase: true, hasResults: true };
       }
     }
 
@@ -167,7 +117,7 @@ export function useTranslate(
           confidence: 100,
         }],
       };
-      return { singleResults: [], phraseResults: [], composed, isPhrase: true, hasResults: true, inputLanguage };
+      return { singleResults: [], phraseResults: [], composed, isPhrase: true, hasResults: true };
     }
 
     // ── Token-by-token lookup over rules-reordered token list ─────────────────
@@ -350,7 +300,6 @@ export function useTranslate(
       composed,
       isPhrase: true,
       hasResults: phraseResults.some(p => p.matched),
-      inputLanguage,
     };
   }, [query, entries]);
 }

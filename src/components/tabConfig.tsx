@@ -45,7 +45,7 @@ export const TAB_CONFIG: Record<Tab, TabConfig> = {
   translate: {
     label: 'Translate',
     subtitle: {
-      en: 'English <-> Thanjavur Marathi',
+      en: 'English → Thanjavur Marathi',
       hint: 'Preserving the Dakshini Marathi dialect spoken by the Deshastha Marathis of Thanjavur, Tamil Nadu since 1673',
     },
     icon: (

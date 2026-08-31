@@ -4,7 +4,7 @@ import { useTranslate } from '../hooks/useTranslate';
 import { useSpeechInput } from '../hooks/useSpeechInput';
 import { useTranslationOrchestrator } from '../hooks/useTranslationOrchestrator';
 import type { TranslationOutcome } from '../utils/crowdsourcedLookup';
-import { LanguageBadge, SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
+import { SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
 import { VoiceInputButton } from './VoiceInputButton';
 import { trackTranslationEvent } from '../utils/analytics';
 
@@ -14,7 +14,7 @@ function CorpusAudioButton({ audioUrl }: { audioUrl?: string }) {
   const [hasError, setHasError] = useState(false);
 
   if (!audioUrl) {
-    return <p className="text-[11px] italic text-gray-500">No pronunciation submitted for this translation.</p>;
+    return null;
   }
 
   const togglePlayback = async () => {
@@ -73,7 +73,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
   const [query, setQuery] = useState('');
   const [outcome, setOutcome] = useState<TranslationOutcome | null>(null);
 
-  const { singleResults, phraseResults, composed, isPhrase, hasResults, inputLanguage } = useTranslate(query, entries);
+  const { singleResults, phraseResults, composed, isPhrase, hasResults } = useTranslate(query, entries);
   const { state: orchestratorState, translate, reset } = useTranslationOrchestrator();
 
   const handleSpeechResult = useCallback((transcript: string) => {
@@ -152,7 +152,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
       {/* Search bar */}
       <div className="card p-4">
         <label htmlFor="translator-input" className="block text-sm font-medium text-gray-900 mb-2">
-          Type an English or Tanjavur Marathi word or phrase
+          Type an English word or phrase
         </label>
         <div className="flex flex-col gap-2 sm:flex-row">
           <div className="relative w-full sm:flex-1">
@@ -162,7 +162,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               value={displayValue}
               onChange={e => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="e.g. fruit, pandu, पंडु"
+              placeholder="e.g. teacher, the fruit is sweet"
               className="input-field pr-24"
               autoComplete="off"
               spellCheck="false"
@@ -193,17 +193,11 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
           {isListening
             ? 'Listening for a simple English word…'
             : isSupported
-              ? 'Tap the mic and say a simple English/TM word.'
+              ? 'Tap the mic and say a simple English word or phrase.'
               : 'Voice input is not supported in this browser.'}
         </p>
 
       </div>
-
-      {query && (
-        <div className="flex justify-center">
-          <LanguageBadge inputLanguage={inputLanguage} />
-        </div>
-      )}
 
       {query && (
         <div className="space-y-4">
@@ -241,7 +235,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               {isPhrase ? (
                 <PhraseTranslationResult phraseResults={phraseResults} composed={composed} />
               ) : (
-                <SingleTranslationResult results={singleResults} query={query} inputLanguage={inputLanguage} />
+                <SingleTranslationResult results={singleResults} query={query} />
               )}
 
               {/* Feedback controls commented out for now.

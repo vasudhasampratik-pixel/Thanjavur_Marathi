@@ -183,10 +183,11 @@ export function LeaderboardPage() {
     return unsubscribe;
   }, []);
 
-  const myRank = entries.findIndex((e) => e.uid === user?.uid) + 1;
-  const top3 = entries.slice(0, 3);
-  const rest = entries.slice(3);
-  const maxCount = entries[0]?.count ?? 1;
+  const myEntry = entries.find((entry) => entry.uid === user?.uid);
+  const topFive = entries.slice(0, 5);
+  const top3 = topFive.slice(0, 3);
+  const nextTwo = topFive.slice(3);
+  const maxCount = topFive[0]?.count ?? 1;
 
   if (loading) {
     return (
@@ -228,24 +229,20 @@ export function LeaderboardPage() {
         </p>
       </div>
 
-      {/* Your rank callout */}
-      {user && myRank > 0 && (
+      {/* Personal contribution callout */}
+      {myEntry && (
         <div className="rounded-2xl border border-saffron-200 bg-gradient-to-r from-saffron-50 to-orange-50 px-5 py-3 flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-saffron-600">Your rank</p>
-            <p className="text-2xl font-bold text-saffron-700">#{myRank}</p>
-          </div>
-          <div className="text-right">
-            <p className="text-xs font-semibold text-gray-500">Contributions</p>
-            <p className="text-2xl font-bold text-gray-800">{entries[myRank - 1].count}</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-saffron-600">Your contributions</p>
+            <p className="text-2xl font-bold text-saffron-700">{myEntry.count}</p>
           </div>
           <span className={[
             'rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-wider',
-            getTier(entries[myRank - 1].count).color,
-            getTier(entries[myRank - 1].count).bg,
-            getTier(entries[myRank - 1].count).border,
+            getTier(myEntry.count).color,
+            getTier(myEntry.count).bg,
+            getTier(myEntry.count).border,
           ].join(' ')}>
-            {getTier(entries[myRank - 1].count).label}
+            {getTier(myEntry.count).label}
           </span>
         </div>
       )}
@@ -285,13 +282,13 @@ export function LeaderboardPage() {
         </div>
       )}
 
-      {/* Rest of the board */}
-      {rest.length > 0 && (
+      {/* Ranks 4 and 5 */}
+      {nextTwo.length > 0 && (
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-1">
-            All contributors
+            Next on the leaderboard
           </p>
-          {rest.map((entry, i) => {
+          {nextTwo.map((entry, i) => {
             const rank = i + 4;
             const tier = getTier(entry.count);
             const isMe = entry.uid === user?.uid;
@@ -334,7 +331,7 @@ export function LeaderboardPage() {
       )}
 
       <p className="text-center text-xs text-gray-400 pb-4">
-        {entries.length} contributor{entries.length !== 1 ? 's' : ''} and counting. Keep going!
+        Showing the top 5 contributors. Contribute more to make it onto the leaderboard.
       </p>
     </div>
   );

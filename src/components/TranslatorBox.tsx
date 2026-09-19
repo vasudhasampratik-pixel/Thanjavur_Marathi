@@ -1,10 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import type { DictionaryEntry } from '../types';
-import { useTranslate } from '../hooks/useTranslate';
 import { useSpeechInput } from '../hooks/useSpeechInput';
 import { useTranslationOrchestrator } from '../hooks/useTranslationOrchestrator';
 import type { TranslationOutcome } from '../utils/crowdsourcedLookup';
-import { SingleTranslationResult, PhraseTranslationResult } from './TranslationResult';
 import { VoiceInputButton } from './VoiceInputButton';
 import { trackTranslationEvent } from '../utils/analytics';
 
@@ -64,16 +61,13 @@ function CorpusAudioButton({ audioUrl }: { audioUrl?: string }) {
   );
 }
 
-interface TranslatorBoxProps {
-  entries: DictionaryEntry[];
-}
-
-export function TranslatorBox({ entries }: TranslatorBoxProps) {
+export function TranslatorBox() {
   const [inputValue, setInputValue] = useState('');
   const [query, setQuery] = useState('');
   const [outcome, setOutcome] = useState<TranslationOutcome | null>(null);
+  const [isTranslating, setIsTranslating] = useState(false);
+  const [translationError, setTranslationError] = useState<string | null>(null);
 
-  const { singleResults, phraseResults, composed, isPhrase, hasResults } = useTranslate(query, entries);
   const { state: orchestratorState, translate, reset } = useTranslationOrchestrator();
 
   const handleSpeechResult = useCallback((transcript: string) => {
@@ -89,6 +83,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
   });
 
   const handleSearch = useCallback(async () => {
+    if (isTranslating) return;
     const nextQuery = inputValue.trim();
     if (!nextQuery) {
       setQuery('');
@@ -97,7 +92,9 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
     }
 
     setQuery(nextQuery);
+    setTranslationError(null);
     trackTranslationEvent('translation_started', { inputType: 'text' });
+    setIsTranslating(true);
 
     try {
       const nextOutcome = await translate(nextQuery);
@@ -112,6 +109,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
     } catch (error) {
       console.error('Translation orchestration failed', error);
       trackTranslationEvent('translation_error', { inputType: 'text', errorCategory: 'orchestrator' });
+      setTranslationError(error instanceof Error ? error.message : 'Translation failed. Please try again.');
       setOutcome({
         originalInput: nextQuery,
         romanisedText: '',
@@ -121,8 +119,10 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
         latencyMs: 0,
         dataQualityWarnings: ['translation-error'],
       });
+    } finally {
+      setIsTranslating(false);
     }
-  }, [inputValue, translate]);
+  }, [inputValue, isTranslating, translate]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') handleSearch();
@@ -134,6 +134,7 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
     setInputValue('');
     setQuery('');
     setOutcome(null);
+    setTranslationError(null);
     reset();
   };
 
@@ -185,8 +186,8 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               />
             </div>
           </div>
-          <button onClick={handleSearch} className="btn-primary w-full sm:w-auto">
-            Translate
+          <button onClick={handleSearch} disabled={isTranslating} className="btn-primary w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-60">
+            {isTranslating ? 'Translating…' : 'Translate'}
           </button>
         </div>
         <p className="text-xs text-gray-600 mt-2">
@@ -199,8 +200,15 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
 
       </div>
 
-      {query && (
+      {query && isTranslating && (
+        <div className="card p-6 text-center text-sm text-gray-700">Translating with the base IndicTrans2 model…</div>
+      )}
+
+      {query && !isTranslating && (
         <div className="space-y-4">
+          {translationError && (
+            <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{translationError}</div>
+          )}
           {outcome?.matchType === 'verified-community' ? (
             <>
               <div className="rounded-2xl border border-orange-100 bg-white/95 p-4 shadow-sm">
@@ -230,24 +238,17 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
               )}
               */}
             </>
-          ) : (
-            <>
-              {isPhrase ? (
-                <PhraseTranslationResult phraseResults={phraseResults} composed={composed} />
-              ) : (
-                <SingleTranslationResult results={singleResults} query={query} />
+          ) : outcome?.matchType === 'backend-ai' ? (
+            <div className="card border-saffron-200">
+              <p className="text-xs uppercase tracking-wide text-gray-700 font-semibold">AI translation</p>
+              <p className="devanagari mt-3 text-5xl font-bold text-saffron-600 leading-tight">{outcome.devanagariText || '—'}</p>
+              <p className="mt-3 text-xs text-gray-600">Model {outcome.modelVersion || 'base-v1'}</p>
+              {outcome.quota && (
+                <p className="mt-1 text-xs text-gray-600">{outcome.quota.remaining} translations remaining today</p>
               )}
-
-              {/* Feedback controls commented out for now.
-              {outcome && !hasSubmittedFeedback && (
-                <TranslationFeedback
-                  outcome={outcome}
-                  inputType="text"
-                  onSubmitted={() => setHasSubmittedFeedback(true)}
-                />
-              )}
-              */}
-            </>
+            </div>
+          ) : translationError ? null : (
+            <div className="card p-6 text-center text-sm text-gray-700">No translation was returned.</div>
           )}
         </div>
       )}
@@ -258,11 +259,6 @@ export function TranslatorBox({ entries }: TranslatorBoxProps) {
         </div>
       )}
 
-      {query && !hasResults && isPhrase && (
-        <div className="text-center text-gray-900 text-sm pt-2">
-          <p>Results not found. Try a different phrase or spelling.</p>
-        </div>
-      )}
     </div>
   );
 }

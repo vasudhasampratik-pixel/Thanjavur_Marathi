@@ -11,63 +11,6 @@ import { VaraadPage } from './pages/VaraadPage';
 import { ContributorPage } from './pages/ContributorPage';
 import { ReviewerPage } from './pages/ReviewerPage';
 import { LeaderboardPage } from './pages/LeaderboardPage';
-import dictionaryData from './data/dictionary.json';
-import appDictionaryData from './data/app_dictionary.json';
-import type { Dictionary, DictionaryEntry } from './types';
-
-const dictionary = dictionaryData as unknown as Dictionary;
-
-interface AppDictionaryVariant {
-  tm_romanized?: string | null;
-  tm_devanagari?: string | null;
-  register?: string | null;
-}
-
-interface AppDictionarySentence {
-  sentence_id?: string;
-  domain?: string | null;
-  english?: string;
-  sentence_type?: string | null;
-  variants?: Record<string, AppDictionaryVariant>;
-}
-
-function buildPhraseEntriesFromAppDictionary(raw: unknown): DictionaryEntry[] {
-  if (!Array.isArray(raw)) return [];
-
-  const phraseEntries: DictionaryEntry[] = [];
-
-  for (const sentence of raw as AppDictionarySentence[]) {
-    const english = sentence.english?.trim();
-    if (!english) continue;
-
-    for (const [variantName, variant] of Object.entries(sentence.variants ?? {})) {
-      if (!variant?.tm_romanized && !variant?.tm_devanagari) continue;
-
-      const notesParts = [sentence.domain, sentence.sentence_type, variant.register, variantName]
-        .filter(Boolean)
-        .map(value => String(value));
-
-      phraseEntries.push({
-        id: `app_${sentence.sentence_id || phraseEntries.length + 1}_${variantName}`,
-        english,
-        english_variants: [english.replace(/[?.!,]+$/g, '').trim()].filter(
-          variant => variant.length > 0 && variant !== english
-        ),
-        tm_romanized: variant.tm_romanized ?? '',
-        tm_devanagari: variant.tm_devanagari ?? '',
-        category: 'misc',
-        type: 'phrase',
-        notes: notesParts.join(' · '),
-        source_url: 'app_dictionary.json',
-      });
-    }
-  }
-
-  return phraseEntries;
-}
-
-const appPhraseEntries = buildPhraseEntriesFromAppDictionary(appDictionaryData);
-const combinedEntries = [...dictionary.entries, ...appPhraseEntries];
 
 function App() {
   const { user, loading } = useAuth();
@@ -206,9 +149,7 @@ function App() {
       <main className="flex-1 pb-8 pt-4 sm:pt-6">
         {activeTab === 'contributor' && <ContributorPage onNavigate={setActiveTab} />}
         {activeTab === 'translate' && (
-          <TranslatorBox
-            entries={combinedEntries}
-          />
+          <TranslatorBox />
         )}
         {activeTab === 'family-tree' && <FamilyTreePage />}
         {activeTab === 'bhaav' && <EmotionsPage />}

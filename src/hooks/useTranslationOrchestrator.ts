@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 import {
   adaptCrowdsourcedRecord,
   buildExactMatchOutcome,
@@ -23,6 +23,20 @@ interface UseTranslationOrchestratorResult {
   translate: (input: string) => Promise<TranslationOutcome>;
   reset: () => void;
 }
+
+interface TranslationApiResponse {
+  translation: string;
+  modelVersion: string;
+  usage: TranslationOutcome['quota'];
+}
+
+interface TranslationApiError {
+  error?: { code?: string; message?: string };
+}
+
+const translationApiUrl = import.meta.env.VITE_TRANSLATION_API_URL?.replace(/\/$/, '');
+const maxInputCharacters = 500;
+const requestTimeoutMs = 30_000;
 
 function toRecordMap(records: CrowdsourcedSentenceRecord[]) {
   return records.filter(Boolean);
@@ -89,6 +103,10 @@ export function useTranslationOrchestrator(): UseTranslationOrchestratorResult {
       };
     }
 
+    if (trimmedInput.length > maxInputCharacters) {
+      throw new Error(`Please keep translations to ${maxInputCharacters} characters or fewer.`);
+    }
+
     if (!state.corpusLoaded && !recordsRef.current.length) {
       await loadCorpus();
     }
@@ -101,15 +119,54 @@ export function useTranslationOrchestrator(): UseTranslationOrchestratorResult {
       return outcome;
     }
 
-    return {
-      originalInput: input,
-      romanisedText: '',
-      devanagariText: '',
-      matchType: 'no-result',
-      verified: false,
-      latencyMs: Math.round(performance.now() - startedAt),
-      dataQualityWarnings: ['no-exact-match'],
-    };
+    if (!translationApiUrl) {
+      throw new Error('Translation service is not configured for this deployment.');
+    }
+
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      throw new Error('Please sign in before translating.');
+    }
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), requestTimeoutMs);
+
+    try {
+      const idToken = await currentUser.getIdToken();
+      const response = await fetch(`${translationApiUrl}/translate`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${idToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: trimmedInput }),
+        signal: controller.signal,
+      });
+
+      const payload = await response.json() as TranslationApiResponse & TranslationApiError;
+      if (!response.ok) {
+        throw new Error(payload.error?.message || 'Translation service is unavailable right now.');
+      }
+
+      return {
+        originalInput: input,
+        romanisedText: '',
+        devanagariText: payload.translation,
+        matchType: 'backend-ai',
+        verified: false,
+        latencyMs: Math.round(performance.now() - startedAt),
+        dataQualityWarnings: [],
+        modelVersion: payload.modelVersion,
+        quota: payload.usage,
+      };
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        throw new Error('Translation timed out. Please try again.');
+      }
+      throw error;
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
   }, [loadCorpus, state.corpusLoaded]);
 
   const reset = useCallback(() => {

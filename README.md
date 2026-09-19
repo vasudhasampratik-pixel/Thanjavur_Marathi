@@ -132,6 +132,45 @@ npm install
 npm run deploy
 ```
 
+### IndicTrans2 Cloud Run API
+
+The frontend uses `VITE_TRANSLATION_API_URL` for translations that do not have an exact community match. Copy `.env.example` to `.env.local`, set the Firebase web values, and set this variable to the deployed Cloud Run URL before building GitHub Pages. The URL is public configuration; Firebase Admin credentials and model weights stay in Cloud Run.
+
+The API lives in `backend/` and loads `ai4bharat/indictrans2-en-indic-dist-200M` once per instance. It verifies Firebase ID tokens with Application Default Credentials, reserves one daily quota unit transactionally in `translationUsage/{uid}_{YYYY-MM-DD}`, and counts requests before inference. A failed inference therefore still consumes the reserved request, which prevents retries from bypassing the limit.
+
+Deploy from the repository root after enabling the required Google Cloud APIs:
+
+```bash
+gcloud builds submit backend --tag REGION-docker.pkg.dev/PROJECT/thanjavur/translation-api:base-v1
+gcloud run deploy thanjavur-translation \
+    --image REGION-docker.pkg.dev/PROJECT/thanjavur/translation-api:base-v1 \
+    --region REGION \
+    --memory 4Gi \
+    --cpu 2 \
+    --concurrency 1 \
+    --timeout 300 \
+    --max-instances 2 \
+    --set-env-vars MODEL_VERSION=base-v1,MODEL_ID=ai4bharat/indictrans2-en-indic-dist-200M,SOURCE_LANGUAGE=eng_Latn,TARGET_LANGUAGE=mar_Deva,DAILY_TRANSLATION_LIMIT=20,MAX_INPUT_CHARACTERS=500,ALLOWED_ORIGIN=https://OWNER.github.io/Thanjavur_Marathi \
+    --service-account TRANSLATION_RUNTIME_SERVICE_ACCOUNT
+```
+
+Grant the runtime service account `roles/datastore.user` on the Firebase project. Cloud Run instances download the model on cold start, so the first request after scale-up can be slow; the conservative one-request concurrency and two-instance cap are starting points for CPU benchmarking, not cost guarantees.
+
+Backend tests require the backend dependencies installed in a virtual environment:
+
+```bash
+python -m pip install -r backend/requirements.txt
+python -m pytest backend/tests -q
+```
+
+Manual console configuration still required:
+
+1. Enable Firebase Authentication providers and add the GitHub Pages domain to authorized domains.
+2. Enable Firestore and publish rules that allow the existing `users` and `contributions` flows; keep `translationUsage` inaccessible to browsers because only Cloud Run should write quota documents.
+3. Enable Cloud Run, Artifact Registry, Cloud Build, and Vertex/Container networking as required by the selected region.
+4. Create the runtime service account, grant it Firestore access, and configure the actual GitHub Pages origin in `ALLOWED_ORIGIN`.
+5. Deploy the frontend with `VITE_TRANSLATION_API_URL` set to the Cloud Run URL, then verify `/health`, one signed-in translation, request 20, and rejection of request 21.
+
 To use your custom domain, add your domain name in the GitHub Pages repository settings or place a `CNAME` file containing it in the `public/` folder before building.
 
 ---

@@ -19,6 +19,12 @@ pnpm-debug.log*
 # Environment files
 .env
 .env.*
+!.env.example
+!backend/.env.example
+.pytest_cache/
+__pycache__/
+*.pyc
+.venv/
 
 # OS/editor files
 .DS_Store

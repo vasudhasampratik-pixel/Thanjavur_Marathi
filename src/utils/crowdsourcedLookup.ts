@@ -1,4 +1,11 @@
-export type TranslationMatchType = 'verified-community' | 'word-based' | 'no-result';
+export type TranslationMatchType = 'verified-community' | 'backend-ai' | 'word-based' | 'no-result';
+
+export interface TranslationQuota {
+  used: number;
+  limit: number;
+  remaining: number;
+  date: string;
+}
 
 export interface CrowdsourcedSentenceRecord {
   id: string;
@@ -23,6 +30,8 @@ export interface TranslationOutcome {
   audioUrl?: string;
   latencyMs: number;
   dataQualityWarnings: string[];
+  modelVersion?: string;
+  quota?: TranslationQuota;
 }
 
 function readString(value: unknown): string | null {
